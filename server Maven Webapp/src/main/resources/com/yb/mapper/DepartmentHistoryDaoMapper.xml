@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.DepartmentHistoryDao">
+  	<insert id="insert" parameterType="List">
+  		<foreach collection="list" item="departmentHistory" index="i" open="Begin" separator=";"  close=";End;"   >
+			insert into department_history(period_id,department_id,dept_qty_item_sold,dept_val_item_sold,
+			dept_qty_item_ref,dept_val_item_ref,dept_qty_disc,dept_val_disc,dept_qty_surc,dept_val_surc,
+			total_awarded_qty,total_awarded_val,total_redeemed_qty,total_redeemed_val) 
+			
+			values(#{departmentHistory.periodId},#{departmentHistory.departmentId},#{departmentHistory.deptQtyItemSold},
+			
+			#{departmentHistory.deptValItemSold},#{departmentHistory.deptQtyItemRef},#{departmentHistory.deptValItemRef},
+			
+			#{departmentHistory.deptQtyDisc},#{departmentHistory.deptValDisc},#{departmentHistory.deptQtySurc},
+			
+			#{departmentHistory.deptValSurc},#{departmentHistory.totalAwardedQty},#{departmentHistory.totalAwardedVal},
+			
+			#{departmentHistory.totalRedeemedQty},#{departmentHistory.totalRedeemedVal})
+		</foreach>
+  	</insert>
+</mapper>
