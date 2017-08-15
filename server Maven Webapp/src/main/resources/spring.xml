@@ -20,7 +20,7 @@
     <!--创建数据源对象-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/final"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/server"/>
         <property name="username" value="root"/>
         <property name="password" value="123"/>
     </bean>
