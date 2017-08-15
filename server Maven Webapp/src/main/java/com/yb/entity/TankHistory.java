@@ -35,6 +35,10 @@ public class TankHistory implements Serializable{
 	private BigDecimal openWaterVolume;
 	private BigDecimal closeWaterVolume;
 	private BigDecimal openFuelDensity;
+	
+	private BigDecimal closeFuelDensity;
+	private BigDecimal openFuelTemp;
+	
 	private BigDecimal closeFuelTemp;
 	private Integer openTankProbeStatusId;
 	private Integer closeTankProbeStatusId;
@@ -66,6 +70,7 @@ public class TankHistory implements Serializable{
 			BigDecimal closeDipWaterVolume, BigDecimal openGaugeTcVolume,
 			BigDecimal closeGaugeTcVolume, BigDecimal openWaterVolume,
 			BigDecimal closeWaterVolume, BigDecimal openFuelDensity,
+			BigDecimal closeFuelDensity, BigDecimal openFuelTemp,
 			BigDecimal closeFuelTemp, Integer openTankProbeStatusId,
 			Integer closeTankProbeStatusId, Date tankReadingDt,
 			Integer openTankDeliveryStateId, Integer closeTankDeliveryStateId,
@@ -103,6 +108,8 @@ public class TankHistory implements Serializable{
 		this.openWaterVolume = openWaterVolume;
 		this.closeWaterVolume = closeWaterVolume;
 		this.openFuelDensity = openFuelDensity;
+		this.closeFuelDensity = closeFuelDensity;
+		this.openFuelTemp = openFuelTemp;
 		this.closeFuelTemp = closeFuelTemp;
 		this.openTankProbeStatusId = openTankProbeStatusId;
 		this.closeTankProbeStatusId = closeTankProbeStatusId;
@@ -140,10 +147,12 @@ public class TankHistory implements Serializable{
 				+ ", closeGaugeTcVolume=" + closeGaugeTcVolume
 				+ ", openWaterVolume=" + openWaterVolume
 				+ ", closeWaterVolume=" + closeWaterVolume
-				+ ", openFuelDensity=" + openFuelDensity + ", closeFuelTemp="
-				+ closeFuelTemp + ", openTankProbeStatusId="
-				+ openTankProbeStatusId + ", closeTankProbeStatusId="
-				+ closeTankProbeStatusId + ", tankReadingDt=" + tankReadingDt
+				+ ", openFuelDensity=" + openFuelDensity
+				+ ", closeFuelDensity=" + closeFuelDensity + ", openFuelTemp="
+				+ openFuelTemp + ", closeFuelTemp=" + closeFuelTemp
+				+ ", openTankProbeStatusId=" + openTankProbeStatusId
+				+ ", closeTankProbeStatusId=" + closeTankProbeStatusId
+				+ ", tankReadingDt=" + tankReadingDt
 				+ ", openTankDeliveryStateId=" + openTankDeliveryStateId
 				+ ", closeTankDeliveryStateId=" + closeTankDeliveryStateId
 				+ ", openPumpDeliveryState=" + openPumpDeliveryState
@@ -332,6 +341,18 @@ public class TankHistory implements Serializable{
 	public void setOpenFuelDensity(BigDecimal openFuelDensity) {
 		this.openFuelDensity = openFuelDensity;
 	}
+	public BigDecimal getCloseFuelDensity() {
+		return closeFuelDensity;
+	}
+	public void setCloseFuelDensity(BigDecimal closeFuelDensity) {
+		this.closeFuelDensity = closeFuelDensity;
+	}
+	public BigDecimal getOpenFuelTemp() {
+		return openFuelTemp;
+	}
+	public void setOpenFuelTemp(BigDecimal openFuelTemp) {
+		this.openFuelTemp = openFuelTemp;
+	}
 	public BigDecimal getCloseFuelTemp() {
 		return closeFuelTemp;
 	}
@@ -398,4 +419,5 @@ public class TankHistory implements Serializable{
 	public void setTankVarianceReasonId(String tankVarianceReasonId) {
 		TankVarianceReasonId = tankVarianceReasonId;
 	}
+	
 }

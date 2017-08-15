@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 
 public class TransactionItems implements Serializable{
 	private Integer transactionId;
-	private Integer ItemNumber;
-	private Integer ItemType;
-	private Integer TaxId;
+	private Integer itemNumber;
+	private Integer itemType;
+	private Integer taxId;
 	private String itemDescription;
 	private String mopName;
 	private BigDecimal itemPrice;
@@ -42,9 +42,9 @@ public class TransactionItems implements Serializable{
 			String currencyCode, BigDecimal taxRate) {
 		super();
 		this.transactionId = transactionId;
-		ItemNumber = itemNumber;
-		ItemType = itemType;
-		TaxId = taxId;
+		this.itemNumber = itemNumber;
+		this.itemType = itemType;
+		this.taxId = taxId;
 		this.itemDescription = itemDescription;
 		this.mopName = mopName;
 		this.itemPrice = itemPrice;
@@ -67,9 +67,9 @@ public class TransactionItems implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "TranscationItems [transactionId=" + transactionId
-				+ ", ItemNumber=" + ItemNumber + ", ItemType=" + ItemType
-				+ ", TaxId=" + TaxId + ", itemDescription=" + itemDescription
+		return "TransactionItems [transactionId=" + transactionId
+				+ ", itemNumber=" + itemNumber + ", itemType=" + itemType
+				+ ", taxId=" + taxId + ", itemDescription=" + itemDescription
 				+ ", mopName=" + mopName + ", itemPrice=" + itemPrice
 				+ ", itemQuantity=" + itemQuantity + ", itemValue=" + itemValue
 				+ ", itemId=" + itemId + ", itemTaxAmount=" + itemTaxAmount
@@ -89,22 +89,22 @@ public class TransactionItems implements Serializable{
 		this.transactionId = transactionId;
 	}
 	public Integer getItemNumber() {
-		return ItemNumber;
+		return itemNumber;
 	}
 	public void setItemNumber(Integer itemNumber) {
-		ItemNumber = itemNumber;
+		this.itemNumber = itemNumber;
 	}
 	public Integer getItemType() {
-		return ItemType;
+		return itemType;
 	}
 	public void setItemType(Integer itemType) {
-		ItemType = itemType;
+		this.itemType = itemType;
 	}
 	public Integer getTaxId() {
-		return TaxId;
+		return taxId;
 	}
 	public void setTaxId(Integer taxId) {
-		TaxId = taxId;
+		this.taxId = taxId;
 	}
 	public String getItemDescription() {
 		return itemDescription;
@@ -220,5 +220,4 @@ public class TransactionItems implements Serializable{
 	public void setTaxRate(BigDecimal taxRate) {
 		this.taxRate = taxRate;
 	}
-	
 }

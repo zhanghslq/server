@@ -23,6 +23,10 @@ public class Transactions implements Serializable{
 	private Date transactionStartDt;
 	private BigDecimal awardTotal;
 	private BigDecimal redemptionTotal;
+	
+	private BigDecimal refundTotal;
+	private BigDecimal discountTotal;
+	
 	private Date refundedDate;
 	private Integer isRefund;
 	private BigDecimal discAsMopTotal;
@@ -39,6 +43,7 @@ public class Transactions implements Serializable{
 			Integer altTransactionNumber, Integer cdrawPeriodId,
 			Integer receiptNumber, Date transactionStartDt,
 			BigDecimal awardTotal, BigDecimal redemptionTotal,
+			BigDecimal refundTotal, BigDecimal discountTotal,
 			Date refundedDate, Integer isRefund, BigDecimal discAsMopTotal,
 			Date transactionDbDate) {
 		super();
@@ -60,6 +65,8 @@ public class Transactions implements Serializable{
 		this.transactionStartDt = transactionStartDt;
 		this.awardTotal = awardTotal;
 		this.redemptionTotal = redemptionTotal;
+		this.refundTotal = refundTotal;
+		this.discountTotal = discountTotal;
 		this.refundedDate = refundedDate;
 		this.isRefund = isRefund;
 		this.discAsMopTotal = discAsMopTotal;
@@ -78,8 +85,9 @@ public class Transactions implements Serializable{
 				+ ", cdrawPeriodId=" + cdrawPeriodId + ", receiptNumber="
 				+ receiptNumber + ", transactionStartDt=" + transactionStartDt
 				+ ", awardTotal=" + awardTotal + ", redemptionTotal="
-				+ redemptionTotal + ", refundedDate=" + refundedDate
-				+ ", isRefund=" + isRefund + ", discAsMopTotal="
+				+ redemptionTotal + ", refundTotal=" + refundTotal
+				+ ", discountTotal=" + discountTotal + ", refundedDate="
+				+ refundedDate + ", isRefund=" + isRefund + ", discAsMopTotal="
 				+ discAsMopTotal + ", transactionDbDate=" + transactionDbDate
 				+ "]";
 	}
@@ -191,6 +199,18 @@ public class Transactions implements Serializable{
 	public void setRedemptionTotal(BigDecimal redemptionTotal) {
 		this.redemptionTotal = redemptionTotal;
 	}
+	public BigDecimal getRefundTotal() {
+		return refundTotal;
+	}
+	public void setRefundTotal(BigDecimal refundTotal) {
+		this.refundTotal = refundTotal;
+	}
+	public BigDecimal getDiscountTotal() {
+		return discountTotal;
+	}
+	public void setDiscountTotal(BigDecimal discountTotal) {
+		this.discountTotal = discountTotal;
+	}
 	public Date getRefundedDate() {
 		return refundedDate;
 	}
@@ -215,4 +235,5 @@ public class Transactions implements Serializable{
 	public void setTransactionDbDate(Date transactionDbDate) {
 		this.transactionDbDate = transactionDbDate;
 	}
+	
 }

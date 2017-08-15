@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.PriceBatchDao">
+  	<insert id="insert" parameterType="List">
+  		<foreach collection="list" item="priceBatch" index="i" open="Begin" separator=";"  close=";End;"   >
+			insert into price_batch(price_batch_id,Price_Event_Number,price_batch_description,price_batch_permanent,
+			price_batch_start_dt,price_batch_end_dt,price_batch_status,price_type_name)
+			
+			values(#{priceBatch.priceBatchId},#{priceBatch.priceEventNumber},#{priceBatch.priceBatchDescription},#{priceBatch.priceBatchPermanent},
+			#{priceBatch.priceBatchStartDt},#{priceBatch.priceBatchEndDt},#{priceBatch.priceBatchStatus},#{priceBatch.priceTypeName})
+		</foreach>
+  	</insert>
+</mapper>

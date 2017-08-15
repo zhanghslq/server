@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.FinalisationHistoryDao">
+  	<insert id="insert" parameterType="List">
+  		<foreach collection="list" item="finalisationHistory" index="i" open="Begin" separator=";"  close=";End;"   >
+			insert into finalisation_history(period_id,mop_id,mop_net_qty,mop_net_value,mop_num_safedrop,mop_val_safedrop,mop_num_payin,
+			mop_val_payin,mop_num_cashout,mop_val_cashout,mop_val_cashadj,mop_num_payout,mop_val_payout,mop_num_attsafedrop,mop_val_attsafedrop,
+			mop_qty_ext_pos,mop_val_ext_pos,mop_num_safedrop_ext_pos,mop_val_safedrop_ext_pos)
+			values(#{finalisationHistory.periodId},#{finalisationHistory.mopId},#{finalisationHistory.mopNetQty},
+			
+			#{finalisationHistory.mopNetValue},#{finalisationHistory.mopNumSafedrop},#{finalisationHistory.mopValSafedrop},
+			
+			#{finalisationHistory.mopNumPayin},#{finalisationHistory.mopValPayin},#{finalisationHistory.mopNumCashout},
+			
+			#{finalisationHistory.mopValCashout},#{finalisationHistory.mopValCashadj},#{finalisationHistory.mopNumPayout},
+			
+			#{finalisationHistory.mopValPayout},#{finalisationHistory.mopNumAttsafedrop},#{finalisationHistory.mopValAttsafedrop},
+			
+			#{finalisationHistory.mopQtyExtPos},#{finalisationHistory.mopValExtPos},#{finalisationHistory.mopNumSafedropExtPos},
+			
+			#{finalisationHistory.mopValSafedropExtPos})
+		</foreach>
+  	</insert>
+</mapper>
