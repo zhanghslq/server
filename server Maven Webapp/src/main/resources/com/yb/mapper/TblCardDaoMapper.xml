@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblCardDao">
+  	<insert id="insert" parameterType="List">
+  		<foreach collection="list" item="tblCard" index="i" open="Begin" separator=";"  close=";End;"   >
+			insert into TBL_CARD(CARD_ID,VERSION,TEMPLET_ID,UNBLACKTIME,SHOP_ID,BLACKTIME,
+			LOCATION_ID,MAC,TYPE_ID,FOREGIFTAMOUNT,TERMINALID,REVOCATIONTIME,BLACKREASON,
+			STORELOCATION_ID,EFFECTIVEDATE,CARDPACK_ID,CARD_STATUS,ISSUETIME,BASE_CARD_TYPE,
+			TARGETORG_ID,UKEYOPERATOR_ID,BLACKTYPE,CARDSTORE_STATUS,TRADEL,EXPIREDTIME,
+			
+			CARDUSER_ID,ASN) values(#{tblCard.cardId},#{tblCard.version},#{tblCard.templetId},#{tblCard.unblacktime},
+			
+			#{tblCard.shopId},#{tblCard.blacktime},#{tblCard.locationId},#{tblCard.mac},
+			
+			#{tblCard.typeId},#{tblCard.foregiftamount},#{tblCard.terminalid},#{tblCard.revocationtime},
+			 
+			#{tblCard.blackreason},#{tblCard.storelocationId},#{tblCard.effectivedate},#{tblCard.cardpackId},
+			
+			#{tblCard.cardStatus},#{tblCard.issuetime},#{tblCard.baseCardType},#{tblCard.targetorgId},
+			
+			#{tblCard.ukeyoperatorId},#{tblCard.blacktype},#{tblCard.cardstoreStatus},#{tblCard.tradel},
+			
+			#{tblCard.expiredtime},#{tblCard.carduserId},#{tblCard.asn})
+		</foreach>
+  	</insert>
+</mapper>

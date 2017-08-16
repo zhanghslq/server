@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblVirtualgoodsDao">
+  	<insert id="insert" parameterType="List">
+  		<foreach collection="list" item="tblVirtualgoods" index="i" open="Begin" separator=";"  close=";End;"   >
+			insert into TBL_VIRTUALGOODS(VIRTUALGOODS_ID,VERSION,CREATETIME,USESTATIONLIMIT,CARDUSER_ID,
+			TRADEID,VIRTUAL_GOODS_STATUS,COUPON_TYPE,ORGUNIQUEID,LOWERAMOUNT,STATIONLIMIT,VIRTUAL_GOODS_TYPE,
+			AMOUNT,GOODS_RULE_TYPE,RELATEDID,INTEGRATION,RULE_ID,GOODS_USE_TYPE,EXPIREDTIME,ISCUMSUM,
+			CATCODE,GOODSRULE_ID,DISCOUNTRATE,EFFECTIVEDATE,TRUE_FALSE)
+			
+			values(#{tblVirtualgoods.virtualgoodsId},#{tblVirtualgoods.version},#{tblVirtualgoods.createtime},
+			
+			#{tblVirtualgoods.usestationlimit},#{tblVirtualgoods.carduserId},#{tblVirtualgoods.tradeid},
+			
+			#{tblVirtualgoods.virtualGoodsStatus},#{tblVirtualgoods.couponType},#{tblVirtualgoods.orguniqueid},
+			
+			#{tblVirtualgoods.loweramount},#{tblVirtualgoods.stationlimit},#{tblVirtualgoods.vitualGoodsType},
+			
+			#{tblVirtualgoods.amount},#{tblVirtualgoods.goodsRuleType},#{tblVirtualgoods.relatedid},
+			
+			#{tblVirtualgoods.integration},#{tblVirtualgoods.ruleId},#{tblVirtualgoods.goodsUseType},
+			
+			#{tblVirtualgoods.expiredTime},#{tblVirtualgoods.iscumsun},#{tblVirtualgoods.catcode},
+			
+			#{tblVirtualgoods.goodsruleId},#{tblVirtualgoods.discountrate},#{tblVirtualgoods.effectivedate},
+			
+			#{tblVirtualgoods.trueFalse})
+		</foreach>
+  	</insert>
+</mapper>
