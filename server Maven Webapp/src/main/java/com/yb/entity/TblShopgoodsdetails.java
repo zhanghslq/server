@@ -1,8 +1,9 @@
 package com.yb.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class TblShopgooddetails {
+public class TblShopgoodsdetails implements Serializable{
 	private BigDecimal shopgoodsdetailsId;
 	private BigDecimal version;
 	private String member;
@@ -16,11 +17,11 @@ public class TblShopgooddetails {
 	private String quantity;
 	private String code;
 	private String discount;
-	public TblShopgooddetails() {
+	public TblShopgoodsdetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public TblShopgooddetails(BigDecimal shopgoodsdetailsId,
+	public TblShopgoodsdetails(BigDecimal shopgoodsdetailsId,
 			BigDecimal version, String member, String amount,
 			String receivedate, BigDecimal orderdetailsId, String remark,
 			String totalamount, String ordernum, String unitprice,

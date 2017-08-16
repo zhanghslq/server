@@ -1,9 +1,10 @@
 package com.yb.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class TblShoppingcart {
+public class TblShoppingcart implements Serializable{
 	private BigDecimal shoppingcartId;
 	private BigDecimal version;
 	private Date createTime;

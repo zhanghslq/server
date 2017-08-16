@@ -1,9 +1,10 @@
 package com.yb.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class TblOrderdetails {
+public class TblOrderdetails implements Serializable{
 	private BigDecimal orderdetailsId;
 	private BigDecimal version;
 	private String nowdate;

@@ -1,9 +1,10 @@
 package com.yb.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class TblTrade {
+public class TblTrade implements Serializable{
 	private BigDecimal tradeId;
 	private BigDecimal version;
 	private Date originaldate;

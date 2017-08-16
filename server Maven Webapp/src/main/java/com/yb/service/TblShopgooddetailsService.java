@@ -1,7 +1,7 @@
 package com.yb.service;
 
-import com.yb.entity.TblShopgooddetails;
+import com.yb.entity.TblShopgoodsdetails;
 
-public interface TblShopgooddetailsService extends BaseService<TblShopgooddetails>{
+public interface TblShopgooddetailsService extends BaseService<TblShopgoodsdetails>{
 	
 }
