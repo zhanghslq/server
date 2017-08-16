@@ -1,9 +1,10 @@
 package com.yb.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class TblCarduser {
+public class TblCarduser implements Serializable{
 	private BigDecimal carduserId;
 	private BigDecimal version;
 	private String freezereason;
