@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 public class CdrawtaxHistory implements Serializable{
 	private Integer cdrawPeriodId;
-	private Integer TaxId;
+	private Integer taxId;
 	private BigDecimal cdrawtaxTotAmount;
 	public CdrawtaxHistory() {
 		super();
@@ -15,13 +15,13 @@ public class CdrawtaxHistory implements Serializable{
 			BigDecimal cdrawtaxTotAmount) {
 		super();
 		this.cdrawPeriodId = cdrawPeriodId;
-		TaxId = taxId;
+		this.taxId = taxId;
 		this.cdrawtaxTotAmount = cdrawtaxTotAmount;
 	}
 	@Override
 	public String toString() {
-		return "CdrawtaxHistory [cdrawPeriodId=" + cdrawPeriodId + ", TaxId="
-				+ TaxId + ", cdrawtaxTotAmount=" + cdrawtaxTotAmount + "]";
+		return "CdrawtaxHistory [cdrawPeriodId=" + cdrawPeriodId + ", taxId="
+				+ taxId + ", cdrawtaxTotAmount=" + cdrawtaxTotAmount + "]";
 	}
 	public Integer getCdrawPeriodId() {
 		return cdrawPeriodId;
@@ -30,10 +30,10 @@ public class CdrawtaxHistory implements Serializable{
 		this.cdrawPeriodId = cdrawPeriodId;
 	}
 	public Integer getTaxId() {
-		return TaxId;
+		return taxId;
 	}
 	public void setTaxId(Integer taxId) {
-		TaxId = taxId;
+		this.taxId = taxId;
 	}
 	public BigDecimal getCdrawtaxTotAmount() {
 		return cdrawtaxTotAmount;
@@ -41,6 +41,5 @@ public class CdrawtaxHistory implements Serializable{
 	public void setCdrawtaxTotAmount(BigDecimal cdrawtaxTotAmount) {
 		this.cdrawtaxTotAmount = cdrawtaxTotAmount;
 	}
-	
 	
 }

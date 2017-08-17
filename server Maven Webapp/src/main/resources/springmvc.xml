@@ -27,6 +27,4 @@
    
 	<!--解决静态资源被拦截的问题-->
     <mvc:default-servlet-handler/>
-    <!--springmvc中文件上传的问题-->
-   <!-- <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"></bean> -->
 </beans>

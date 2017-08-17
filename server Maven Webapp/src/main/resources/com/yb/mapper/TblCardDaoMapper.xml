@@ -2,13 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.TblCardDao">
   	<insert id="insert" parameterType="List">
-  		<foreach collection="list" item="tblCard" index="i" open="Begin" separator=";"  close=";End;"   >
+  		
 			insert into TBL_CARD(CARD_ID,VERSION,TEMPLET_ID,UNBLACKTIME,SHOP_ID,BLACKTIME,
 			LOCATION_ID,MAC,TYPE_ID,FOREGIFTAMOUNT,TERMINALID,REVOCATIONTIME,BLACKREASON,
 			STORELOCATION_ID,EFFECTIVEDATE,CARDPACK_ID,CARD_STATUS,ISSUETIME,BASE_CARD_TYPE,
 			TARGETORG_ID,UKEYOPERATOR_ID,BLACKTYPE,CARDSTORE_STATUS,TRADEL,EXPIREDTIME,
 			
-			CARDUSER_ID,ASN) values(#{tblCard.cardId},#{tblCard.version},#{tblCard.templetId},#{tblCard.unblacktime},
+			CARDUSER_ID,ASN) values
+		<foreach collection="list" item="tblCard" index="i"  separator=",">
+			(#{tblCard.cardId},#{tblCard.version},#{tblCard.templetId},#{tblCard.unblacktime},
 			
 			#{tblCard.shopId},#{tblCard.blacktime},#{tblCard.locationId},#{tblCard.mac},
 			

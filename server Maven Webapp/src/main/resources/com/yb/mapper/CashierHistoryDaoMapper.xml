@@ -2,12 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.CashierHistoryDao">
   	<insert id="insert" parameterType="List">
-  		<foreach collection="list" item="cashierHistory" index="i" open="Begin" separator=";"  close=";End;"   >
+  		
 			insert into cashier_history(period_id,cashier_id,cshr_num_trs,cshr_val_trs,cshr_num_void,cshr_val_void,
 			cshr_num_nosales,cshr_num_refund,cshr_val_refund,cshr_num_disc,cshr_val_disc,cshr_num_surc,cshr_val_surc,
 			cshr_num_safedrop,cshr_val_safedrop,total_awarded_qty,total_awarded_val,total_redeemed_qty,total_redeemed_val)
 			
-			values(#{cashierHistory.periodId},#{cashierHistory.cashierId},#{cashierHistory.cshrNumTrs},
+			values
+			<foreach collection="list" item="cashierHistory" index="i" separator=",">
+			(#{cashierHistory.periodId},#{cashierHistory.cashierId},#{cashierHistory.cshrNumTrs},
 			
 			#{cashierHistory.cshrValTrs},#{cashierHistory.cshrNumVoid},#{cashierHistory.cshrValVoid},
 			

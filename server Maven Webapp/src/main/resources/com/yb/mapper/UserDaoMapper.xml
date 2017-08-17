@@ -3,7 +3,10 @@
 <mapper namespace="com.yb.dao.UserDao">
 	<insert id="insert" parameterType="list">
 		<foreach collection="list" item="user" index="i" open="Begin" separator=";"  close=";End;"   >
-			insert into user values(#{user.id},#{user.name})
+			insert into user values
+			
+			
+			(#{user.id},#{user.name})
 		</foreach>
 	</insert>
 </mapper>
