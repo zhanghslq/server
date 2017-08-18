@@ -20,6 +20,6 @@ public class CashdrawHistoryController {
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<CashdrawHistory> cashdrawHistorys){	
-				cashdrawHistoryService.insert(cashdrawHistorys);	
+		cashdrawHistoryService.insert(cashdrawHistorys);	
 	}
 }

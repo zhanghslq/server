@@ -20,7 +20,7 @@ public class CdrawdeptHistoryController {
 	@RequestMapping(value="/insert/{cdrawdeptHistory}",method=RequestMethod.POST)
 	public void insert(@RequestBody List<CdrawdeptHistory> list){
 		
-				cdrawdeptHistoryService.insert(list);
+		cdrawdeptHistoryService.insert(list);
 			
 	}
 }

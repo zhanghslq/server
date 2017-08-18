@@ -21,7 +21,7 @@ public class EftcardController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<Eftcard>list){
 		
-				eftcardService.insert(list);
+		eftcardService.insert(list);
 			
 		
 	}

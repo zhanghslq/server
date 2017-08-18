@@ -21,7 +21,7 @@ public class HoseHistoryController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<HoseHistory> list){
 		
-				historyService.insert(list);
+		historyService.insert(list);
 			
 	}
 }

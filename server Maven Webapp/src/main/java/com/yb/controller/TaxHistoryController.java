@@ -21,7 +21,7 @@ public class TaxHistoryController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<TaxHistory> list ){
 		
-				taxHistoryService.insert(list);
+		taxHistoryService.insert(list);
 			
 		
 	}

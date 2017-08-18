@@ -20,7 +20,7 @@ public class DepartmentHistoryController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<DepartmentHistory>list){
 		
-				departmentHistoryService.insert(list);
+		departmentHistoryService.insert(list);
 			
 	}
 }

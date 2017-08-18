@@ -21,7 +21,7 @@ public class FapiaoTransactionDataController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<FapiaoTransactionData>list){
 		
-				fapiaoTransactionDataService.insert(list);
+		fapiaoTransactionDataService.insert(list);
 			
 		
 	}

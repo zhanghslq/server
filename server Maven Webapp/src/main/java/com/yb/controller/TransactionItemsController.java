@@ -21,7 +21,7 @@ public class TransactionItemsController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<TransactionItems> list){
 		
-				transactionItemsService.insert(list);
+		transactionItemsService.insert(list);
 			
 	}
 }

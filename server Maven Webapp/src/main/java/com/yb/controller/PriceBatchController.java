@@ -21,7 +21,7 @@ public class PriceBatchController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<PriceBatch> list){
 		
-				priceBatchService.insert(list);
+		priceBatchService.insert(list);
 			
 		
 		

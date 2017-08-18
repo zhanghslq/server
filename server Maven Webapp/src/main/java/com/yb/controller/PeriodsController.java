@@ -20,8 +20,7 @@ public class PeriodsController {
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<Periods> list){
-				periodsService.insert(list);
-			
+		periodsService.insert(list);
 	
 	}
 }

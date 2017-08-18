@@ -21,8 +21,7 @@ public class CdrawtaxHistoryController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<CdrawtaxHistory>list){
 		
-				
-				cdrawtaxHistoryService.insert(list);
+		cdrawtaxHistoryService.insert(list);
 			
 	}
 }

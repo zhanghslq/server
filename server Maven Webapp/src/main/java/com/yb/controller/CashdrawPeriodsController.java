@@ -21,6 +21,6 @@ public class CashdrawPeriodsController {
 	private CashdrawPeriodsService cashdrawPeriodsService;
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<CashdrawPeriods> list){	
-				cashdrawPeriodsService.insert(list);	
+		cashdrawPeriodsService.insert(list);	
 	}
 }

@@ -21,7 +21,7 @@ public class TankHistoryController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<TankHistory> list){
 		
-				tankHistoryService.insert(list);
+		tankHistoryService.insert(list);
 		
 		
 	}

@@ -20,7 +20,7 @@ public class CashierHistoryController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<CashierHistory>list){
 		
-				cashierHistoryService.insert(list);
+		cashierHistoryService.insert(list);
 			
 	}
 }

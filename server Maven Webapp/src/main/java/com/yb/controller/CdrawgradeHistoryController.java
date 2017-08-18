@@ -21,7 +21,7 @@ public class CdrawgradeHistoryController {
 	@RequestMapping	(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<CdrawgradeHistory>list){
 		
-				cdrawgradeHistoryService.insert(list);
+		cdrawgradeHistoryService.insert(list);
 			
 	}
 }

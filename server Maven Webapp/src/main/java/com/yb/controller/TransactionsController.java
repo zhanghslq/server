@@ -13,15 +13,15 @@ import com.yb.entity.Transactions;
 import com.yb.service.TransactionsService;
 
 @Controller
-@RequestMapping("/transactions/*")
+@RequestMapping("/transactions")
 public class TransactionsController {
 	@Resource
 	private TransactionsService transactionsService;
 	
-	@RequestMapping(value="/insert/{transactions}",method=RequestMethod.POST)
+	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<Transactions> list){
 		
-				transactionsService.insert(list);
+		transactionsService.insert(list);
 			
 	}
 }

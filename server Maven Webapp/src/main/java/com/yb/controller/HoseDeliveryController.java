@@ -21,7 +21,7 @@ public class HoseDeliveryController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<HoseDelivery>list){
 		
-				hoseDeliveryService.insert(list);
+		hoseDeliveryService.insert(list);
 			
 	
 	}

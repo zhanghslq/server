@@ -35,7 +35,7 @@
 
   <!--读取springmvc的配置文件-->
   <servlet>
-    <servlet-name>cmfz</servlet-name>
+    <servlet-name>server</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <!--指定的配置文件 的位置-->
     <init-param>
@@ -45,11 +45,11 @@
     <!--实例化，读取完不用等待访问到就先进行实例化-->
     <load-on-startup>1</load-on-startup>
   </servlet>
+  
   <!--拦截所有带/的-->
   <servlet-mapping>
-    <servlet-name>cmfz</servlet-name>
+    <servlet-name>server</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  <!--配置的过滤器用来解决springmvc的传参乱码问题-->
 
 </web-app>

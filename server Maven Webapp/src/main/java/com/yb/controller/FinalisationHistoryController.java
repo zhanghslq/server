@@ -21,7 +21,7 @@ public class FinalisationHistoryController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<FinalisationHistory>list){
 		
-				finalisationHistoryService.insert(list);
+		finalisationHistoryService.insert(list);
 			
 	}
 }

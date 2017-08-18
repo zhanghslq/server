@@ -21,7 +21,7 @@ public class TransactionPeriodController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void insert(@RequestBody List<TransactionPeriod> list){
 		
-				transactionPeriodService.insert(list);
+		transactionPeriodService.insert(list);
 		
 	}
 }
