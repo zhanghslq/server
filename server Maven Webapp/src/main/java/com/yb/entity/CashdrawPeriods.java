@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class CashdrawPeriods implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer cdrawPeriod;
 	private Integer cashierId;
 	private Integer posId;

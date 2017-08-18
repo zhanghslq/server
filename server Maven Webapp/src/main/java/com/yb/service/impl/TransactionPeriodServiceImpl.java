@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.alibaba.druid.filter.AutoLoad;
 import com.yb.dao.TransactionPeriodDao;
 import com.yb.entity.TransactionPeriod;
 import com.yb.service.TransactionPeriodService;

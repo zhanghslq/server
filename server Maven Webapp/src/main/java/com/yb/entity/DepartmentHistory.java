@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class DepartmentHistory implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer periodId;
 	private Integer departmentId;
 	private BigDecimal deptQtyItemSold;

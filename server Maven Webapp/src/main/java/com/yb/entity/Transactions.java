@@ -5,6 +5,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Transactions implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer transactionId;
 	private Integer cashierId;
 	private Integer subAccountId;
@@ -23,10 +27,8 @@ public class Transactions implements Serializable{
 	private Date transactionStartDt;
 	private BigDecimal awardTotal;
 	private BigDecimal redemptionTotal;
-	
 	private BigDecimal refundTotal;
 	private BigDecimal discountTotal;
-	
 	private Date refundedDate;
 	private Integer isRefund;
 	private BigDecimal discAsMopTotal;

@@ -19,7 +19,14 @@ public class CashdrawHistoryController {
 	private CashdrawHistoryService cashdrawHistoryService;
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public void insert(@RequestBody List<CashdrawHistory> cashdrawHistorys){	
-		cashdrawHistoryService.insert(cashdrawHistorys);	
+	public String insert(@RequestBody List<CashdrawHistory> cashdrawHistorys){	
+		try {
+			cashdrawHistoryService.insert(cashdrawHistorys);
+			return "success";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "error";
+		}	
 	}
 }

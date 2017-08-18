@@ -5,6 +5,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class TankHistory implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer periodId;
 	private Integer tankId;
 	private BigDecimal openGaugeVolume;

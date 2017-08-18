@@ -5,6 +5,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class PriceBatch implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer priceBatchId;
 	private BigDecimal priceEventNumber;
 	private String priceBatchDescription;

@@ -3,6 +3,10 @@ package com.yb.entity;
 import java.io.Serializable;
 
 public class FapiaoTransactionData implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer transactionId;
 	private Integer printInvoice;
 	private String customerCode;

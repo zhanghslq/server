@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class ProductPrice implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer priceBatchId;
 	private Integer productId;
 	private BigDecimal productPrice;
