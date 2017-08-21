@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yb.entity.HoseDelivery;
 import com.yb.service.HoseDeliveryService;
@@ -19,9 +20,17 @@ public class HoseDeliveryController {
 	private HoseDeliveryService hoseDeliveryService;
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public void insert(@RequestBody List<HoseDelivery>list){
+	@ResponseBody
+	public String insert(@RequestBody List<HoseDelivery>list){
 		
-		hoseDeliveryService.insert(list);
+		try {
+			hoseDeliveryService.insert(list);
+			return "success";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "error";
+		}
 			
 	
 	}

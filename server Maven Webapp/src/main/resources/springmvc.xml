@@ -22,11 +22,6 @@
             <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter"/>
         </mvc:message-converters>
     </mvc:annotation-driven>
-    <!--视图管理器-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
    
 	<!--解决静态资源被拦截的问题-->
     <mvc:default-servlet-handler/>

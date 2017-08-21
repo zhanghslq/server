@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yb.entity.FinalisationHistory;
 import com.yb.service.FinalisationHistoryService;
@@ -19,9 +20,17 @@ public class FinalisationHistoryController {
 	private FinalisationHistoryService finalisationHistoryService;
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public void insert(@RequestBody List<FinalisationHistory>list){
+	@ResponseBody
+	public String insert(@RequestBody List<FinalisationHistory>list){
 		
-		finalisationHistoryService.insert(list);
+		try {
+			finalisationHistoryService.insert(list);
+			return "success";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "error";
+		}
 			
 	}
 }

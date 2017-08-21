@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yb.entity.HoseHistory;
 import com.yb.service.HoseHistoryService;
@@ -19,9 +20,17 @@ public class HoseHistoryController {
 	private HoseHistoryService historyService;
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public void insert(@RequestBody List<HoseHistory> list){
+	@ResponseBody
+	public String insert(@RequestBody List<HoseHistory> list){
 		
-		historyService.insert(list);
+		try {
+			historyService.insert(list);
+			return "success";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "error";
+		}
 			
 	}
 }

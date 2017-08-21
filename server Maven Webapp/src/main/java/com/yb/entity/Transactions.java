@@ -237,5 +237,4 @@ public class Transactions implements Serializable{
 	public void setTransactionDbDate(Date transactionDbDate) {
 		this.transactionDbDate = transactionDbDate;
 	}
-	
 }

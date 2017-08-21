@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yb.entity.Transactions;
 import com.yb.service.TransactionsService;
@@ -19,9 +20,15 @@ public class TransactionsController {
 	private TransactionsService transactionsService;
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public void insert(@RequestBody List<Transactions> list){
-		
-		transactionsService.insert(list);
-			
+	@ResponseBody
+	public String insert(@RequestBody List<Transactions> list){
+		try {
+			transactionsService.insert(list);
+			return "success";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "error";
+		}
 	}
 }
