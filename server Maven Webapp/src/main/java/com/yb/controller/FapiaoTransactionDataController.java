@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yb.entity.FapiaoTransactionData;
+import com.yb.entity.Status;
 import com.yb.service.FapiaoTransactionDataService;
 
 @Controller
@@ -21,17 +22,15 @@ public class FapiaoTransactionDataController {
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	@ResponseBody
-	public String insert(@RequestBody List<FapiaoTransactionData>list){
+	public Status insert(@RequestBody List<FapiaoTransactionData>list){
 		
 		try {
 			fapiaoTransactionDataService.insert(list);
-			return "success";
+			return new Status("success");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "error";
+			return new Status("error", e.getMessage());
 		}
-			
-		
 	}
 }

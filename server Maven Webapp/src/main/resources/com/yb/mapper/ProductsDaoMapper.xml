@@ -6,7 +6,7 @@
 			insert into products(product_id,tax_id,department_id,product_desc,product_price,product_quick_code,
 			product_code,product_ordering_status,product_managed_by,product_type,product_selling_type,product_stock_type,
 			product_composite_type,Multiple_taxes,Price_Batch_id,Incomplete_product,delisted_date,product_special_type,
-			barcode,upc_type,barcode_special_type)
+			barcode,upc_type,barcode_special_type,transaction_number)
 			
 			values
 		<foreach collection="list" item="products" index="i" separator=","  >
@@ -20,7 +20,7 @@
 			
 			#{products.delistedDate},#{products.productSpecialType},#{products.barcode},#{products.upcType},
 			
-			#{products.barcodeSpecialType})
+			#{products.barcodeSpecialType},#{products.transactionNumber})
 		</foreach>
   	</insert>
 </mapper>

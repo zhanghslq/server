@@ -11,6 +11,15 @@ public class CdrawtaxHistory implements Serializable{
 	private Integer cdrawPeriodId;
 	private Integer taxId;
 	private BigDecimal cdrawtaxTotAmount;
+	
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public CdrawtaxHistory() {
 		super();
 		// TODO Auto-generated constructor stub

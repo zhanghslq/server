@@ -56,6 +56,14 @@ public class HoseHistory implements Serializable{
 	private BigDecimal hoseValDisc;
 	private BigDecimal hoseVolSurc;
 	private BigDecimal HoseValSurc;
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public HoseHistory() {
 		super();
 		// TODO Auto-generated constructor stub

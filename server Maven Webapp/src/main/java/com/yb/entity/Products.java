@@ -30,6 +30,29 @@ public class Products implements Serializable{
 	private String barcode;
 	private String upcType;
 	private Integer barcodeSpecialType;
+	private Integer transactionNumber;
+	private Date nowDate;
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
+	public Integer getTransactionNumber() {
+		return transactionNumber;
+	}
+	public void setTransactionNumber(Integer transactionNumber) {
+		this.transactionNumber = transactionNumber;
+	}
+	
+	public Date getNowDate() {
+		return nowDate;
+	}
+	public void setNowDate(Date nowDate) {
+		this.nowDate = nowDate;
+	}
 	public Products() {
 		super();
 		// TODO Auto-generated constructor stub

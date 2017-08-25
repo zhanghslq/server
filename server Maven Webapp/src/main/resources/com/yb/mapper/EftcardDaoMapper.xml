@@ -9,7 +9,7 @@
 			values
   		<foreach collection="list" item="eftcard" index="i"  separator="," >
 
-			(#{eftcard.transcationId},#{eftcard.itemNumber},#{eftcard.cardNumber},#{eftcard.accountType},
+			(#{eftcard.transactionId},#{eftcard.itemNumber},#{eftcard.cardNumber},#{eftcard.accountType},
 			
 			#{eftcard.cardType},#{eftcard.cardTypeName},#{eftcard.auditNumber},#{eftcard.vehicleReg},
 			

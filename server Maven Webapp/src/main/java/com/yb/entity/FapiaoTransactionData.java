@@ -11,6 +11,14 @@ public class FapiaoTransactionData implements Serializable{
 	private Integer printInvoice;
 	private String customerCode;
 	private String customerText;
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public FapiaoTransactionData() {
 		super();
 		// TODO Auto-generated constructor stub

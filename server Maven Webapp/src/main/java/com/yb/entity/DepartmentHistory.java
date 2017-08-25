@@ -22,6 +22,14 @@ public class DepartmentHistory implements Serializable {
 	private BigDecimal totalAwardedVal;
 	private Integer totalRedeemedQty;
 	private BigDecimal totalRedeemedVal;
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public DepartmentHistory() {
 		super();
 		// TODO Auto-generated constructor stub

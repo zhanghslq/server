@@ -11,6 +11,14 @@ public class TaxHistory implements Serializable{
 	private Integer periodId;
 	private Integer taxId;
 	private BigDecimal taxTotValue;
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public TaxHistory() {
 		super();
 		// TODO Auto-generated constructor stub

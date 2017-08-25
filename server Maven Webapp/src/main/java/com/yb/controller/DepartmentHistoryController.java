@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yb.entity.DepartmentHistory;
+import com.yb.entity.Status;
 import com.yb.service.DepartmentHistoryService;
 
 @Controller
@@ -20,15 +21,15 @@ public class DepartmentHistoryController {
 	private DepartmentHistoryService departmentHistoryService;
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	@ResponseBody
-	public String insert(@RequestBody List<DepartmentHistory>list){
+	public Status insert(@RequestBody List<DepartmentHistory>list){
 		
 		try {
 			departmentHistoryService.insert(list);
-			return "success";
+			return new Status("success");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "error";
+			return new Status("error", e.getMessage());
 		}
 			
 	}

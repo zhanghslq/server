@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yb.entity.CashierHistory;
+import com.yb.entity.Status;
 import com.yb.service.CashierHistoryService;
 
 @Controller
@@ -20,16 +21,15 @@ public class CashierHistoryController {
 	private CashierHistoryService cashierHistoryService;
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	@ResponseBody
-	public String insert(@RequestBody List<CashierHistory>list){
+	public Status insert(@RequestBody List<CashierHistory>list){
 		
 		try {
 			cashierHistoryService.insert(list);
-			return "success";
+			return new Status("success");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "error";
+			return new Status("error", e.getMessage());
 		}
-			
 	}
 }

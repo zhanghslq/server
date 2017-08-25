@@ -2,6 +2,7 @@ package com.yb.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class TransactionItemsNotoil implements Serializable{
 	/**
@@ -32,6 +33,14 @@ public class TransactionItemsNotoil implements Serializable{
 	private String currencyCode;
 	private BigDecimal taxRate;
 	private String productCode;
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public TransactionItemsNotoil() {
 		super();
 		// TODO Auto-generated constructor stub

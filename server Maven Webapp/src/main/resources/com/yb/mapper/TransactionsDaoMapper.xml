@@ -23,7 +23,7 @@
 			
 			#{transactions.transactionStartDt},#{transactions.awardTotal},#{transactions.redemptionTotal},
 			
-			,#{transactions.refundTotal},#{transactions.discountTotal}
+			#{transactions.refundTotal},#{transactions.discountTotal},
 			
 			#{transactions.refundedDate},#{transactions.isRefund},#{transactions.discAsMopTotal},
 			

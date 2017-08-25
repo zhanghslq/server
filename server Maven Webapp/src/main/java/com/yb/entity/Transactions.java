@@ -33,6 +33,14 @@ public class Transactions implements Serializable{
 	private Integer isRefund;
 	private BigDecimal discAsMopTotal;
 	private Date transactionDbDate;
+	private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public Transactions() {
 		super();
 		// TODO Auto-generated constructor stub

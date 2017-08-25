@@ -18,6 +18,14 @@ public class FutureGradePrice implements Serializable{
 	private Integer priceLevel;
 	private BigDecimal previousGradePrice;
 	private Integer sequenceNumber;
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public FutureGradePrice() {
 		super();
 		// TODO Auto-generated constructor stub

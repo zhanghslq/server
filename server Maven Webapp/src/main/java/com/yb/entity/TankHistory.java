@@ -54,6 +54,14 @@ public class TankHistory implements Serializable{
 	private Integer openDipTypeId;
 	private Integer closeDipTypeId;
 	private String TankVarianceReasonId;
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public TankHistory() {
 		super();
 		// TODO Auto-generated constructor stub

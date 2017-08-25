@@ -23,6 +23,14 @@ public class Periods implements Serializable{
 	private Integer wetstockOutOfVariance;
 	private Integer wetstockApprovalId;
 	private Date businessDate;
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public Periods() {
 		super();
 		// TODO Auto-generated constructor stub

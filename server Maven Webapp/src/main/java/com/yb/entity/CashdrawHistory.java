@@ -8,6 +8,8 @@ public class CashdrawHistory implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private String stationId;
 	private Integer cdrawPeriodId;
 	private Integer mopId;
 	private BigDecimal cdrawTotAmount;
@@ -28,8 +30,8 @@ public class CashdrawHistory implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CashdrawHistory(Integer cdrawPeriodId, Integer mopId,
-			BigDecimal cdrawTotAmount, BigDecimal cdrawFloat,
+	public CashdrawHistory(String stationId, Integer cdrawPeriodId,
+			Integer mopId, BigDecimal cdrawTotAmount, BigDecimal cdrawFloat,
 			Integer cdrawNumSafedrop, BigDecimal cdrawTotSafedrop,
 			Integer cdrawNumPayin, BigDecimal cdrawTotPayin,
 			BigDecimal cdrawAmountCounted, Integer cdrawNumPayout,
@@ -37,6 +39,7 @@ public class CashdrawHistory implements Serializable{
 			BigDecimal cdrawPotalPrepayExcess, Integer cdrawPrepayCount,
 			Integer cdrawPrepayExcessCount, Integer cdrawQtyMop) {
 		super();
+		this.stationId = stationId;
 		this.cdrawPeriodId = cdrawPeriodId;
 		this.mopId = mopId;
 		this.cdrawTotAmount = cdrawTotAmount;
@@ -56,18 +59,25 @@ public class CashdrawHistory implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "CashdrawHistory [cdrawPeriodId=" + cdrawPeriodId + ", mopId="
-				+ mopId + ", cdrawTotAmount=" + cdrawTotAmount
-				+ ", cdrawFloat=" + cdrawFloat + ", cdrawNumSafedrop="
-				+ cdrawNumSafedrop + ", cdrawTotSafedrop=" + cdrawTotSafedrop
-				+ ", cdrawNumPayin=" + cdrawNumPayin + ", cdrawTotPayin="
-				+ cdrawTotPayin + ", cdrawAmountCounted=" + cdrawAmountCounted
+		return "CashdrawHistory [stationId=" + stationId + ", cdrawPeriodId="
+				+ cdrawPeriodId + ", mopId=" + mopId + ", cdrawTotAmount="
+				+ cdrawTotAmount + ", cdrawFloat=" + cdrawFloat
+				+ ", cdrawNumSafedrop=" + cdrawNumSafedrop
+				+ ", cdrawTotSafedrop=" + cdrawTotSafedrop + ", cdrawNumPayin="
+				+ cdrawNumPayin + ", cdrawTotPayin=" + cdrawTotPayin
+				+ ", cdrawAmountCounted=" + cdrawAmountCounted
 				+ ", cdrawNumPayout=" + cdrawNumPayout + ", cdrawTotPayout="
 				+ cdrawTotPayout + ", cdrawTotalPrepayDelValue="
 				+ cdrawTotalPrepayDelValue + ", cdrawPotalPrepayExcess="
 				+ cdrawPotalPrepayExcess + ", cdrawPrepayCount="
 				+ cdrawPrepayCount + ", cdrawPrepayExcessCount="
 				+ cdrawPrepayExcessCount + ", cdrawQtyMop=" + cdrawQtyMop + "]";
+	}
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
 	}
 	public Integer getCdrawPeriodId() {
 		return cdrawPeriodId;

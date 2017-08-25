@@ -17,6 +17,14 @@ public class PriceBatch implements Serializable{
 	private Date priceBatchEndDt;
 	private Integer priceBatchStatus;
 	private Integer priceTypeName;
+	private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public PriceBatch() {
 		super();
 		// TODO Auto-generated constructor stub

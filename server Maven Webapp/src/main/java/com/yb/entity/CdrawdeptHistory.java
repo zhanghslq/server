@@ -18,6 +18,14 @@ public class CdrawdeptHistory implements Serializable{
 	private BigDecimal cdrawdeptValDisc;
 	private BigDecimal cdrawdeptQtySurc;
 	private BigDecimal cdrawdeptValSurc;
+	private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public CdrawdeptHistory() {
 		super();
 		// TODO Auto-generated constructor stub

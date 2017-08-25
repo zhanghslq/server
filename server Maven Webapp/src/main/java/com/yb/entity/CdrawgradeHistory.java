@@ -21,6 +21,14 @@ public class CdrawgradeHistory implements Serializable{
 	private BigDecimal cdrawgradeVal1;
 	private BigDecimal cdrawgradeVol2;
 	private BigDecimal cdrawgradeVal2;
+	private String stationId;
+		
+		public String getStationId() {
+			return stationId;
+		}
+		public void setStationId(String stationId) {
+			this.stationId = stationId;
+		}
 	public CdrawgradeHistory() {
 		super();
 		// TODO Auto-generated constructor stub

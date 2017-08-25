@@ -40,6 +40,14 @@ public class HoseDelivery implements Serializable{
 	private BigDecimal hoseMeterValue1;
 	private BigDecimal grade1Price;
 	private BigDecimal grade2Price;
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public HoseDelivery() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -1,6 +1,7 @@
 package com.yb.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class TransactionPeriod implements Serializable{
 	/**
@@ -9,6 +10,14 @@ public class TransactionPeriod implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Integer transactionId;
 	private Integer periodId;
+private String stationId;
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public TransactionPeriod() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -37,7 +37,7 @@
 			
 			#{hoseHistory.closeVolumeTurnoverCorrection},#{hoseHistory.closeMoneyTurnoverCorrection},#{hoseHistory.openVolumeTurnoverCorrection2},#{hoseHistory.closeVolumeTurnoverCorrection2},
 			
-			#{hoseHistory.hoseVolDisc},#{hoseHistory.hoseValDisc},#{hoseHistory.hoseVolSurc},#{hoseHistory.HoseValSurc},)
+			#{hoseHistory.hoseVolDisc},#{hoseHistory.hoseValDisc},#{hoseHistory.hoseVolSurc},#{hoseHistory.HoseValSurc})
 		</foreach>
   	</insert>
 </mapper>
