@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblShopgoodsdetailsDao">
+  	<insert id="insert" parameterType="List">
+  		
+			insert into TBL_SHOPGOODSDETAILS(SHOPGOODSDETAILS_ID,VERSION,MEMBER,AMOUNT,
+			RECEIVEDATE,ORDER_ID,REMARK,TOTALAMOUNT,ORDERNUM,UNITPRICE,QUANTITY,
+			CODE,DISCOUNT)
+			
+			values
+			<foreach collection="list" item="tblShopgoodsdetails" index="i"  separator=","   >
+			(#{tblShopgoodsdetails.shopgoodsdetailsId},#{tblShopgoodsdetails.version},#{tblShopgoodsdetails.member},
+			
+			#{tblShopgoodsdetails.amount},#{tblShopgoodsdetails.receivedate},#{tblShopgoodsdetails.orderdetailsId},
+			
+			#{tblShopgoodsdetails.remark},#{tblShopgoodsdetails.totalamount},#{tblShopgoodsdetails.ordernum},
+			
+			#{tblShopgoodsdetails.unitprice},#{tblShopgoodsdetails.quantity},#{tblShopgoodsdetails.code},
+			
+			#{tblShopgoodsdetails.discount})
+		</foreach>
+  	</insert>
+</mapper>

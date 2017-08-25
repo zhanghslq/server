@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblOrderDao">
+  	<insert id="insert" parameterType="List">
+  		
+			insert into TBL_ORDER(ORDER_ID,VERSION,AMOUNT,ORDERNO,TRADEID,CARDUSER_ID,CREATEDATE,
+			ORDER_STATUS,UPDATEDATE,OPENID)
+			
+			values
+			<foreach collection="list" item="tblOrder" index="i"  separator=","   >
+			(#{tblOrder.orderId},#{tblOrder.version},#{tblOrder.amount},#{tblOrder.orderno},
+			
+			#{tblOrder.tradeId},#{tblOrder.carduserId},#{tblOrder.createdate},#{tblOrder.orderStatus},
+			
+			#{tblOrder.updatedate},#{tblOrder.openId})
+		</foreach>
+  	</insert>
+</mapper>

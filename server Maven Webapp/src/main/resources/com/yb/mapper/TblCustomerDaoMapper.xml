@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblCustomerDao">
+  	<insert id="insert" parameterType="List">
+  		
+			insert into TBL_CUSTOMER(CUSTOMER_ID,VERSION,BIRTHDAY,PHONE,UNIQUEIDNO,
+			DEGREE,BUILDFILESTATION_ID,ISYUE,AGE,NAME,GENDER,INDUSTRY,CAR_PRICE,
+			OCCUPATION,PROVINCE,ZIPCODE,CUSTOMER_TYPES,RECORDTIME,PHOTO_ID,IDNO_TYPE,
+			BLOOD,MOBILEPHONE,EMAIL,ADDRESS,ISCZ,MSGSOURCE,NOTES,IDNO,CAR_NATURE,OPENID)
+			
+			values
+			<foreach collection="list" item="tblCustomer" index="i"  separator=","   >
+			(#{tblCustomer.customerId},#{tblCustomer.version},#{tblCustomer.birthday},#{tblCustomer.phone},
+			
+			#{tblCustomer.uniqueidno},#{tblCustomer.degree},#{tblCustomer.buildfilestationId},#{tblCustomer.isyue},
+			
+			#{tblCustomer.age},#{tblCustomer.name},#{tblCustomer.gender},#{tblCustomer.industry},
+			
+			#{tblCustomer.carPrice},#{tblCustomer.occupation},#{tblCustomer.province},#{tblCustomer.zipcode},
+			
+			#{tblCustomer.customerTypes},#{tblCustomer.recordtime},#{tblCustomer.photoId},#{tblCustomer.IndoType},
+			
+			#{tblCustomer.blood},#{tblCustomer.mobilephone},#{tblCustomer.email},#{tblCustomer.address},
+			
+			#{tblCustomer.iscz},#{tblCustomer.msgsource},#{tblCustomer.notes},#{tblCustomer.idno},
+			
+			#{tblCustomer.carNature},#{tblCustomer.openid})
+		</foreach>
+  	</insert>
+</mapper>
