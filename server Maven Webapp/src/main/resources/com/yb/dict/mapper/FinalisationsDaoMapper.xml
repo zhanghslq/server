@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dict.dao.FinalisationsDao">
+  	<insert id="insert" parameterType="List">
+			insert into finalisations(mop_id,mop_name,price_level,
+			mop_cash_draw,mop_safedrop_level,mop_safedrop_alarm,
+			mop_tender,mop_partial_tender,mop_change,mop_keynumber,mop_keylabel,
+			mop_final_msg_l1,mop_final_msg_l2,mop_final_msg_l3,
+			mop_type,mop_drystock_disc,mop_wetstock_disc,eod_Summary,
+			refunds_allowed,mop_receipt_type,awarding_allowed,mop_fiscal_group_name,mop_fiscal_group_number,allow_wetstock_sales,
+			allow_drystock_sales,max_fuel_deliveries_allowed,eft_terminal_type)
+			values
+			<foreach collection="list" item="finalisations" index="i"  separator="," >
+			(#{finalisations.mop_id},#{finalisations.mop_name},#{finalisations.price_level},#{finalisations.mop_cash_draw},
+			#{finalisations.mop_safedrop_level},#{finalisations.mop_safedrop_alarm},#{finalisations.mop_tender},#{finalisations.mop_partial_tender},
+			#{finalisations.mop_change},#{finalisations.mop_keynumber},#{finalisations.mop_keylabel},#{finalisations.mop_final_msg_l1},
+			#{finalisations.mop_final_msg_l2},#{finalisations.mop_final_msg_l3},#{finalisations.mop_type},#{finalisations.mop_drystock_disc},
+			#{finalisations.mop_wetstock_disc},#{finalisations.eod_Summary},#{finalisations.refunds_allowed},
+			#{finalisations.mop_receipt_type},#{finalisations.awarding_allowed},#{finalisations.mop_fiscal_group_name},
+			#{finalisations.mop_fiscal_group_number},#{finalisations.allow_wetstock_sales},#{finalisations.allow_drystock_sales},
+			#{finalisations.max_fuel_deliveries_allowed},#{finalisations.eft_terminal_type})
+		</foreach>
+  	</insert>
+</mapper>

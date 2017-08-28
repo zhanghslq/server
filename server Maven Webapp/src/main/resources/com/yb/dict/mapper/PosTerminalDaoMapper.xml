@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dict.dao.PosTerminalDao">
+  	<insert id="insert" parameterType="List">
+			insert into pos_terminal(pos_id,pos_number,pos_type,receipt_id,pos_master,display_id,
+			pos_trans_number,pos_training_mode,bir_fuel_receipt_id,bir_non_fuel_receipt_id,bir_fuel_trans_number,
+			bir_non_fuel_trans_number,eft_trans_number,pos_name,logged_on_cashier,logged_on_dt,
+			Alt_Transaction_Number,next_receipt_number,gt_open_date,reserve_trans_number)
+			values
+			<foreach collection="list" item="posTerminal" index="i"  separator="," >
+			(#{posTerminal.pos_id},#{posTerminal.pos_number},#{posTerminal.pos_type},
+			#{posTerminal.receipt_id},#{posTerminal.pos_master},#{posTerminal.display_id},
+			#{posTerminal.pos_trans_number},#{posTerminal.pos_training_mode},#{posTerminal.bir_fuel_receipt_id},
+			#{posTerminal.bir_non_fuel_receipt_id},#{posTerminal.bir_fuel_trans_number},#{posTerminal.bir_non_fuel_trans_number},
+			#{posTerminal.eft_trans_number},#{posTerminal.pos_name},#{posTerminal.logged_on_cashier},
+			#{posTerminal.logged_on_dt},#{posTerminal.Alt_Transaction_Number},#{posTerminal.next_receipt_number},
+			#{posTerminal.gt_open_date},#{posTerminal.reserve_trans_number})
+		</foreach>
+  	</insert>
+</mapper>
