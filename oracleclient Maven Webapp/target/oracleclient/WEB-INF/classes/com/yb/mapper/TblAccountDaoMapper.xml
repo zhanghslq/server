@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblAccountDao">
+  	<select id="queryAll" parameterType="Integer" resultType="TblAccount">
+  		select ACCOUNT_ID as accountId,VERSION,LASTCARDTIME,EXPIREDDATE,
+  		
+			LASTRECORDTIME,ACCOUNT_STATUS as accountStatus,PREVIOUSONLINENO,LOWLIMIT,FROZENPOINTS,
+			
+			MAC,ACCOUNTTYPE,LASTTXID,LASTTXSTATUS,BALANCE,NUM,POINTSUSED,ISSUER_ID,
+			
+			CARDUSER_ID as carduserId,LASTONLINENO,ACCUMULATIVEPOINTS,CARD_ID as cardId,TOTALLOSTAMOUNT
+  		
+  		
+  		 	from TBL_ACCOUNT where ACCOUNT_ID > #{id}
+  	</select>
+  	<select id="queryMaxId" resultType="Integer">
+  		select max(ACCOUNT_ID) from TBL_ACCOUNT
+  	</select>
+</mapper>

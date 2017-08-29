@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblMyfavoriteDao">
+	<select id="queryAll" parameterType="Integer" resultType="TblMyfavorite">
+			select MYFAVORITE_ID as myfavoriteId,VERSION,ORGID,CARDUSER_ID as cardsuerId from  TBL_MYFAVORITE where MYFAVORITE_ID >#{id}
+	</select>	
+	
+	<select id="queryMaxId" resultType="Integer">
+  		select max(MYFAVORITE_ID) from TBL_MYFAVORITE
+  	</select>	
+</mapper>

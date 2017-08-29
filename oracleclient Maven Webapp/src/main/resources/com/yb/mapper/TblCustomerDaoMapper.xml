@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblCustomerDao">
+  	<select id="queryAll" parameterType="long" resultType="TblCustomer">
+  		select ID as customerId,VERSION,BIRTHDAY,PHONE,UNIQUEIDNO,
+  		
+			DEGREE,BUILDFILESTATION_ID as buildfilestationId,ISYUE,AGE,NAME,GENDER,INDUSTRY,CAR_PRICE as carPrice,
+			
+			OCCUPATION,PROVINCE,ZIPCODE,CUSTOMER_TYPES as customerTypes,RECORDTIME,PHOTO_ID as photoId,IDNO_TYPE as idnoType,
+			
+			BLOOD,MOBILEPHONE,EMAIL,ADDRESS,ISCZ,MSGSOURCE,NOTES,IDNO,CAR_NATURE,OPENID
+			
+			from TBL_CUSTOMER where ID>#{id}
+  	</select>
+  	
+  	<select id="queryMaxId" resultType="long">
+  		select max(ID) from TBL_CUSTOMER
+  	</select>
+</mapper>

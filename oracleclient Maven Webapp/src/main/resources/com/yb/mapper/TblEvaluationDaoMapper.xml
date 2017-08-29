@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblEvaluationDao">
+	<select id="queryAll" parameterType="long" resultType="TblEvaluation">
+			select ID as evaluationId,VERSION,CONTENT,TIME,STATUS,STAR,
+			ORG_ID as orgId,CUSTOMER_ID as customerIds,TRADEID from TBL_EVALUATION where ID>#{id}
+			
+	</select>
+	
+	<select id="queryMaxId" resultType="long">
+  		select max(ID) from TBL_EVALUATION
+  	</select>
+</mapper>

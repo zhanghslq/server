@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblDifferencestradeDao">
+  	<select id="queryAll" parameterType="Integer" resultType="TblDifferencestrade">
+  		select DIFFERENCESTRADE_ID as differencestradeId,VERSION,TRADE_TYPE as tradeType,COUPON_REMOVE as couponRemove,WORKDATE,
+  		
+			STATIONCODE,RRN,AUTOFLAG,HANDINGFEE,THIRDORDERNO,FEE_RATE as feeRate,POSNUM,REALAMOUNT,THIRDTRANSDATE,
+			
+			AMOUNT,ORG_ID as orgId,TRANSDATE,BATCHNO,DIFF_TYPE as diffType,TRANSTIME,PAYTYPE,COUPON,THIRDTRANSTIME
+			
+			from TBL_DIFFERENCESTRADE where DIFFERENCESTRADE_ID >#{id}
+  	</select>
+  	
+  	<select id="queryMaxId" resultType="Integer">
+  		select max(DIFFERENCESTRADE_ID) from TBL_DIFFERENCESTRADE
+  	</select>
+</mapper>

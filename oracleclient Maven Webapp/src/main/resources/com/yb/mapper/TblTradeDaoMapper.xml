@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblTradeDao">
+		<select id="queryAll" parameterType="long" resultType="TblTrade">
+			select ID as tradeId,VERSION,ORIGINALDATE,PSAMASN,OFFLINETXNO,ADJUST_TYPE as adjustType,GRAYTRADEID,
+			
+			REALAMOUNT,CARDLOC_ID as cardlocId,ACTIVITYID,AMOUNT,BALANCE,OPER_ID as operId,ISINVOICE,SUBACCOUNTTYPE,TRADE_STATUS as tradeStatus,
+			
+			VIRTUALGOODSID,INVOICETYPE,ORDERNUM,RECORDTIME,CUSTOMER_LEVEL as customerLevel,CARDTYPE,OPERNO,DISCOUNT,
+			
+			PRICE,ISSUER_ID as issuerId,RELATEDID,CHEQUEID,CARDUSER_ID as cardUserId,PAY_TYPE as payType,BANKTRACE,CARDUSER_TYPE as carduserType,TRADE_TYPE as tradeType,
+			
+			VOLUMN,BRINGPOINTSID,GIFT_ID as giftId,BANKTERMID,GOODSCATEGORY_ID as goodscategoryId,BLACKINTERVAL,ACQUIRER_ID as acquirerId,ORG_ID as orgId,
+			
+			UNIQUEID,OCCURTIME,BUSINESSDATE,BATCHNO,EFTSN,RPOSSN,MAINTRADEID,DEPOSITTYPE,EFTNO,SUBTRADETYPE,
+			
+			CARDASN,POINTDESCRIPTION,CARDTXNO,BANKCARD,RULESETID,BASE_ACCOUNT_TYPE as baseAccountType,RPOSNO,EPSSN,ACCOUNTTYPE,
+			
+			ERROR_TYPE as errorType,ACCOUNT_ID accountId from TBL_TRADE where ID>#{id}
+		</select>
+		
+		
+		<select id="queryMaxId" resultType="long">
+  		select max(ID) from TBL_TRADE
+  	</select>
+</mapper>

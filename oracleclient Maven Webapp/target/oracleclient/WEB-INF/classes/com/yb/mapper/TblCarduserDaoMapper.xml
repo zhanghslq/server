@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblCarduserDao">
+  	<select id="queryAll" parameterType="Integer" resultType="TblCarduser">
+  		select CARDUSER_ID as carduserId,VERSION,FREEZEREASON,P6,P5,ORGUSER_ID as orguserId,P4,
+  		
+			ISCUMULATEPOINTS,P3,LOCATION_ID as locationId,P2,ANONYMOUSBALANCE,P1,CARDUSER_TYPE as carduserType,CUSTOMER_ID as customerId,
+			
+			FOREGIFTAMOUNT,OPER_ID as operId,BUILDFILESTATION_ID as buildfilestationId,CONTRACTTYPE,CARDVALUE,ISSELLSTATUS,
+			
+			ISOILLIMIT,DEPT_ID as deptId,CARLICENSE,AMOUNTLIMIT,TIMELIMIT,CARDUSER_STATUS as carduserStatus,INVOICE_TYPE invoiceType,
+			
+			PARENT_ID parentId,RECORDTIME,CARDTYPE_ID cardtypeId,USEPIN,CONTRACTEXPIREDDATE,CURRENTASN,MULTILEVEL,
+			
+			OILLIMIT,CARDPIN,IDNO,CANLOADPOINT,CANTEDITLIMITS,LASTINVOICETIME,INVOICEAMOUNT,
+			
+			CUSTOMER_LEVEL as customerLevel,FREQUENCY,UNIQUEID,ISTOPUP,CAR_TYPE as carType,QUANTITYLIMIT,MOBILECARTYPE,
+			
+			NAME,INTERNAL,CLEAR_METHOD as clearMethod,COMPANYCUSTOMER_ID as companycustomerId,MERCHANDISELIMIT,ISMERLIMIT,STATIONLIMIT,
+			
+			QUANTITYNUMBER,CARSERIES_ID as carseriesId,PINTRYTIMES,ISUPDATECLIENTINFO,CARD_ID as cardId,CARMODEL_ID as carmodelId,
+			
+			ISMASTERCARD,NOTES,RECNUM,CRSTATE,OPFSTATE,OSASTATE
+			
+			 from Tbl_Carduser where CARDUSER_ID > #{id}
+  	</select>
+  	<select id="queryMaxId" resultType="Integer">
+  		select max(CARDUSER_ID) from Tbl_Carduser
+  	</select>
+</mapper>

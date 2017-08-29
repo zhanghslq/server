@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblOperatorDao">
+  	<select id="queryAll" parameterType="Integer" resultType="TblOperator" >
+  		select id,version,birthday,phone,certificateno,password,registertime,uniqueid,city_id,
+			organization_id,ukey_id,description,name,province,gender,lockorg_id,loginname,passwordbirthday,
+			invalidtime,enable_status,status,photo_id,nation,country,email,address,fullname
+  		 	from tbl_operator where id > #{id}
+  	</select>
+  	<select id="queryMaxId" resultType="Integer">
+  		select max(ID) from tbl_operator
+  	</select>
+</mapper>
