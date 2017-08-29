@@ -5,7 +5,8 @@
   		
 			insert into cashier_history(period_id,cashier_id,cshr_num_trs,cshr_val_trs,cshr_num_void,cshr_val_void,
 			cshr_num_nosales,cshr_num_refund,cshr_val_refund,cshr_num_disc,cshr_val_disc,cshr_num_surc,cshr_val_surc,
-			cshr_num_safedrop,cshr_val_safedrop,total_awarded_qty,total_awarded_val,total_redeemed_qty,total_redeemed_val)
+			cshr_num_safedrop,cshr_val_safedrop,total_awarded_qty,total_awarded_val,total_redeemed_qty,
+			total_redeemed_val,station_id)
 			
 			values
 			<foreach collection="list" item="cashierHistory" index="i" separator=",">
@@ -21,7 +22,7 @@
 		
 			#{cashierHistory.totalAwardedQty},#{cashierHistory.totalAwarderVal},#{cashierHistory.totalRedeemedQty},
 		
-			#{cashierHistory.totalRedeemedVal})
+			#{cashierHistory.totalRedeemedVal},#{cashierHistory.stationId})
 		</foreach>
   	</insert>
 </mapper>

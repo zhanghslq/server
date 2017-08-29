@@ -11,7 +11,7 @@
 			driveoffs_cost,test_del_quantity,test_del_volume,offline_quantity,offline_volume,offline_value,offline_cost,
 			open_mech_volume,close_mech_volume,open_volume_turnover_correction,open_money_turnover_correction,
 			close_volume_turnover_correction,close_money_turnover_correction,open_volume_turnover_correction2,
-			close_volume_turnover_correction2,hose_vol_disc,hose_val_disc,hose_vol_surc,hose_val_surc)
+			close_volume_turnover_correction2,hose_vol_disc,hose_val_disc,hose_vol_surc,hose_val_surc,station_id)
 			
 			values
 		<foreach collection="list" item="hoseHistory" index="i"  separator=","  >
@@ -37,7 +37,7 @@
 			
 			#{hoseHistory.closeVolumeTurnoverCorrection},#{hoseHistory.closeMoneyTurnoverCorrection},#{hoseHistory.openVolumeTurnoverCorrection2},#{hoseHistory.closeVolumeTurnoverCorrection2},
 			
-			#{hoseHistory.hoseVolDisc},#{hoseHistory.hoseValDisc},#{hoseHistory.hoseVolSurc},#{hoseHistory.HoseValSurc})
+			#{hoseHistory.hoseVolDisc},#{hoseHistory.hoseValDisc},#{hoseHistory.hoseVolSurc},#{hoseHistory.HoseValSurc},#{hoseHistory.stationId})
 		</foreach>
   	</insert>
 </mapper>

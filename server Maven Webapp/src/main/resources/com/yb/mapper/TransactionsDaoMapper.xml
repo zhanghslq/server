@@ -7,7 +7,8 @@
 			pos_id,transaction_number,transaction_date,period_id,tax_total,
 			sale_total,bir_receipt_type,bir_trans_number,refunded,Alt_Transaction_Number,
 			cdraw_period_id,receipt_number,transaction_start_dt,award_total,redemption_total,
-			refund_total,discount_total,refunded_date,is_refund,disc_as_mop_total,transaction_db_date)
+			refund_total,discount_total,refunded_date,is_refund,disc_as_mop_total,
+			transaction_db_date,station_id)
 			
 			values
 		<foreach collection="list" item="transactions" index="i" separator=","   >
@@ -27,7 +28,7 @@
 			
 			#{transactions.refundedDate},#{transactions.isRefund},#{transactions.discAsMopTotal},
 			
-			#{transactions.transactionDbDate})
+			#{transactions.transactionDbDate},#{transactions.stationId})
 		</foreach>
   	</insert>
 </mapper>

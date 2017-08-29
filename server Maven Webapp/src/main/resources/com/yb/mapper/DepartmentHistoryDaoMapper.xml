@@ -4,7 +4,7 @@
   	<insert id="insert" parameterType="List">
 			insert into department_history(period_id,department_id,dept_qty_item_sold,dept_val_item_sold,
 			dept_qty_item_ref,dept_val_item_ref,dept_qty_disc,dept_val_disc,dept_qty_surc,dept_val_surc,
-			total_awarded_qty,total_awarded_val,total_redeemed_qty,total_redeemed_val) 
+			total_awarded_qty,total_awarded_val,total_redeemed_qty,total_redeemed_val,station_id) 
 			
 			values
   		<foreach collection="list" item="departmentHistory" index="i"  separator=","   >
@@ -17,7 +17,7 @@
 			
 			#{departmentHistory.deptValSurc},#{departmentHistory.totalAwardedQty},#{departmentHistory.totalAwardedVal},
 			
-			#{departmentHistory.totalRedeemedQty},#{departmentHistory.totalRedeemedVal})
+			#{departmentHistory.totalRedeemedQty},#{departmentHistory.totalRedeemedVal},#{departmentHistory.stationId})
 		</foreach>
   	</insert>
 </mapper>

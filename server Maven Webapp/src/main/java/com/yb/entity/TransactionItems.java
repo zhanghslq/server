@@ -31,7 +31,7 @@ public class TransactionItems implements Serializable{
 	private Integer subItemNumber;
 	private String currencyCode;
 	private BigDecimal taxRate;
-private String stationId;
+	private String stationId;
 	
 	public String getStationId() {
 		return stationId;

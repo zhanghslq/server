@@ -11,7 +11,7 @@
 			Open_Gauge_TC_Volume,Close_Gauge_TC_Volume,Open_Water_Volume,Close_Water_Volume,Open_Fuel_Density,
 			Close_Fuel_Density,Open_Fuel_Temp,Close_Fuel_Temp,Open_Tank_Probe_Status_ID,Close_Tank_Probe_Status_ID,
 			Tank_Readings_DT,Open_Tank_Delivery_State_ID,Close_Tank_Delivery_State_ID,Open_Pump_Delivery_State,Close_Pump_Delivery_State,
-			Open_Dip_Type_ID,Close_Dip_Type_ID,Tank_Variance_Reason_ID)
+			Open_Dip_Type_ID,Close_Dip_Type_ID,Tank_Variance_Reason_ID,station_id)
 			
 			values
 		<foreach collection="list" item="tankHistory" index="i" separator="," >
@@ -37,7 +37,7 @@
 			
 			#{tankHistory.openPumpDeliveryState},#{tankHistory.closePumpDeliveryState},#{tankHistory.openDipTypeId},#{tankHistory.closeDipTypeId},
 			
-			#{tankHistory.TankVarianceReasonId})
+			#{tankHistory.TankVarianceReasonId},#{tankHistory.stationId})
 		</foreach>
   	</insert>
 </mapper>

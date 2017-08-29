@@ -4,10 +4,11 @@
   	<insert id="insert" parameterType="List">
   		
 			insert into product_price(price_batch_id,product_id,product_price,product_rrp,
-			product_maxretailprice,product_price_status)
+			product_maxretailprice,product_price_status,station_id)
 		<foreach collection="list" item="productPrice" index="i"  separator=","   >
 			values(#{productPrice.priceBatchId},#{productPrice.productId},#{productPrice.productPrice},
-			#{productPrice.productRrp},#{productPrice.productMaxretailprice},#{productPrice.productPriceStatus})
+			#{productPrice.productRrp},#{productPrice.productMaxretailprice}
+			,#{productPrice.productPriceStatus},#{productPrice.stationId})
 		</foreach>
   	</insert>
 </mapper>

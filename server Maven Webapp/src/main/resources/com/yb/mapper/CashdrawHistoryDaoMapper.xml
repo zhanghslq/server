@@ -5,7 +5,7 @@
   		
 			insert into cashdraw_history(cdraw_period_id,mop_id,cdraw_tot_amount,cdraw_float,cdraw_num_safedrop,
 			cdraw_tot_safedrop,cdraw_num_payin,cdraw_tot_payin,cdraw_amount_counted,cdraw_num_payout,cdraw_tot_payout
-			,cdraw_total_prepay_del_value,cdraw_total_prepay_excess,cdraw_prepay_count,cdraw_prepay_excess_count,cdraw_qty_mop)
+			,cdraw_total_prepay_del_value,cdraw_total_prepay_excess,cdraw_prepay_count,cdraw_prepay_excess_count,cdraw_qty_mop,station_id)
 			values
 			<foreach collection="list" item="cashdrawHistory" index="i"  separator="," >
 			(#{cashdrawHistory.cdrawPeriodId},#{cashdrawHistory.mopId},#{cashdrawHistory.cdrawTotAmount},
@@ -13,7 +13,7 @@
 			#{cashdrawHistory.cdrawNumPayin},#{cashdrawHistory.cdrawTotPayin},#{cashdrawHistory.cdrawAmountCounted},
 			#{cashdrawHistory.cdrawNumPayout},#{cashdrawHistory.cdrawTotPayout},#{cashdrawHistory.cdrawTotalPrepayDelValue},
 			#{cashdrawHistory.cdrawPotalPrepayExcess},#{cashdrawHistory.cdrawPrepayCount},#{cashdrawHistory.cdrawPrepayExcessCount},
-			#{cashdrawHistory.cdrawQtyMop})
+			#{cashdrawHistory.cdrawQtyMop},#{cashdrawHistory.stationId})
 		</foreach>
   	</insert>
 </mapper>

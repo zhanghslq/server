@@ -22,7 +22,7 @@ public class DepartmentHistory implements Serializable {
 	private BigDecimal totalAwardedVal;
 	private Integer totalRedeemedQty;
 	private BigDecimal totalRedeemedVal;
-private String stationId;
+	private String stationId;
 	
 	public String getStationId() {
 		return stationId;

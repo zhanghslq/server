@@ -1,7 +1,6 @@
 package com.yb.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class TransactionPeriod implements Serializable{
 	/**

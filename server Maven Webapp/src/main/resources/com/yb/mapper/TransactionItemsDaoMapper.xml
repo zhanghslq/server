@@ -6,7 +6,7 @@
 			insert into transaction_items(transaction_id,item_number,item_type,tax_id,item_description,
 			mop_name,item_price,item_quantity,item_value,item_id,item_tax_amount,scitem,refunded,orig_trx_id,
 			orig_item_num,department_id,item_ean,price_batch_id,group_item_type,group_parent_item_number,sub_item_number,
-			currency_code,tax_rate)
+			currency_code,tax_rate,station_id)
 			
 			values
 		<foreach collection="list" item="transactionItems" index="i" separator=","  >
@@ -24,7 +24,7 @@
 			
 			#{transactionItems.groupItemType},#{transactionItems.groupParentItemNumber},#{transactionItems.subItemNumber},
 			
-			#{transactionItems.currencyCode},#{transactionItems.taxRate})
+			#{transactionItems.currencyCode},#{transactionItems.taxRate},#{transactionItems.stationId})
 		</foreach>
   	</insert>
 </mapper>

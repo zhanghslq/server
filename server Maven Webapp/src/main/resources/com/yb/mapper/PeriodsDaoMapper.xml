@@ -5,14 +5,15 @@
   		
 			insert into periods(period_id,period_create_ts,period_type,period_close_dt,
 			period_state,period_name,period_number,tank_dips_entered,tank_drops_entered,
-			pump_meter_entered,exported,export_required,wetstock_out_of_variance,wetstock_approval_id,business_date)
+			pump_meter_entered,exported,export_required,wetstock_out_of_variance,wetstock_approval_id,
+			business_date,station_id)
 			
 			values
 		<foreach collection="list" item="periods" index="i"  separator=","   >
 			(#{periods.periodId},#{periods.periodCreateTs},#{periods.periodType},#{periods.periodCloseDt},
 			#{periods.periodState},#{periods.periodName},#{periods.periodNumber},#{periods.tankDipsEntered},
 			#{periods.tankDropsEntered},#{periods.pumpMeterEntered},#{periods.exported},#{periods.exportRequired},
-			#{periods.wetstockOutOfVariance},#{periods.wetstockApprovalId},#{periods.businessDate})
+			#{periods.wetstockOutOfVariance},#{periods.wetstockApprovalId},#{periods.businessDate},#{periods.stationId})
 		</foreach>
   	</insert>
 </mapper>

@@ -4,7 +4,7 @@
   	<insert id="insert" parameterType="List">
 			insert into cdrawgrade_history(cdraw_period_id,grade_id,cdrawgrade_trs,cdrawgrade_vol,
 			cdrawgrade_val,cdrawgrade_vol_disc,cdrawgrade_val_disc,cdrawgrade_qty_surc,cdrawgrade_val_surc,
-			cdrawgrade_vol1,cdrawgrade_val1,cdrawgrade_vol2,cdrawgrade_val2)
+			cdrawgrade_vol1,cdrawgrade_val1,cdrawgrade_vol2,cdrawgrade_val2,station_id)
 			
 			values
 		<foreach collection="list" item="cdrawgradeHistory" index="i" separator=",">
@@ -17,7 +17,7 @@
 			
 			#{cdrawgradeHistory.cdrawgradeVol1},#{cdrawgradeHistory.cdrawgradeVal1},#{cdrawgradeHistory.cdrawgradeVol2},
 			
-			#{cdrawgradeHistory.cdrawgradeVal2})
+			#{cdrawgradeHistory.cdrawgradeVal2},#{cdrawgradeHistory.stationId})
 		</foreach>
   	</insert>
 </mapper>

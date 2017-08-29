@@ -7,7 +7,7 @@
 			del_sell_price,del_cost_price,cleared_by,reserved_by,transaction_id,del_item_number,
 			delivery2_volume,hose_meter_volume,hose_meter_value,hose_meter_volume2,hose_meter_value2,
 			auth_ref,blend_ratio,previous_delivery_type,delivery1_volume,delivery1_value,delivery2_value,
-			hose_meter_volume1,hose_meter_value1,grade1_price,grade2_price)
+			hose_meter_volume1,hose_meter_value1,grade1_price,grade2_price,station_id)
 			
 			values
 	<foreach collection="list" item="hoseDelivery" index="i"  separator=","  >
@@ -32,7 +32,7 @@
 			
 			#{hoseDelivery.hoseMeterVolume1},#{hoseDelivery.hoseMeterValue1},#{hoseDelivery.grade1Price},
 			
-			#{hoseDelivery.grade2Price})
+			#{hoseDelivery.grade2Price},#{hoseDelivery.stationId})
 		</foreach>
   	</insert>
 </mapper>

@@ -4,12 +4,12 @@
   	<insert id="insert" parameterType="List">
   		
 			insert into price_batch(price_batch_id,Price_Event_Number,price_batch_description,price_batch_permanent,
-			price_batch_start_dt,price_batch_end_dt,price_batch_status,price_type_name)
+			price_batch_start_dt,price_batch_end_dt,price_batch_status,price_type_name,station_id)
 			
 			values
 		<foreach collection="list" item="priceBatch" index="i" separator=","  >
 			(#{priceBatch.priceBatchId},#{priceBatch.priceEventNumber},#{priceBatch.priceBatchDescription},#{priceBatch.priceBatchPermanent},
-			#{priceBatch.priceBatchStartDt},#{priceBatch.priceBatchEndDt},#{priceBatch.priceBatchStatus},#{priceBatch.priceTypeName})
+			#{priceBatch.priceBatchStartDt},#{priceBatch.priceBatchEndDt},#{priceBatch.priceBatchStatus},#{priceBatch.priceTypeName},#{priceBatch.stationId})
 		</foreach>
   	</insert>
 </mapper>

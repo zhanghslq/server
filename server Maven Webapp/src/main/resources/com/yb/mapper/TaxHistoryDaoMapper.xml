@@ -3,10 +3,10 @@
 <mapper namespace="com.yb.dao.TaxHistoryDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into tax_history(period_id,tax_id,tax_tot_value)
+			insert into tax_history(period_id,tax_id,tax_tot_value,station_id)
 			values
 		<foreach collection="list" item="taxHistory" index="i" separator="," >
-			(#{taxHistory.periodId},#{taxHistory.taxId},#{taxHistory.taxTotValue})
+			(#{taxHistory.periodId},#{taxHistory.taxId},#{taxHistory.taxTotValue},#{taxHistory.stationId})
 		</foreach>
   	</insert>
 </mapper>

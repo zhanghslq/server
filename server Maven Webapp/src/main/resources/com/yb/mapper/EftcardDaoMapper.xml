@@ -5,7 +5,7 @@
 			insert into eftcard(transaction_id,item_number,card_number,account_type,
 			card_type,card_type_name,audit_number,vehicle_reg,odometer,
 			order_number,original_docket,original_date,terminal_number,terminal_id,
-			terminal_type,used_points_value,terminal_type_enum,eft_trace)
+			terminal_type,used_points_value,terminal_type_enum,eft_trace,station_id)
 			values
   		<foreach collection="list" item="eftcard" index="i"  separator="," >
 
@@ -17,7 +17,7 @@
 			
 			#{eftcard.terminalNumber},#{eftcard.terminalId},#{eftcard.terminalType},#{eftcard.usedPointsValue},
 			
-			#{eftcard.terminalTypeEnum},#{eftcard.eftTrace})
+			#{eftcard.terminalTypeEnum},#{eftcard.eftTrace},#{eftcard.stationId})
 		</foreach>
   	</insert>
 </mapper>

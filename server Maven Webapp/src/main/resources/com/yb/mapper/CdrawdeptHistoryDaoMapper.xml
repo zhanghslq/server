@@ -5,7 +5,7 @@
   		
 			insert into cdrawdept_history(cdraw_period_id,department_id,cdrawdept_qty_sld,cdrawdept_val_sld,
 			cdrawdept_qty_ref,cdrawdept_val_ref,cdrawdept_qty_disc,cdrawdept_val_disc,cdrawdept_qty_surc,
-			cdrawdept_val_surc) values
+			cdrawdept_val_surc,station_id) values
 		<foreach collection="list" item="cdrawdeptHistory" index="i" separator=",">
 			(#{cdrawdeptHistory.cdrawPeriodId},#{cdrawdeptHistory.departmentId},
 			
@@ -13,7 +13,7 @@
 			
 			#{cdrawdeptHistory.cdrawdeptValRef},#{cdrawdeptHistory.cdrawdeptQtyDisc},#{cdrawdeptHistory.cdrawdeptValDisc},
 			
-			#{cdrawdeptHistory.cdrawdeptQtySurc},#{cdrawdeptHistory.cdrawdeptValSurc})
+			#{cdrawdeptHistory.cdrawdeptQtySurc},#{cdrawdeptHistory.cdrawdeptValSurc},#{cdrawdeptHistory.stationId})
 			
 		</foreach>
   	</insert>
