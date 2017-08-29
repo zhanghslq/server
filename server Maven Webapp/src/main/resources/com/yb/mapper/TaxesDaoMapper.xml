@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TaxesDao">
+  	<insert id="insert" parameterType="List">
+  		
+			insert into taxes(tax_id,tax_name,tax_rate,tax_inclusive,tax_legend,tax_code,Effective_Datetime,New_Name,New_Rate,tax_active)
+			values
+			<foreach collection="list" item="taxes" index="i"  separator="," >
+			(#{taxes.tax_id},#{taxes.tax_name},#{taxes.tax_rate},#{taxes.tax_inclusive},
+			#{taxes.tax_legend},#{taxes.tax_code},#{taxes.Effective_Datetime},#{taxes.New_Name},#{taxes.New_Rate},#{taxes.tax_active})
+		</foreach>
+  	</insert>
+</mapper>

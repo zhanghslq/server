@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TankDipTypeDao">
+  	<insert id="insert" parameterType="List">
+			insert into Tank_Dip_Type(Tank_Dip_Type_ID,Tank_Dip_Type_Name)
+			values
+			<foreach collection="list" item="tankDipType" index="i"  separator="," >
+			(#{tankDipType.Tank_Dip_Type_ID},#{tankDipType.Tank_Dip_Type_Name})
+		</foreach>
+  	</insert>
+</mapper>
