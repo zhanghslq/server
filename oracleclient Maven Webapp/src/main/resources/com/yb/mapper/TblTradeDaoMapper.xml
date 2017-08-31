@@ -18,8 +18,27 @@
 			
 			ERROR_TYPE as errorType,ACCOUNT_ID accountId from TBL_TRADE where ID>#{id}
 		</select>
+		<!-- <select id="queryAll"  resultType="TblTrade">
 		
-		
+			select ID as tradeId,VERSION,ORIGINALDATE,PSAMASN,OFFLINETXNO,ADJUST_TYPE as adjustType,GRAYTRADEID,
+			
+			REALAMOUNT,CARDLOC_ID as cardlocId,ACTIVITYID,AMOUNT,BALANCE,OPER_ID as operId,ISINVOICE,SUBACCOUNTTYPE,TRADE_STATUS as tradeStatus,
+			
+			VIRTUALGOODSID,INVOICETYPE,ORDERNUM,RECORDTIME,CUSTOMER_LEVEL as customerLevel,CARDTYPE,OPERNO,DISCOUNT,
+			
+			PRICE,ISSUER_ID as issuerId,RELATEDID,CHEQUEID,CARDUSER_ID as cardUserId,PAY_TYPE as payType,BANKTRACE,CARDUSER_TYPE as carduserType,TRADE_TYPE as tradeType,
+			
+			VOLUMN,BRINGPOINTSID,GIFT_ID as giftId,BANKTERMID,GOODSCATEGORY_ID as goodscategoryId,BLACKINTERVAL,ACQUIRER_ID as acquirerId,ORG_ID as orgId,
+			
+			UNIQUEID,OCCURTIME,BUSINESSDATE,BATCHNO,EFTSN,RPOSSN,MAINTRADEID,DEPOSITTYPE,EFTNO,SUBTRADETYPE,
+			
+			CARDASN,POINTDESCRIPTION,CARDTXNO,BANKCARD,RULESETID,BASE_ACCOUNT_TYPE as baseAccountType,RPOSNO,EPSSN,ACCOUNTTYPE,
+			
+			ERROR_TYPE as errorType,ACCOUNT_ID accountId from (
+				select tt.*,ROWNUM as rn from (
+				select * from TBL_TRADE  order by id) tt )
+					where rn>=#{min} and rn &lt; #{max}
+		</select> -->
 		<select id="queryMaxId" resultType="long">
   		select max(ID) from TBL_TRADE
   	</select>

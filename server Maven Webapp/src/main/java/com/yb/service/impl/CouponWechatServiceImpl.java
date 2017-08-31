@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.yb.dao.CouponWechatDao;
 import com.yb.entity.CouponWechat;
 import com.yb.service.CouponWechatService;
 
@@ -14,11 +15,11 @@ import com.yb.service.CouponWechatService;
 public class CouponWechatServiceImpl implements CouponWechatService{
 
 	@Autowired
-	private CouponWechatService couponWechatService;
+	private CouponWechatDao couponWechatDao;
 	@Override
 	public void insert(List<CouponWechat> list) {
 		// TODO Auto-generated method stub
-		couponWechatService.insert(list);
+		couponWechatDao.insert(list);
 	}
 
 }
