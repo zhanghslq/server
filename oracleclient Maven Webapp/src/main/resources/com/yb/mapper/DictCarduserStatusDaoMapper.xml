@@ -3,9 +3,9 @@
 <mapper namespace="com.yb.dao.DictCarduserStatusDao">
   	<select id="queryAll" parameterType="Integer" resultType="DictCarduserStatus" >
   		select ID,TEXT,ENGLISH,ICONURL
-  		 	from DICT_CARDUSER_STATUS where ID > #{id}
+  		 	from BJSHELL.DICT_CARDUSER_STATUS where ID > #{id}
   	</select>
   	<select id="queryMaxId" resultType="Integer">
-  		select max(ID) from DICT_CARDUSER_STATUS
+  		select max(ID) from BJSHELL.DICT_CARDUSER_STATUS
   	</select>
 </mapper>

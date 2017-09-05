@@ -30,29 +30,8 @@ public class Products implements Serializable{
 	private String barcode;
 	private String upcType;
 	private Integer barcodeSpecialType;
-	private Integer transactionNumber;
-	private Date nowDate;
-private String stationId;
+	private String stationId;
 	
-	public String getStationId() {
-		return stationId;
-	}
-	public void setStationId(String stationId) {
-		this.stationId = stationId;
-	}
-	public Integer getTransactionNumber() {
-		return transactionNumber;
-	}
-	public void setTransactionNumber(Integer transactionNumber) {
-		this.transactionNumber = transactionNumber;
-	}
-	
-	public Date getNowDate() {
-		return nowDate;
-	}
-	public void setNowDate(Date nowDate) {
-		this.nowDate = nowDate;
-	}
 	public Products() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -66,7 +45,7 @@ private String stationId;
 			Integer multipleTaxes, Integer priceBatchId,
 			Integer incompleteProduct, Date delistedDate,
 			Integer productSpecialType, String barcode, String upcType,
-			Integer barcodeSpecialType) {
+			Integer barcodeSpecialType, String stationId) {
 		super();
 		this.productId = productId;
 		this.taxId = taxId;
@@ -89,6 +68,7 @@ private String stationId;
 		this.barcode = barcode;
 		this.upcType = upcType;
 		this.barcodeSpecialType = barcodeSpecialType;
+		this.stationId = stationId;
 	}
 	@Override
 	public String toString() {
@@ -106,7 +86,8 @@ private String stationId;
 				+ priceBatchId + ", incompleteProduct=" + incompleteProduct
 				+ ", delistedDate=" + delistedDate + ", productSpecialType="
 				+ productSpecialType + ", barcode=" + barcode + ", upcType="
-				+ upcType + ", barcodeSpecialType=" + barcodeSpecialType + "]";
+				+ upcType + ", barcodeSpecialType=" + barcodeSpecialType
+				+ ", stationId=" + stationId + "]";
 	}
 	public Integer getProductId() {
 		return productId;
@@ -234,4 +215,12 @@ private String stationId;
 	public void setBarcodeSpecialType(Integer barcodeSpecialType) {
 		this.barcodeSpecialType = barcodeSpecialType;
 	}
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
+	
+	
 }

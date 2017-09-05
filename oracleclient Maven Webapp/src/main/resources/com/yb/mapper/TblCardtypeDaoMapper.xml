@@ -6,9 +6,9 @@
 			initbalance,ismerlimit,annualaudit,base_card_type,canrevcate,daysperextention,depositable,
 			anonymous,targetarea_id,upperlimit,style_id,description,name,auditdaysinadvance,customer_level,
 			physicalcardtype,internal
-  		 	from tbl_cardtype where id > #{id}
+  		 	from BJSHELL.tbl_cardtype where id > #{id}
   	</select>
   	<select id="queryMaxId" resultType="Integer">
-  		select max(ID) from TBL_CARDTYPE
+  		select max(ID) from BJSHELL.TBL_CARDTYPE
   	</select>
 </mapper>

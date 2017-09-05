@@ -44,7 +44,8 @@ public class TblOrderdetailsServiceImpl implements TblOrderdetailsService{
 			File file = new File("TblOrderdetails.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
-				writer.println(0);
+				Long queryMinId = tblOrderdetailsDao.queryMinId();
+				writer.println(String.valueOf(queryMinId));
 				writer.flush();
 			}
 			if(file.isFile() && file.exists()) {
@@ -53,13 +54,26 @@ public class TblOrderdetailsServiceImpl implements TblOrderdetailsService{
 				String readLine = br.readLine();//读取数据
 				id = Long.valueOf(readLine);
 			}
-			List<TblOrderdetails> list = tblOrderdetailsDao.queryAll(id);
-			if(list.size()!=0&&list!=null){//取出来的有数据，才会调用
+			List<TblOrderdetails> list = tblOrderdetailsDao.queryAll(id,id+100000);
+			if(list!=null&&list.size()!=0){
 				ArrayList<TblOrderdetails> arrayList = new ArrayList<TblOrderdetails>();
 				for (TblOrderdetails tblOrderdetails : list) {
 					arrayList.add(tblOrderdetails);//添加的一条数据
 					count++;
-					if(count%30==0){
+					if(count%40==0){
+						String jsonString = JSON.toJSONString(arrayList);
+						HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
+				        String asString = Request.Post("http://localhost:8989/server/tblOrderdetails/insert")
+				                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
+				                .execute().returnContent().asString();
+				        Status status = JSON.parseObject(asString, Status.class);
+				        if(status.getStatus().equals("error")){
+				        	out = new BufferedWriter(new FileWriter("system.log",true));
+				        	out.write(asString+"----count-----"+count+"\n");
+				        }
+				        arrayList.clear();//把临时的集合 的数据清空
+					}
+					if(arrayList.size()!=0){
 						String jsonString = JSON.toJSONString(arrayList);
 						HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
 				        String asString = Request.Post("http://localhost:8989/server/tblOrderdetails/insert")
@@ -73,23 +87,15 @@ public class TblOrderdetailsServiceImpl implements TblOrderdetailsService{
 				        arrayList.clear();//把临时的集合 的数据清空
 					}
 				}
-				list.clear();
-				if(count%30!=0){//证明最后还有未提交的数据
-					String jsonString = JSON.toJSONString(arrayList);
-					HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
-			        String asString = Request.Post("http://localhost:8989/server/tblOrderdetails/insert")
-			                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
-			                .execute().returnContent().asString();//调用接口，提交数据
-			        Status status = JSON.parseObject(asString, Status.class);
-			        if(status.getStatus().equals("error")){
-			        	out = new BufferedWriter(new FileWriter("system.log",true));
-			        	out.write(asString+"----count-----"+count+"\n");
-			        }
-			        arrayList.clear();//把临时的集合 的数据清空
-				}
-				Long maxId = tblOrderdetailsDao.queryMaxId();
 				pw=new PrintWriter(file);
-				pw.write(String.valueOf(maxId));//把最新的id最大的写入文件
+				pw.write(String.valueOf(id+100000));//把最新的id最大的写入文件
+				pw.flush();
+				list.clear();
+				queryAll();
+			}else {
+				pw=new PrintWriter(file);
+				Long queryMaxId = tblOrderdetailsDao.queryMaxId();
+				pw.write(String.valueOf(queryMaxId+1));//把最新的id最大的写入文件
 				pw.flush();
 			}
 		} catch (Exception e) {

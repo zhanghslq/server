@@ -50,8 +50,6 @@ public class AutoJob {
 		private TblTradeService tblTradeService;
 		@Autowired
 		private TblVirtualgoodsService tblVirtualgoodsService;
-		
-
 		//@Scheduled(cron="0/60 * * * * ?")
 		@Test
 		public void autowork(){
@@ -66,7 +64,10 @@ public class AutoJob {
 			tblOrderService.queryAll();
 			tblShopgoodsdetailsService.queryAll();
 			tblShoppingcartService.queryAll();
-			tblTradeService.queryAll();
 			tblVirtualgoodsService.queryAll();
 	}
+		@Test
+		public void test(){
+			tblTradeService.queryAll();
+		}
 }

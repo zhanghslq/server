@@ -4,13 +4,13 @@
 		<select id="queryAll" parameterType="long" resultType="TblShoppingcart"> 
 			select ID as shoppingcartId,VERSION,CREATETIME,RULESET_ID as rulesetId,
 			
-			CARDUSER_ID as carduserId,INTEGRATION,CUSTOMER_LEVEL as customerLevel,GOODSNUM,VIRTUAL_GOODS_TYPE as virtualGoodsType from TBL_SHOPPINGCART
+			CARDUSER_ID as carduserId,INTEGRATION,CUSTOMER_LEVEL as customerLevel,GOODSNUM,VIRTUAL_GOODS_TYPE as virtualGoodsType from BJSHELL.TBL_SHOPPINGCART
 			
 			where ID>#{id}
 		</select>	
 		
 		
 		<select id="queryMaxId" resultType="long">
-  		select max(ID) from TBL_SHOPPINGCART
+  		select max(ID) from BJSHELL.TBL_SHOPPINGCART
   	</select>
 </mapper>

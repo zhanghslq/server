@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.TblMyfavoriteDao">
 	<select id="queryAll" parameterType="long" resultType="TblMyfavorite">
-			select ID as myfavoriteId,VERSION,ORGID,CUSID  from  TBL_MYFAVORITE where ID >#{id}
+			select ID as myfavoriteId,VERSION,ORGID,CUSID  from  BJSHELL.TBL_MYFAVORITE where ID >#{id}
 	</select>	
 	
 	<select id="queryMaxId" resultType="long">
-  		select max(ID) from TBL_MYFAVORITE
+  		select max(ID) from BJSHELL.TBL_MYFAVORITE
   	</select>	
 </mapper>

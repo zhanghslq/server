@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.yb.service.CouponOilOrderService;
-import com.yb.service.CouponWechatService;
 import com.yb.service.TblAccountService;
 import com.yb.service.TblCardService;
 import com.yb.service.TblCarduserService;
@@ -45,11 +43,6 @@ public class AutoJob {
 		@Autowired
 		private TblShoppingcartService tblShoppingcartService;
 		@Autowired
-		private CouponOilOrderService couponOilOrderService;
-		@Autowired
-		private CouponWechatService couponWechatService;
-		
-		@Autowired
 		private TblTradeService tblTradeService;
 		@Autowired
 		private TblVirtualgoodsService tblVirtualgoodsService;
@@ -69,8 +62,6 @@ public class AutoJob {
 			tblShopgoodsdetailsService.queryAll();
 			tblShoppingcartService.queryAll();
 			tblVirtualgoodsService.queryAll();
-			couponOilOrderService.queryAll();
-			couponWechatService.queryAll();
 			tblTradeService.queryAll();
 	}
 }

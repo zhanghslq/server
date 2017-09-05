@@ -5,9 +5,9 @@
   		select id,version,birthday,phone,certificateno,password,registertime,uniqueid,city_id,
 			organization_id,ukey_id,description,name,province,gender,lockorg_id,loginname,passwordbirthday,
 			invalidtime,enable_status,status,photo_id,nation,country,email,address,fullname
-  		 	from tbl_operator where id > #{id}
+  		 	from BJSHELL.tbl_operator where id > #{id}
   	</select>
   	<select id="queryMaxId" resultType="Integer">
-  		select max(ID) from tbl_operator
+  		select max(ID) from BJSHELL.tbl_operator
   	</select>
 </mapper>

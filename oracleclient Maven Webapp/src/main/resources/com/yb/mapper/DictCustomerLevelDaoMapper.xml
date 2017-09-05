@@ -3,9 +3,9 @@
 <mapper namespace="com.yb.dao.DictCustomerLevelDao">
   	<select id="queryAll" parameterType="Integer" resultType="DictCustomerLevel" >
   		select ID,TEXT,ENGLISH,ICONURL
-  		 	from DICT_CUSTOMER_LEVEL where ID > #{id}
+  		 	from BJSHELL.DICT_CUSTOMER_LEVEL where ID > #{id}
   	</select>
   	<select id="queryMaxId" resultType="Integer">
-  		select max(ID) from DICT_CUSTOMER_LEVEL
+  		select max(ID) from BJSHELL.DICT_CUSTOMER_LEVEL
   	</select>
 </mapper>

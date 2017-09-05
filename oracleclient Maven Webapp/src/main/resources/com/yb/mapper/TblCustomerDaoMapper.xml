@@ -10,10 +10,10 @@
 			
 			BLOOD,MOBILEPHONE,EMAIL,ADDRESS,ISCZ,MSGSOURCE,NOTES,IDNO,CAR_NATURE,OPENID
 			
-			from TBL_CUSTOMER where ID>#{id}
+			from BJSHELL.TBL_CUSTOMER where ID>#{id}
   	</select>
   	
   	<select id="queryMaxId" resultType="long">
-  		select max(ID) from TBL_CUSTOMER
+  		select max(ID) from BJSHELL.TBL_CUSTOMER
   	</select>
 </mapper>

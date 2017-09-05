@@ -3,9 +3,9 @@
 <mapper namespace="com.yb.dao.DictPayTypeDao">
   	<select id="queryAll" parameterType="Integer" resultType="DictPayType" >
   		select ID,TEXT,ENGLISH,ICONURL
-  		 	from DICT_PAY_TYPE where ID > #{id}
+  		 	from BJSHELL.DICT_PAY_TYPE where ID > #{id}
   	</select>
   	<select id="queryMaxId" resultType="Integer">
-  		select max(ID) from DICT_PAY_TYPE
+  		select max(ID) from BJSHELL.DICT_PAY_TYPE
   	</select>
 </mapper>

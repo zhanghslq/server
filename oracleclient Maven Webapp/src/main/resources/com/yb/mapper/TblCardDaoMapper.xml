@@ -10,9 +10,9 @@
 			
 			TARGETORG_ID as targetorgId,UKEYOPERATOR_ID as ukeyoperatorId,BLACKTYPE,CARDSTORE_STATUS as cardstoreStatus,TRADEL,EXPIREDTIME,
 			
-			owner_id as carduserId,ASN from TBL_CARD where ID > #{id}
+			owner_id as carduserId,ASN from BJSHELL.TBL_CARD where ID > #{id}
   	</select>
   	<select id="queryMaxId" resultType="long">
-  		select max(ID) from TBL_CARD
+  		select max(ID) from BJSHELL.TBL_CARD
   	</select>
 </mapper>

@@ -8,14 +8,29 @@
 			
 			AMOUNT,GOODS_RULE_TYPE as goodsRuleType,RELATEDID,INTEGRATION,RULE_ID as ruleId,GOODS_USE_TYPE as goodsUseType,EXPIREDTIME,ISCUMSUM,
 			
-			CATCODE,GOODSRULE_ID as goodsruleId,DISCOUNTRATE,EFFECTIVEDATE,TRUE_FALSE as trueFalse from TBL_VIRTUALGOODS
+			CATCODE,GOODSRULE_ID as goodsruleId,DISCOUNTRATE,EFFECTIVEDATE,TRUE_FALSE as trueFalse from BJSHELL.TBL_VIRTUALGOODS
 			
-			where ID>#{id}
+			where ID>=#{min} and ID &lt; #{max}
 		</select>
+		<!-- <select id="queryAll"  resultType="TblVirtualgoods">
 		
+			select ID as virtualgoodsId,VERSION,CREATETIME,USESTATIONLIMIT,CARDUSER_ID as carduserId,
+			
+			TRADEID,VIRTUAL_GOODS_STATUS as virtualGoodsStatus,COUPON_TYPE as couponType,ORGUNIQUEID,LOWERAMOUNT,STATIONLIMIT,VIRTUAL_GOODS_TYPE as virtualGoodsType,
+			
+			AMOUNT,GOODS_RULE_TYPE as goodsRuleType,RELATEDID,INTEGRATION,RULE_ID as ruleId,GOODS_USE_TYPE as goodsUseType,EXPIREDTIME,ISCUMSUM,
+			
+			CATCODE,GOODSRULE_ID as goodsruleId,DISCOUNTRATE,EFFECTIVEDATE,TRUE_FALSE as trueFalse from (
+				select tt.*,ROWNUM as rn from (
+				select * from BJSHELL.TBL_VIRTUALGOODS  order by id) tt )
+					where rn>=#{min} and rn &lt; #{max}
+		</select> -->
 		
 		
 		<select id="queryMaxId" resultType="long">
-	  		select max(ID) from TBL_VIRTUALGOODS
+	  		select max(ID) from BJSHELL.TBL_VIRTUALGOODS
+	  	</select>
+	  	<select id="queryMinId" resultType="long">
+	  		select min(ID) from BJSHELL.TBL_VIRTUALGOODS
 	  	</select>
 </mapper>

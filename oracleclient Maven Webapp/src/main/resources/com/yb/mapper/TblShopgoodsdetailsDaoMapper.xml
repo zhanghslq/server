@@ -4,12 +4,23 @@
 		<select id="queryAll" parameterType="long" resultType="TblShopgoodsdetails">
 			select ID as shopgoodsdetailsId,VERSION,MEMBER,AMOUNT,
 			RECEIVEDATE,ORDER_ID as orderdetailsId,REMARK,TOTALAMOUNT,ORDERNUM,UNITPRICE,QUANTITY,
-			CODE,DISCOUNT from  TBL_SHOPGOODSDETAILS where ID >#{id}
+			CODE,DISCOUNT from  BJSHELL.TBL_SHOPGOODSDETAILS where ID >=#{min} and ID&lt;#{max}
 			
 		</select>	
 		
+		<!-- <select id="queryAll"  resultType="TblShopgoodsdetails">
+			select ID as shopgoodsdetailsId,VERSION,MEMBER,AMOUNT,
+			RECEIVEDATE,ORDER_ID as orderdetailsId,REMARK,TOTALAMOUNT,ORDERNUM,UNITPRICE,QUANTITY,
+			CODE,DISCOUNT from (
+				select tt.*,ROWNUM as rn from (
+				select * from BJSHELL.TBL_SHOPGOODSDETAILS  order by id) tt )
+					where rn>=#{min} and rn &lt; #{max}
+		</select> -->
 		
 		<select id="queryMaxId" resultType="long">
-	  		select max(ID) from TBL_SHOPGOODSDETAILS
+	  		select max(ID) from BJSHELL.TBL_SHOPGOODSDETAILS
+	  	</select>
+	  	<select id="queryMinId" resultType="long">
+	  		select min(ID) from BJSHELL.TBL_SHOPGOODSDETAILS
 	  	</select>
 </mapper>

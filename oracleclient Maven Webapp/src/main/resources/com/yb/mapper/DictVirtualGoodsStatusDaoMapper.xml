@@ -3,9 +3,9 @@
 <mapper namespace="com.yb.dao.DictVirtualGoodsStatusDao">
   	<select id="queryAll" parameterType="Integer" resultType="DictVirtualGoodsStatus" >
   		select ID,TEXT,ENGLISH,ICONURL
-  		 	from DICT_VIRTUAL_GOODS_STATUS where ID > #{id}
+  		 	from BJSHELL.DICT_VIRTUAL_GOODS_STATUS where ID > #{id}
   	</select>
   	<select id="queryMaxId" resultType="Integer">
-  		select max(ID) from DICT_VIRTUAL_GOODS_STATUS
+  		select max(ID) from BJSHELL.DICT_VIRTUAL_GOODS_STATUS
   	</select>
 </mapper>

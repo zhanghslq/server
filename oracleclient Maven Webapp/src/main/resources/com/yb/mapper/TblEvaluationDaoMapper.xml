@@ -3,11 +3,11 @@
 <mapper namespace="com.yb.dao.TblEvaluationDao">
 	<select id="queryAll" parameterType="long" resultType="TblEvaluation">
 			select ID as evaluationId,VERSION,CONTENT,TIME,STATUS,STAR,
-			ORG_ID as orgId,CUSTOMER_ID as customerIds,TRADEID from TBL_EVALUATION where ID>#{id}
+			ORG_ID as orgId,CUSTOMER_ID as customerIds,TRADEID from BJSHELL.TBL_EVALUATION where ID>#{id}
 			
 	</select>
 	
 	<select id="queryMaxId" resultType="long">
-  		select max(ID) from TBL_EVALUATION
+  		select max(ID) from BJSHELL.TBL_EVALUATION
   	</select>
 </mapper>

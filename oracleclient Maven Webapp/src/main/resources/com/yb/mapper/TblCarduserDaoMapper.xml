@@ -22,9 +22,9 @@
 			
 			ISMASTERCARD,NOTES,RECNUM,CRSTATE,OPFSTATE,OSASTATE
 			
-			 from Tbl_Carduser tcu left join tbl_setting ts on tcu.customer_id=ts.customer_id where tcu.ID > #{id}
+			 from BJSHELL.Tbl_Carduser tcu left join BJSHELL.tbl_setting ts on tcu.customer_id=ts.customer_id where tcu.ID > #{id}
   	</select>
   	<select id="queryMaxId" resultType="long">
-  		select max(ID) from Tbl_Carduser
+  		select max(ID) from BJSHELL.Tbl_Carduser
   	</select>
 </mapper>

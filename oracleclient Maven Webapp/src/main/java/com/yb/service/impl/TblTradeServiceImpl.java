@@ -44,7 +44,8 @@ public class TblTradeServiceImpl implements TblTradeService{
 			File file = new File("TblTrade.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
-				writer.println(1);
+				Long queryMinId = tblTradeDao.queryMinId();
+				writer.println(String.valueOf(queryMinId));
 				writer.flush();
 			}
 			if(file.isFile() && file.exists()) {
@@ -54,85 +55,52 @@ public class TblTradeServiceImpl implements TblTradeService{
 				id = Long.valueOf(readLine);
 			}
 		
-			List<TblTrade> list = tblTradeDao.queryAll(id);
+			List<TblTrade> list = tblTradeDao.queryAll(id,id+100000);
 			//分页查询
-			/*if(list!=null){
-				if(list.size()==30){
-					String jsonString = JSON.toJSONString(list);
-					HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
-			        String asString = Request.Post("http://localhost:8989/server/tblTrade/insert")
-			                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
-			                .execute().returnContent().asString();
-			        Status status = JSON.parseObject(asString, Status.class);
-			        if(status.getStatus().equals("error")){
-			        	out = new BufferedWriter(new FileWriter("system.log",true));
-			        	out.write(asString+"----count-----"+count+"\n");
-			        }
-			        pw=new PrintWriter(file);
-					pw.write(String.valueOf(id+30));//把最新的id写入文件
-					pw.flush();
-					queryAll();//继续调用
-				}
-				if(list.size()>0&& list.size()<30){
-					String jsonString = JSON.toJSONString(list);
-					HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
-			        String asString = Request.Post("http://localhost:8989/server/tblTrade/insert")
-			                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
-			                .execute().returnContent().asString();//调用接口，提交数据
-			        Status status = JSON.parseObject(asString, Status.class);
-			        if(status.getStatus().equals("error")){
-			        	out = new BufferedWriter(new FileWriter("system.log",true));
-			        	out.write(asString+"----count-----"+count+"\n");
-			        }
-			        pw=new PrintWriter(file);
-					pw.write(String.valueOf(id+list.size()));//把最新的id最大的写入文件
-					pw.flush();
-				}
-				
-			}*/
-			
-			
-		
-			//这是原来的直接全部取出来的
-			if(list.size()!=0&&list!=null){//取出来的有数据，才会调用
-				ArrayList<TblTrade> arrayList = new ArrayList<TblTrade>();
-				for (TblTrade tblTrade : list) {
-					arrayList.add(tblTrade);//添加的一条数据
-					count++;
-					if(count%30==0){
-						String jsonString = JSON.toJSONString(arrayList);
-						HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
-				        String asString = Request.Post("http://localhost:8989/server/tblTrade/insert")
-				                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
-				                .execute().returnContent().asString();
-				        Status status = JSON.parseObject(asString, Status.class);
-				        if(status.getStatus().equals("error")){
-				        	out = new BufferedWriter(new FileWriter("system.log",true));
-				        	out.write(asString+"----count-----"+count+"\n");
-				        }
-				        arrayList.clear();//把临时的集合 的数据清空
+			if(list.size()!=0){
+					ArrayList<TblTrade> arrayList = new ArrayList<TblTrade>();
+					for (TblTrade tblTrade : list) {
+						arrayList.add(tblTrade);//添加的一条数据
+						count++;
+						if(count%40==0){//满40条发送一次
+							String jsonString = JSON.toJSONString(arrayList);
+							HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
+					        String asString = Request.Post("http://localhost:8989/server/tblTrade/insert")
+					                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
+					                .execute().returnContent().asString();
+					        Status status = JSON.parseObject(asString, Status.class);
+					        if(status.getStatus().equals("error")){
+					        	out = new BufferedWriter(new FileWriter("system.log",true));
+					        	out.write(asString+"----count-----"+count+"\n");
+					        }
+					        arrayList.clear();//把临时的集合 的数据清空
+						}//最后的不满足40条的话
+						if(arrayList.size()!=0){//最后的没有经过清除，的数据
+							String jsonString = JSON.toJSONString(arrayList);
+							HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
+					        String asString = Request.Post("http://localhost:8989/server/tblTrade/insert")
+					                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
+					                .execute().returnContent().asString();
+					        Status status = JSON.parseObject(asString, Status.class);
+					        if(status.getStatus().equals("error")){
+					        	out = new BufferedWriter(new FileWriter("system.log",true));
+					        	out.write(asString+"----count-----"+count+"\n");
+					        }
+					        arrayList.clear();//把临时的集合 的数据清空
+						}
 					}
+			        pw=new PrintWriter(file);
+					pw.write(String.valueOf(id+100000));//把最新的id写入文件
+					pw.flush();
+					list.clear();
+					queryAll();//继续调用
+				}else {
+					 pw=new PrintWriter(file);
+					 Long queryMaxId = tblTradeDao.queryMaxId();
+					 pw.write(String.valueOf(queryMaxId+1));//把最新的id写入文件
+					 pw.flush();
+					 list.clear();
 				}
-				list.clear();
-				if(count%30!=0){//证明最后还有未提交的数据
-					String jsonString = JSON.toJSONString(arrayList);
-					HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
-			        String asString = Request.Post("http://localhost:8989/server/tblTrade/insert")
-			                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
-			                .execute().returnContent().asString();//调用接口，提交数据
-			        Status status = JSON.parseObject(asString, Status.class);
-			        if(status.getStatus().equals("error")){
-			        	out = new BufferedWriter(new FileWriter("system.log",true));
-			        	out.write(asString+"----count-----"+count+"\n");
-			        }
-			        arrayList.clear();//把临时的集合 的数据清空
-				}
-				Long maxId = tblTradeDao.queryMaxId();
-				pw=new PrintWriter(file);
-				pw.write(String.valueOf(maxId));//把最新的id最大的写入文件
-				pw.flush();
-			}
-			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

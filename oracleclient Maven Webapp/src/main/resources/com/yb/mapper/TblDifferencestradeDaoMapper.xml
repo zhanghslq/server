@@ -8,10 +8,10 @@
 			
 			AMOUNT,ORG_ID as orgId,TRANSDATE,BATCHNO,DIFF_TYPE as diffType,TRANSTIME,PAYTYPE,COUPON,THIRDTRANSTIME
 			
-			from TBL_DIFFERENCESTRADE where ID >#{id}
+			from BJSHELL.TBL_DIFFERENCESTRADE where ID >#{id}
   	</select>
   	
   	<select id="queryMaxId" resultType="long">
-  		select max(ID) from TBL_DIFFERENCESTRADE
+  		select max(ID) from BJSHELL.TBL_DIFFERENCESTRADE
   	</select>
 </mapper>

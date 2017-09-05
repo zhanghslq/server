@@ -8,14 +8,36 @@
 			
 			DISCOUNTAMOUNT,CARDUSERID,AMOUNT,OILPRICE,TERMNUM,SENDTIME,INVOICETITLE,
 			
-			MEMBERNO,VIRTUALGOODSIDS,tcu.Customer_Id from TBL_ORDERDETAILS tod left join TBL_carduser tcu  on
+			MEMBERNO,VIRTUALGOODSIDS,tcu.Customer_Id from BJSHELL.TBL_ORDERDETAILS tod left join BJSHELL.TBL_carduser tcu  on
 			
-			tod.carduserid=tcu.id where tod.ID>#{id}
+			tod.carduserid=tcu.id where tod.ID>=#{min} and tod.ID&lt;#{max}
 			
 			</select>
 			
+		<!-- <select id="queryAll"  resultType="TblOrderdetails">
+		
+			select ID as orderdetailsId,VERSION,NOWDATE,VIRTUALGOODSID,RETURNCODE,
+			
+			LITRE,STATIONCODE,COUPONAMOUNT,REQUESTID,ORDERNUM,REALAMOUNT,OILCODE,ORDER_DEAL as orderDeal,
+			
+			DISCOUNTAMOUNT,CARDUSERID,AMOUNT,OILPRICE,TERMNUM,SENDTIME,INVOICETITLE,
+			
+			MEMBERNO,VIRTUALGOODSIDS,Customer_Id from (
+				select tt.*,ROWNUM as rn from (
+				
+				select tod.*,tcu.Customer_Id from BJSHELL.TBL_ORDERDETAILS tod left join BJSHELL.TBL_carduser tcu  on
+			
+				tod.carduserid=tcu.id  order by tod.id) tt )
+			
+					where rn>=#{min} and rn &lt; #{max}
+		</select> -->
+			
 			
 			<select id="queryMaxId" resultType="long">
-		  		select max(ID) from TBL_ORDERDETAILS
+		  		select max(ID) from BJSHELL.TBL_ORDERDETAILS
+		  	</select>
+		  	
+		  	<select id="queryMinId" resultType="long">
+		  		select min(ID) from BJSHELL.TBL_ORDERDETAILS
 		  	</select>
 </mapper>

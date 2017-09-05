@@ -4,9 +4,9 @@
   	<select id="queryAll" parameterType="Long" resultType="DictAccountStatus" >
   		select coupon_wechat_id,enterprise_id,nickname,nickname64,potrait,open_id,
   		phone,birthday,auth_level,created,updated
-  		 	from coupon_wechat where coupon_wechat_id > #{id}
+  		 	from BJSHELL.coupon_wechat where coupon_wechat_id > #{id}
   	</select>
   	<select id="queryMaxId" resultType="Long">
-  		select max(coupon_wechat_id) from coupon_wechat
+  		select max(coupon_wechat_id) from BJSHELL.coupon_wechat
   	</select>
 </mapper>

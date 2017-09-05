@@ -44,7 +44,8 @@ public class TblShopgoodsdetailsServiceImpl implements TblShopgoodsdetailsServic
 			File file = new File("TblShopgoodsdetails.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
-				writer.println(0);
+				Long queryMinId = tblShopgoodsdetailsDao.queryMinId();
+				writer.println(String.valueOf(queryMinId));
 				writer.flush();
 			}
 			if(file.isFile() && file.exists()) {
@@ -53,13 +54,27 @@ public class TblShopgoodsdetailsServiceImpl implements TblShopgoodsdetailsServic
 				String readLine = br.readLine();//读取数据
 				id = Long.valueOf(readLine);
 			}
-			List<TblShopgoodsdetails> list = tblShopgoodsdetailsDao.queryAll(id);
-				if(list.size()!=0&&list!=null){//取出来的有数据，才会调用
+			List<TblShopgoodsdetails> list = tblShopgoodsdetailsDao.queryAll(id,id+100000);
+			
+			if(list.size()!=0){
 				ArrayList<TblShopgoodsdetails> arrayList = new ArrayList<TblShopgoodsdetails>();
 				for (TblShopgoodsdetails tblShopgoodsdetails : list) {
 					arrayList.add(tblShopgoodsdetails);//添加的一条数据
 					count++;
-					if(count%30==0){
+					if(count%40==0){
+						String jsonString = JSON.toJSONString(arrayList);
+						HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
+				        String asString = Request.Post("http://localhost:8989/server/tblShopgoodsdetails/insert")
+				                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
+				                .execute().returnContent().asString();
+				        Status status = JSON.parseObject(asString, Status.class);
+				        if(status.getStatus().equals("error")){
+				        	out = new BufferedWriter(new FileWriter("system.log",true));
+				        	out.write(asString+"----count-----"+count+"\n");
+				        }
+				        arrayList.clear();//把临时的集合 的数据清空
+					}
+					if(arrayList.size()!=0){//集合里面还有数据
 						String jsonString = JSON.toJSONString(arrayList);
 						HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
 				        String asString = Request.Post("http://localhost:8989/server/tblShopgoodsdetails/insert")
@@ -73,24 +88,17 @@ public class TblShopgoodsdetailsServiceImpl implements TblShopgoodsdetailsServic
 				        arrayList.clear();//把临时的集合 的数据清空
 					}
 				}
-				list.clear();
-				if(count%30!=0){//证明最后还有未提交的数据
-					String jsonString = JSON.toJSONString(arrayList);
-					HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
-			        String asString = Request.Post("http://localhost:8989/server/tblShopgoodsdetails/insert")
-			                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
-			                .execute().returnContent().asString();//调用接口，提交数据
-			        Status status = JSON.parseObject(asString, Status.class);
-			        if(status.getStatus().equals("error")){
-			        	out = new BufferedWriter(new FileWriter("system.log",true));
-			        	out.write(asString+"----count-----"+count+"\n");
-			        }
-			        arrayList.clear();//把临时的集合 的数据清空
-				}
-				Long maxId = tblShopgoodsdetailsDao.queryMaxId();
 				pw=new PrintWriter(file);
-				pw.write(String.valueOf(maxId));//把最新的id最大的写入文件
+				pw.write(String.valueOf(id+100000));//把最新的id写入文件
 				pw.flush();
+				list.clear();
+				queryAll();//继续调用
+			}else {
+				pw=new PrintWriter(file);
+				Long queryMaxId = tblShopgoodsdetailsDao.queryMaxId();
+				pw.write(String.valueOf(queryMaxId+1));//这是为了下一次用的，查的是最大的id
+				pw.flush();
+				list.clear();
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

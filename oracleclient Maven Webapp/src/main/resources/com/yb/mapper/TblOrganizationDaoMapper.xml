@@ -6,9 +6,9 @@
 			registertime,uniqueid,city_id,isagent,p700,description,isstation,name,orgsequence,province,
 			p600,issettle,p300,invalidtime,org_enable,status,isgiftlocation,star,logourl,p200,abbreviation,photo_id,regiontype,country,
 			ismerchant,email,address,cardunique,fullname,isacquirer,isshare,isissuer,org_level
-  		 	from tbl_organization where id > #{id}
+  		 	from BJSHELL.tbl_organization where id > #{id}
   	</select>
   	<select id="queryMaxId" resultType="Integer">
-  		select max(ID) from tbl_organization
+  		select max(ID) from BJSHELL.tbl_organization
   	</select>
 </mapper>
