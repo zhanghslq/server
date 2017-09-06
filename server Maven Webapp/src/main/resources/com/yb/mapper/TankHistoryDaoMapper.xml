@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.TankHistoryDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into Tank_History(period_id,Tank_ID,Open_Gauge_Volume,Close_Gauge_Volume,
+			replace into Tank_History(period_id,Tank_ID,Open_Gauge_Volume,Close_Gauge_Volume,
 			Open_Theo_Volume,Close_Theo_Volume,Open_Dip_Volume,Close_Dip_Volume,Hose_Del_Quantity,
 			Hose_Del_Volume,Hose_Del_Value,Hose_Del_Cost,Tank_Del_Quantity,Tank_Del_Volume,Tank_Del_Cost,
 			Tank_Loss_Quantity,Tank_Loss_Volume,Tank_Transfer_In_Quantity,Tank_Transfer_In_Volume,Tank_Transfer_Out_Quantity,

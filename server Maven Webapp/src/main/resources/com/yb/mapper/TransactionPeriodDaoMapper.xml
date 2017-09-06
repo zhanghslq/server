@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.TransactionPeriodDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into transaction_period(transaction_id,period_id,station_id)
+			replace into transaction_period(transaction_id,period_id,station_id)
 			values
 		<foreach collection="list" item="transactionPeriod" index="i"  separator=","   >
 			(#{transactionPeriod.transactionId},#{transactionPeriod.periodId},#{transactionPeriod.stationId})

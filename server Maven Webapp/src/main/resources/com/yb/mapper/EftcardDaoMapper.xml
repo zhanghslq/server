@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.EftcardDao">
   	<insert id="insert" parameterType="List">
-			insert into eftcard(transaction_id,item_number,card_number,account_type,
+			replace into eftcard(transaction_id,item_number,card_number,account_type,
 			card_type,card_type_name,audit_number,vehicle_reg,odometer,
 			order_number,original_docket,original_date,terminal_number,terminal_id,
 			terminal_type,used_points_value,terminal_type_enum,eft_trace,station_id)

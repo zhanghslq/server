@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.FinalisationHistoryDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into finalisation_history(period_id,mop_id,mop_net_qty,mop_net_value,mop_num_safedrop,mop_val_safedrop,mop_num_payin,
+			replace into finalisation_history(period_id,mop_id,mop_net_qty,mop_net_value,mop_num_safedrop,mop_val_safedrop,mop_num_payin,
 			mop_val_payin,mop_num_cashout,mop_val_cashout,mop_val_cashadj,mop_num_payout,mop_val_payout,mop_num_attsafedrop,mop_val_attsafedrop,
 			mop_qty_ext_pos,mop_val_ext_pos,mop_num_safedrop_ext_pos,mop_val_safedrop_ext_pos,station_id)
 			values

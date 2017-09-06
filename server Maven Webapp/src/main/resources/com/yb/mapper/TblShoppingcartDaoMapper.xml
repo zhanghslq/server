@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.TblShoppingcartDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into TBL_SHOPPINGCART(SHOPPINGCART_ID,VERSION,CREATETIME,RULESET_ID,
+			replace into TBL_SHOPPINGCART(SHOPPINGCART_ID,VERSION,CREATETIME,RULESET_ID,
 			CARDUSER_ID,INTEGRATION,CUSTOMER_LEVEL,GOODSNUM,VIRTUAL_GOODS_TYPE)
 			
 			values

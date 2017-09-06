@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.ProductsDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into products(product_id,tax_id,department_id,product_desc,product_price,product_quick_code,
+			replace into products(product_id,tax_id,department_id,product_desc,product_price,product_quick_code,
 			product_code,product_ordering_status,product_managed_by,product_type,product_selling_type,product_stock_type,
 			product_composite_type,Multiple_taxes,Price_Batch_id,Incomplete_product,delisted_date,product_special_type,
 			barcode,upc_type,barcode_special_type,station_id)

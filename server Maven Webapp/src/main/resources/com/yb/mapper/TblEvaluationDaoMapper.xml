@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.TblEvaluationDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into TBL_EVALUATION(EVALUATION_ID,VERSION,CONTENT,TIME,STATUS,STAR,
+			replace into TBL_EVALUATION(EVALUATION_ID,VERSION,CONTENT,TIME,STATUS,STAR,
 			ORG_ID,CUSTOMER_ID,TRADEID)
 			
 			values

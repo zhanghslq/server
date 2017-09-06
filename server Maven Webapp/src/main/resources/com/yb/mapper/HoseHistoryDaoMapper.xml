@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.HoseHistoryDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into hose_history(period_id,hose_id,open_meter_value,close_meter_value,
+			replace into hose_history(period_id,hose_id,open_meter_value,close_meter_value,
 			postpay_quantity,open_meter_volume,postpay_value,close_meter_volume,postpay_volume,
 			postpay_cost,prepay_quantity,prepay_value,prepay_volume,prepay_cost,prepay_refund_qty,prepay_refund_val,
 			preauth_quantity,prepay_rfd_lst_qty,preauth_value,prepay_rfd_lst_val,preauth_volume,preauth_cost,

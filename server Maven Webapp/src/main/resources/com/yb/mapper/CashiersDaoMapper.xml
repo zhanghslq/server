@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.CashiersDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into cashiers(cashier_id,cashier_number,cashier_name,
+			replace into cashiers(cashier_id,cashier_number,cashier_name,
 			cashier_psw,cashier_type,attendant_id,cashier_disable,
 			cashier_birthdate,cashier_personal_name,cashier_family_name,user_role_id)
 			values

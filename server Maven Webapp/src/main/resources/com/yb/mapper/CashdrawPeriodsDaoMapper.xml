@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.CashdrawPeriodsDao">
   	<insert id="insert" parameterType="List">
-			insert into cashdraw_periods(cdraw_period_id,cashier_id,pos_id,cdraw_open_date,cdraw_close_date,
+			replace into cashdraw_periods(cdraw_period_id,cashier_id,pos_id,cdraw_open_date,cdraw_close_date,
 			cdraw_period_state,station_id)
 			values
 		<foreach collection="list" item="cashdrawPeriods" index="i"  separator=",">

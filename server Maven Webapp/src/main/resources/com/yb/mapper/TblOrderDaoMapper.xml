@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.TblOrderDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into TBL_ORDER(ORDER_ID,VERSION,AMOUNT,ORDERNO,TRADEID,CARDUSER_ID,CREATEDATE,
+			replace into TBL_ORDER(ORDER_ID,VERSION,AMOUNT,ORDERNO,TRADEID,CARDUSER_ID,CREATEDATE,
 			ORDER_STATUS,UPDATEDATE,OPENID)
 			
 			values

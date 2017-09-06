@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.CdrawdeptHistoryDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into cdrawdept_history(cdraw_period_id,department_id,cdrawdept_qty_sld,cdrawdept_val_sld,
+			replace into cdrawdept_history(cdraw_period_id,department_id,cdrawdept_qty_sld,cdrawdept_val_sld,
 			cdrawdept_qty_ref,cdrawdept_val_ref,cdrawdept_qty_disc,cdrawdept_val_disc,cdrawdept_qty_surc,
 			cdrawdept_val_surc,station_id) values
 		<foreach collection="list" item="cdrawdeptHistory" index="i" separator=",">

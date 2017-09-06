@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.CdrawgradeHistoryDao">
   	<insert id="insert" parameterType="List">
-			insert into cdrawgrade_history(cdraw_period_id,grade_id,cdrawgrade_trs,cdrawgrade_vol,
+			replace into cdrawgrade_history(cdraw_period_id,grade_id,cdrawgrade_trs,cdrawgrade_vol,
 			cdrawgrade_val,cdrawgrade_vol_disc,cdrawgrade_val_disc,cdrawgrade_qty_surc,cdrawgrade_val_surc,
 			cdrawgrade_vol1,cdrawgrade_val1,cdrawgrade_vol2,cdrawgrade_val2,station_id)
 			

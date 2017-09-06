@@ -13,7 +13,7 @@ public class HoseDelivery implements Serializable{
 	private Integer hoseId;
 	private Integer attendantId;
 	private Integer priceLevel;
-	private Date completed_ts;
+	private Date completedTs;
 	private Date clearedDateTime;
 	private Integer deliveryType;
 	private Integer deliveryState;
@@ -40,20 +40,13 @@ public class HoseDelivery implements Serializable{
 	private BigDecimal hoseMeterValue1;
 	private BigDecimal grade1Price;
 	private BigDecimal grade2Price;
-private String stationId;
-	
-	public String getStationId() {
-		return stationId;
-	}
-	public void setStationId(String stationId) {
-		this.stationId = stationId;
-	}
+	private String stationId;
 	public HoseDelivery() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public HoseDelivery(Integer deliveryId, Integer hoseId,
-			Integer attendantId, Integer priceLevel, Date completed_ts,
+			Integer attendantId, Integer priceLevel, Date completedTs,
 			Date clearedDateTime, Integer deliveryType, Integer deliveryState,
 			BigDecimal deliveryVolume, BigDecimal deliveryValue,
 			BigDecimal delSellPrice, BigDecimal delCostPrice,
@@ -65,13 +58,13 @@ private String stationId;
 			Integer previousDeliveryType, BigDecimal delivery1Volume,
 			BigDecimal delivery1Value, BigDecimal delivery2Value,
 			BigDecimal hoseMeterVolume1, BigDecimal hoseMeterValue1,
-			BigDecimal grade1Price, BigDecimal grade2Price) {
+			BigDecimal grade1Price, BigDecimal grade2Price, String stationId) {
 		super();
 		this.deliveryId = deliveryId;
 		this.hoseId = hoseId;
 		this.attendantId = attendantId;
 		this.priceLevel = priceLevel;
-		this.completed_ts = completed_ts;
+		this.completedTs = completedTs;
 		this.clearedDateTime = clearedDateTime;
 		this.deliveryType = deliveryType;
 		this.deliveryState = deliveryState;
@@ -98,12 +91,13 @@ private String stationId;
 		this.hoseMeterValue1 = hoseMeterValue1;
 		this.grade1Price = grade1Price;
 		this.grade2Price = grade2Price;
+		this.stationId = stationId;
 	}
 	@Override
 	public String toString() {
 		return "HoseDelivery [deliveryId=" + deliveryId + ", hoseId=" + hoseId
 				+ ", attendantId=" + attendantId + ", priceLevel=" + priceLevel
-				+ ", completed_ts=" + completed_ts + ", clearedDateTime="
+				+ ", completedTs=" + completedTs + ", clearedDateTime="
 				+ clearedDateTime + ", deliveryType=" + deliveryType
 				+ ", deliveryState=" + deliveryState + ", deliveryVolume="
 				+ deliveryVolume + ", deliveryValue=" + deliveryValue
@@ -120,7 +114,8 @@ private String stationId;
 				+ delivery1Value + ", delivery2Value=" + delivery2Value
 				+ ", hoseMeterVolume1=" + hoseMeterVolume1
 				+ ", hoseMeterValue1=" + hoseMeterValue1 + ", grade1Price="
-				+ grade1Price + ", grade2Price=" + grade2Price + "]";
+				+ grade1Price + ", grade2Price=" + grade2Price + ", stationId="
+				+ stationId + "]";
 	}
 	public Integer getDeliveryId() {
 		return deliveryId;
@@ -146,11 +141,11 @@ private String stationId;
 	public void setPriceLevel(Integer priceLevel) {
 		this.priceLevel = priceLevel;
 	}
-	public Date getCompleted_ts() {
-		return completed_ts;
+	public Date getCompletedTs() {
+		return completedTs;
 	}
-	public void setCompleted_ts(Date completed_ts) {
-		this.completed_ts = completed_ts;
+	public void setCompletedTs(Date completedTs) {
+		this.completedTs = completedTs;
 	}
 	public Date getClearedDateTime() {
 		return clearedDateTime;
@@ -308,5 +303,12 @@ private String stationId;
 	public void setGrade2Price(BigDecimal grade2Price) {
 		this.grade2Price = grade2Price;
 	}
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
+	
 	
 }

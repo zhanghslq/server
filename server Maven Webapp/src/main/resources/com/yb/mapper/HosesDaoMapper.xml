@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.HosesDao">
   	<insert id="insert" parameterType="List">
-			insert into Hoses(Hose_ID,Pump_ID,Grade_ID,Tank_ID,Volume_Total,Tank2_ID,
+			replace into Hoses(Hose_ID,Pump_ID,Grade_ID,Tank_ID,Volume_Total,Tank2_ID,
 			Hose_number,Mechanical_Total,Money_Total,Theoretical_Total,Volume_Total2,
 			Money_Total2,Theoretical_Total2,Blend_Type,Volume_Total_Turnover_Correction,
 			Money_Total_Turnover_Correction,Volume_Total2_Turnover_Correction,Volume_Total_State_ID,

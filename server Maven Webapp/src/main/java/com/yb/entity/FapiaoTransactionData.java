@@ -11,7 +11,7 @@ public class FapiaoTransactionData implements Serializable{
 	private Integer printInvoice;
 	private String customerCode;
 	private String customerText;
-private String stationId;
+	private String stationId;
 	
 	public String getStationId() {
 		return stationId;

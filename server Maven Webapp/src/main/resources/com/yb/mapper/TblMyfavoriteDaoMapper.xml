@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.TblMyfavoriteDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into TBL_MYFAVORITE(MYFAVORITE_ID,VERSION,ORGID,CUSID)
+			replace into TBL_MYFAVORITE(MYFAVORITE_ID,VERSION,ORGID,CUSID)
 			
 			values
 			<foreach collection="list" item="tblMyfavorite" index="i"  separator=","    >

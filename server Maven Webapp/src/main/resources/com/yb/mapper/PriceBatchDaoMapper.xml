@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.PriceBatchDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into price_batch(price_batch_id,Price_Event_Number,price_batch_description,price_batch_permanent,
+			replace into price_batch(price_batch_id,Price_Event_Number,price_batch_description,price_batch_permanent,
 			price_batch_start_dt,price_batch_end_dt,price_batch_status,price_type_name,station_id)
 			
 			values

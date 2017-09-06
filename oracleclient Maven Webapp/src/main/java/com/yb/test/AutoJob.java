@@ -66,8 +66,15 @@ public class AutoJob {
 			tblShoppingcartService.queryAll();
 			tblVirtualgoodsService.queryAll();
 	}
+		
 		@Test
 		public void test(){
 			tblTradeService.queryAll();
 		}
+		
+		@Test
+		public void customer(){
+			tblCustomerService.queryAll();
+		}
+		
 }

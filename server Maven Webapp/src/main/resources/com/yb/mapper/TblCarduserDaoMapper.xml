@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.TblCarduserDao">
   	<insert id="insert" parameterType="java.util.List">
   		
-			insert into TBL_CARDUSER(CARDUSER_ID,VERSION,FREEZEREASON,P6,P5,ORGUSER_ID,P4,
+			replace into TBL_CARDUSER(CARDUSER_ID,VERSION,FREEZEREASON,P6,P5,ORGUSER_ID,P4,
 			
 			ISCUMULATEPOINTS,P3,LOCATION_ID,P2,ANONYMOUSBALANCE,P1,CARDUSER_TYPE,CUSTOMER_ID,
 			

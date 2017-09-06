@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.TanksDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into Tanks(Tank_ID,Grade_ID,Tank_Name,Tank_Number,Tank_Description,Physical_Label,
+			replace into Tanks(Tank_ID,Grade_ID,Tank_Name,Tank_Number,Tank_Description,Physical_Label,
 			Capacity,Gauge_Level,Temperature,Gauge_TC_Volume,Water_Level,Dip_Level,Gauge_Volume,
 			Theoretical_Volume,Dip_Volume,Average_Cost,Strapped_Tank_ID,Probe_Number,Ullage,Water_Volume,
 			Gauge_alarms,Tank_Type,Diameter,Low_Volume_Warning,Low_Volume_Alarm,Hi_Volume_Warning,

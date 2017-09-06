@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.PeriodsDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into periods(period_id,period_create_ts,period_type,period_close_dt,
+			replace into periods(period_id,period_create_ts,period_type,period_close_dt,
 			period_state,period_name,period_number,tank_dips_entered,tank_drops_entered,
 			pump_meter_entered,exported,export_required,wetstock_out_of_variance,wetstock_approval_id,
 			business_date,station_id)

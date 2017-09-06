@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.AttendantDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into Attendant(Attendant_ID,Attendant_Name,Attendant_Logon_ID,
+			replace into Attendant(Attendant_ID,Attendant_Name,Attendant_Logon_ID,
 			Attendant_Number,Attendant_Password,Attendant_Disabled,Attendant_Blocked_Reason,
 			Warning_Level,Alarm_Level,Deleted,Attendant_Tag_ID,Attendant_Tag_Active,Safedrop_Alert_Level)
 			values

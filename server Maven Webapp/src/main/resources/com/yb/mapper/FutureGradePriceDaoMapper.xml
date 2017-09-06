@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.FutureGradePriceDao">
   	<insert id="insert" parameterType="List">
-			insert into future_grade_price(future_grade_price_id,grade_id,effective_date,
+			replace into future_grade_price(future_grade_price_id,grade_id,effective_date,
 			comment,price_type,grade_price,price_update_status,price_level,previous_grade_price,sequence_number,station_id)
 			
 			values

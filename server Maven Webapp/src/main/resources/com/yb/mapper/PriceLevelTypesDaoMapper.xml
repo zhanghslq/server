@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.PriceLevelTypesDao">
   	<insert id="insert" parameterType="List">
-			insert into Price_Level_Types(Price_Level,Level_Name,Level_Description)
+			replace into Price_Level_Types(Price_Level,Level_Name,Level_Description)
 			values
 			<foreach collection="list" item="posTerminal" index="i"  separator="," >
 			(#{posTerminal.Price_Level},#{posTerminal.Level_Name},#{posTerminal.Level_Description})

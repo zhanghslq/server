@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.TaxesDao">
   	<insert id="insert" parameterType="List">
   		
-			insert into taxes(tax_id,tax_name,tax_rate,tax_inclusive,tax_legend,tax_code,Effective_Datetime,New_Name,New_Rate,tax_active)
+			replace into taxes(tax_id,tax_name,tax_rate,tax_inclusive,tax_legend,tax_code,Effective_Datetime,New_Name,New_Rate,tax_active)
 			values
 			<foreach collection="list" item="taxes" index="i"  separator="," >
 			(#{taxes.tax_id},#{taxes.tax_name},#{taxes.tax_rate},#{taxes.tax_inclusive},

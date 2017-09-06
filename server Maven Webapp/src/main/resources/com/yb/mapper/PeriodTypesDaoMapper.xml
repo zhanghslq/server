@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.PeriodTypesDao">
   	<insert id="insert" parameterType="List">
-			insert into Period_types(Period_Type,Period_name,Period_description,Period_keep_days)
+			replace into Period_types(Period_Type,Period_name,Period_description,Period_keep_days)
 			values
 			<foreach collection="list" item="periodTypes" index="i"  separator="," >
 			(#{periodTypes.Period_Type},#{periodTypes.Period_name},#{periodTypes.Period_description},#{periodTypes.Period_keep_days})
