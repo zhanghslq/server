@@ -15,22 +15,70 @@
 
     <!--开启注解扫描-->
     <context:component-scan base-package="com.yb"/>
-
+	 <!-- 配置JDBC参数 -->
+	 <context:property-placeholder location="classpath:master.properties"/>
     <!--创建数据源对象-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <!-- <property name="url" value="jdbc:mysql://192.168.0.31:3306/oracleanditem"/> -->
-        <property name="url" value="jdbc:mysql://localhost:3306/server"/>
-        <!-- <property name="url" value="jdbc:mysql://localhost:3306/server"/> -->
-        <property name="username" value="root"/>
-        <property name="password" value="123"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/oracleanditem"></property>
+	     <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	     <property name="username" value="root"></property>
+	     <property name="password" value="root"></property>
     </bean>
+    <import resource="classpath:spring-datasource.xml"/>
+    
+    <bean id="routingDataSource" class="com.yb.util.MyDataBase">
+	 	<property name="targetDataSources">
+			<map>
+				<!-- 这个key需要和程序中的key一致 -->
+				<entry key="master" value-ref="dataSource"/>
+				<entry key="50017" value-ref="50017"/>
+				<entry key="50011" value-ref="50011"/>
+				<entry key="50013" value-ref="50013"/>
+				<entry key="50014" value-ref="50014"/>
+				<entry key="50016" value-ref="50016"/>
+				<entry key="50018" value-ref="50018"/>
+				<entry key="50019" value-ref="50019"/>
+				<entry key="50024" value-ref="50024"/>
+				<entry key="50020" value-ref="50020"/>
+				<entry key="50021" value-ref="50021"/>
+				<entry key="50012" value-ref="50012"/>
+				<entry key="80001" value-ref="80001"/>
+				<entry key="58003" value-ref="58003"/>
+				<entry key="58001" value-ref="58001"/>
+				<entry key="58002" value-ref="58002"/>
+				<entry key="58004" value-ref="58004"/>
+				<entry key="58005" value-ref="58005"/>
+				<entry key="58006" value-ref="58006"/>
+				<entry key="58007" value-ref="58007"/>
+				<entry key="58010" value-ref="58010"/>
+				<entry key="58012" value-ref="58012"/>
+				<entry key="58015" value-ref="58015"/>
+				<entry key="50006" value-ref="50006"/>
+				<entry key="50001" value-ref="50001"/>
+				<entry key="50005" value-ref="50005"/>
+				<entry key="50004" value-ref="50004"/>
+				<entry key="50008" value-ref="50008"/>
+				<entry key="50010" value-ref="50010"/>
+				<entry key="50015" value-ref="50015"/>
+				<entry key="50025" value-ref="50025"/>
+				<entry key="50009" value-ref="50009"/>
+				<entry key="50002" value-ref="50002"/>
+				<entry key="50022" value-ref="50022"/>
+				<entry key="50003" value-ref="50003"/>
+				<entry key="50007" value-ref="50007"/>
+				
+			</map>
+			<!-- 设置默认的数据源，这里默认走写库 -->
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSource"/>
+	 </bean>
 
 
 
     <!--创建sqlSessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
+        <!-- 注入dataSource -->
+	 	<property name="dataSource" ref="routingDataSource"/>
         <property name="mapperLocations" value="classpath:com/yb/mapper/*.xml"/>
         <property name="typeAliasesPackage" value="com.yb.entity"/>
     </bean>

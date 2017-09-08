@@ -30,6 +30,15 @@ public class Finalisations {
 	private Integer allow_drystock_sales;
 	private Integer max_fuel_deliveries_allowed;
 	private Integer eft_terminal_type;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public Finalisations() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -24,6 +24,15 @@ public class PosTerminal {
 	private Integer next_receipt_number;
 	private Date gt_open_date;
 	private Integer reserve_trans_number;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public PosTerminal() {
 		super();
 		// TODO Auto-generated constructor stub

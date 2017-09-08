@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yb.entity.Cashiers;
 import com.yb.entity.Status;
 import com.yb.service.CashiersService;
+import com.yb.util.DynamicDataSourceHolder;
 @Controller
 @RequestMapping("/cashiers")
+@Scope("prototype")
 public class CashiersController{
 
 	@Resource
@@ -25,6 +28,10 @@ public class CashiersController{
 	public Status insert(@RequestBody List<Cashiers> list) {
 		// TODO Auto-generated method stub
 		try {
+			if(list!=null&&list.size()!=0){
+				String stationId = list.get(0).getStationId();
+				DynamicDataSourceHolder.putDataSourceKey(stationId);
+			}
 			cashiersService.insert(list);
 			return new Status("success");
 		} catch (Exception e) {

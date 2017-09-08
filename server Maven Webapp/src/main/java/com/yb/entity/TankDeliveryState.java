@@ -3,6 +3,15 @@ package com.yb.entity;
 public class TankDeliveryState {
 	private Integer Tank_Delivery_State_ID;
 	private String Tank_Delivery_State_Name;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public TankDeliveryState() {
 		super();
 		// TODO Auto-generated constructor stub

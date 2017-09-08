@@ -14,6 +14,15 @@ public class Taxes {
 	private String New_Name;
 	private BigDecimal New_Rate;
 	private Integer tax_active;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public Taxes() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -32,7 +32,15 @@ public class TransactionItems implements Serializable{
 	private String currencyCode;
 	private BigDecimal taxRate;
 	private String stationId;
+	private Integer transactionNumber;
 	
+	
+	public Integer getTransactionNumber() {
+		return transactionNumber;
+	}
+	public void setTransactionNumber(Integer transactionNumber) {
+		this.transactionNumber = transactionNumber;
+	}
 	public String getStationId() {
 		return stationId;
 	}

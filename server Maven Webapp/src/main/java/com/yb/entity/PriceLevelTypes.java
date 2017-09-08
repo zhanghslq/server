@@ -4,6 +4,15 @@ public class PriceLevelTypes {
 	private Integer Price_Level;
 	private String Level_Name;
 	private String Level_Description;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public PriceLevelTypes() {
 		super();
 		// TODO Auto-generated constructor stub

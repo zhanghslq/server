@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yb.entity.Status;
 import com.yb.entity.TransactionItemsCoupon;
 import com.yb.service.TransactionItemsCouponService;
+import com.yb.util.DynamicDataSourceHolder;
 
 @Controller
 @RequestMapping("/transactionItemsCoupon")
+@Scope("prototype")
 public class TransactionItemsCouponController {
 	@Resource
 	private TransactionItemsCouponService transactionItemsCouponService; 
@@ -25,6 +28,10 @@ public class TransactionItemsCouponController {
 	public Status insert(@RequestBody List<TransactionItemsCoupon> list){
 		
 		try {
+			if(list!=null&&list.size()!=0){
+				String stationId = list.get(0).getStationId();
+				DynamicDataSourceHolder.putDataSourceKey(stationId);
+			}
 			transactionItemsCouponService.insert(list);
 			return new Status("success");
 		} catch (Exception e) {

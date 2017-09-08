@@ -17,6 +17,15 @@ public class Departments {
 	private Integer dept_status;
 	private Integer dept_managed_by;
 	private Integer dept_usage;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public Departments() {
 		super();
 		// TODO Auto-generated constructor stub

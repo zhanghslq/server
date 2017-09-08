@@ -5,6 +5,15 @@ public class ItemTypes {
 	private String item_type_descr;
 	private Integer refundable;
 	private Integer compulsory_receipt;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public ItemTypes() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.HoseDeliveryDao">
   	<insert id="insert" parameterType="List">
-			replace into hose_delivery(delivery_id,hose_id,attendant_id,price_level,completed_ts,
+			replace into Hose_Delivery(delivery_id,hose_id,attendant_id,price_level,completed_ts,
 			cleared_date_time,delivery_type,delivery_state,delivery_volume,delivery_value,
 			del_sell_price,del_cost_price,cleared_by,reserved_by,transaction_id,del_item_number,
 			delivery2_volume,hose_meter_volume,hose_meter_value,hose_meter_volume2,hose_meter_value2,

@@ -27,6 +27,15 @@ public class Grades {
 	private Integer deleted;
 	private Integer volume_Unit_ID;
 	private Integer gsapExport;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public Grades() {
 		super();
 		// TODO Auto-generated constructor stub

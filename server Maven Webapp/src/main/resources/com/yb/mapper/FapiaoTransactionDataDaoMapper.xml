@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.FapiaoTransactionDataDao">
   	<insert id="insert" parameterType="List">
   		
-			replace into fapiao_transaction_data(transaction_id,Print_Invoice,customer_code,
+			replace into Fapiao_Transaction_Data(transaction_id,Print_Invoice,customer_code,
 			customer_text,station_id)
 			
 			values

@@ -5,6 +5,15 @@ public class PeriodTypes {
 	private String Period_name;
 	private String Period_description;
 	private Integer Period_keep_days;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public Integer getPeriod_Type() {
 		return Period_Type;
 	}

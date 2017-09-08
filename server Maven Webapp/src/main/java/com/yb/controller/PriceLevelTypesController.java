@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yb.entity.PriceLevelTypes;
 import com.yb.entity.Status;
 import com.yb.service.PriceLevelTypesService;
+import com.yb.util.DynamicDataSourceHolder;
 
 @Controller
 @RequestMapping("/priceLevelTypes")
+@Scope("prototype")
 public class PriceLevelTypesController{
 
 	@Resource
@@ -25,6 +28,10 @@ public class PriceLevelTypesController{
 	public Status insert(@RequestBody List<PriceLevelTypes> list) {
 		// TODO Auto-generated method stub
 		try {
+			if(list!=null&&list.size()!=0){
+				String stationId = list.get(0).getStationId();
+				DynamicDataSourceHolder.putDataSourceKey(stationId);
+			}
 			priceLevelTypesService.insert(list);
 			return new Status("success");
 		} catch (Exception e) {

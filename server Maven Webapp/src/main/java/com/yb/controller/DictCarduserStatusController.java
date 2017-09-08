@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yb.entity.DictCarduserStatus;
 import com.yb.entity.Status;
 import com.yb.service.DictCarduserStatusService;
+import com.yb.util.DynamicDataSourceHolder;
 @Controller
 @RequestMapping("/dictCarduserStatus")
+@Scope("prototype")
 public class DictCarduserStatusController{
 
 	@Resource
@@ -24,6 +27,7 @@ public class DictCarduserStatusController{
 	public Status insert(@RequestBody List<DictCarduserStatus> list) {
 		// TODO Auto-generated method stub
 		try {
+			DynamicDataSourceHolder.putDataSourceKey("master");
 			dictCarduserStatusService.insert(list);
 			return new Status("success");
 		} catch (Exception e) {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yb.entity.Status;
 import com.yb.entity.TblOperator;
 import com.yb.service.TblOperatorService;
+import com.yb.util.DynamicDataSourceHolder;
 @Controller
 @RequestMapping("/tblOperator")
+@Scope("prototype")
 public class TblOperatorController{
 
 	@Resource
@@ -24,6 +27,7 @@ public class TblOperatorController{
 	public Status insert(@RequestBody List<TblOperator> list) {
 		// TODO Auto-generated method stub
 		try {
+			DynamicDataSourceHolder.putDataSourceKey("master");
 			tblOperatorService.insert(list);
 			return new Status("successs");
 		} catch (Exception e) {

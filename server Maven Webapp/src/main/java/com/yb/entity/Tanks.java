@@ -47,6 +47,15 @@ public class Tanks {
 	private Integer Deleted;
 	private Boolean Auto_Disable;
 	private Boolean Is_Enabled;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public Tanks() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yb.entity.FapiaoTransactionData;
 import com.yb.entity.Status;
 import com.yb.service.FapiaoTransactionDataService;
+import com.yb.util.DynamicDataSourceHolder;
 
 @Controller
 @RequestMapping("/fapiaoTransactionData")
+@Scope("prototype")
 public class FapiaoTransactionDataController {
 	@Resource
 	private FapiaoTransactionDataService fapiaoTransactionDataService;
@@ -25,6 +28,10 @@ public class FapiaoTransactionDataController {
 	public Status insert(@RequestBody List<FapiaoTransactionData>list){
 		
 		try {
+			if(list!=null&&list.size()!=0){
+				String stationId = list.get(0).getStationId();
+				DynamicDataSourceHolder.putDataSourceKey(stationId);
+			}
 			fapiaoTransactionDataService.insert(list);
 			return new Status("success");
 		} catch (Exception e) {

@@ -14,6 +14,15 @@ public class Cashiers {
 	private String cashier_personal_name;
 	private String cashier_family_name;
 	private Integer user_role_id;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public Cashiers() {
 		super();
 		// TODO Auto-generated constructor stub

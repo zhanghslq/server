@@ -3,6 +3,15 @@ package com.yb.entity;
 public class TankDipType {
 	private Integer Tank_Dip_Type_ID;
 	private String Tank_Dip_Type_Name;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public TankDipType() {
 		super();
 		// TODO Auto-generated constructor stub

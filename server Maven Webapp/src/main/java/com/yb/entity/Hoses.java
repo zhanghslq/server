@@ -26,6 +26,15 @@ public class Hoses {
 	private Integer Deleted;
 	private BigDecimal Volume_Total1;
 	private BigDecimal Money_Total1;
+private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public Hoses() {
 		super();
 		// TODO Auto-generated constructor stub

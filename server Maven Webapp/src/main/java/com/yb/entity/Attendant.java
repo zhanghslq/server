@@ -16,6 +16,15 @@ public class Attendant {
 	private Integer attendant_Tag_ID;
 	private Boolean attendant_Tag_Active;
 	private Integer safedrop_Alert_Level;
+	private String stationId;
+	
+	
+	public String getStationId() {
+		return stationId;
+	}
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
 	public Attendant() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yb.entity.Status;
 import com.yb.entity.TblAccount;
 import com.yb.service.TblAccountService;
+import com.yb.util.DynamicDataSourceHolder;
 
 @Controller
 @RequestMapping("/tblAccount")
+@Scope("prototype")
 public class TblAccountController{
 	@Resource
 	private TblAccountService tblAccountService;
@@ -25,6 +28,7 @@ public class TblAccountController{
 	public Status insert(@RequestBody List<TblAccount> list){
 		
 		try {
+			DynamicDataSourceHolder.putDataSourceKey("master");
 			tblAccountService.insert(list);
 			
 			return new Status("success");
