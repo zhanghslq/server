@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.TblOrderdetailsDao">
-		<select id="queryAll" parameterType="Integer" resultType="TblOrderdetails">
-			select ORDERDETAILS_ID as orderdetailsId,VERSION,NOWDATE,VIRTUALGOODSID,RETURNCODE,
+		<select id="queryAll" parameterType="long" resultType="TblOrderdetails">
+			select tod.ID as orderdetailsId,tod.VERSION,NOWDATE,tod.VIRTUALGOODSID,RETURNCODE,
 			
 			LITRE,STATIONCODE,COUPONAMOUNT,REQUESTID,ORDERNUM,REALAMOUNT,OILCODE,ORDER_DEAL as orderDeal,
 			
 			DISCOUNTAMOUNT,CARDUSERID,AMOUNT,OILPRICE,TERMNUM,SENDTIME,INVOICETITLE,
 			
-			MEMBERNO,VIRTUALGOODSIDS,CustomerId from TBL_ORDERDETAILS tod left join TBL_carduser tcu  on
+			MEMBERNO,VIRTUALGOODSIDS,tcu.Customer_Id from BJSHELL.TBL_ORDERDETAILS tod left join BJSHELL.TBL_carduser tcu  on
 			
-			tod.carduserid=tcu.id where ORDERDETAILS_ID>#{id}
+			tod.carduserid=tcu.id where tod.ID>=#{min} and tod.ID&lt;#{max}
 			
 			</select>
 			
+		<!-- <select id="queryAll"  resultType="TblOrderdetails">
+		
+			select ID as orderdetailsId,VERSION,NOWDATE,VIRTUALGOODSID,RETURNCODE,
 			
-			<select id="queryMaxId" resultType="Integer">
-		  		select max(ORDERDETAILS_ID) from TBL_ORDERDETAILS
+			LITRE,STATIONCODE,COUPONAMOUNT,REQUESTID,ORDERNUM,REALAMOUNT,OILCODE,ORDER_DEAL as orderDeal,
+			
+			DISCOUNTAMOUNT,CARDUSERID,AMOUNT,OILPRICE,TERMNUM,SENDTIME,INVOICETITLE,
+			
+			MEMBERNO,VIRTUALGOODSIDS,Customer_Id from (
+				select tt.*,ROWNUM as rn from (
+				
+				select tod.*,tcu.Customer_Id from BJSHELL.TBL_ORDERDETAILS tod left join BJSHELL.TBL_carduser tcu  on
+			
+				tod.carduserid=tcu.id  order by tod.id) tt )
+			
+					where rn>=#{min} and rn &lt; #{max}
+		</select> -->
+			
+			
+			<select id="queryMaxId" resultType="long">
+		  		select max(ID) from BJSHELL.TBL_ORDERDETAILS
+		  	</select>
+		  	
+		  	<select id="queryMinId" resultType="long">
+		  		select min(ID) from BJSHELL.TBL_ORDERDETAILS
 		  	</select>
 </mapper>

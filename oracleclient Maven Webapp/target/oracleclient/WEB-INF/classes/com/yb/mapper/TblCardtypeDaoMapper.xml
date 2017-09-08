@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblCardTypeDao">
+  	<select id="queryAll" parameterType="Integer" resultType="TblCardType" >
+  		select id,version,restrictcommodities,mindeposit,validityday,
+			initbalance,ismerlimit,annualaudit,base_card_type,canrevcate,daysperextention,depositable,
+			anonymous,targetarea_id,upperlimit,style_id,description,name,auditdaysinadvance,customer_level,
+			physicalcardtype,internal
+  		 	from BJSHELL.tbl_cardtype where id > #{id}
+  	</select>
+  	<select id="queryMaxId" resultType="Integer">
+  		select max(ID) from BJSHELL.TBL_CARDTYPE
+  	</select>
+</mapper>

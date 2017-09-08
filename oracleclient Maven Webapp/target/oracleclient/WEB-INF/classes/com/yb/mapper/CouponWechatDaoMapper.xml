@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.CouponWechatDao">
+  	<select id="queryAll" parameterType="Long" resultType="DictAccountStatus" >
+  		select coupon_wechat_id,enterprise_id,nickname,nickname64,potrait,open_id,
+  		phone,birthday,auth_level,created,updated
+  		 	from BJSHELL.coupon_wechat where coupon_wechat_id > #{id}
+  	</select>
+  	<select id="queryMaxId" resultType="Long">
+  		select max(coupon_wechat_id) from BJSHELL.coupon_wechat
+  	</select>
+</mapper>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.TblAccountDao">
-  	<select id="queryAll" parameterType="Integer" resultType="TblAccount">
-  		select ACCOUNT_ID as accountId,VERSION,LASTCARDTIME,EXPIREDDATE,
+  	<select id="queryAll" parameterType="long" resultType="TblAccount">
+  		select ID as accountId,VERSION,LASTCARDTIME,EXPIREDDATE,
   		
 			LASTRECORDTIME,ACCOUNT_STATUS as accountStatus,PREVIOUSONLINENO,LOWLIMIT,FROZENPOINTS,
 			
@@ -11,9 +11,29 @@
 			CARDUSER_ID as carduserId,LASTONLINENO,ACCUMULATIVEPOINTS,CARD_ID as cardId,TOTALLOSTAMOUNT
   		
   		
-  		 	from TBL_ACCOUNT where ACCOUNT_ID > #{id}
+  		 	from BJSHELL.TBL_ACCOUNT where ID>=#{min} and ID&lt;#{max}
   	</select>
-  	<select id="queryMaxId" resultType="Integer">
-  		select max(ACCOUNT_ID) from TBL_ACCOUNT
+  	
+  	
+  	<!-- <select id="queryAll"  resultType="TblAccount">
+		
+			select ID as accountId,VERSION,LASTCARDTIME,EXPIREDDATE,
+  		
+			LASTRECORDTIME,ACCOUNT_STATUS as accountStatus,PREVIOUSONLINENO,LOWLIMIT,FROZENPOINTS,
+			
+			MAC,ACCOUNTTYPE,LASTTXID,LASTTXSTATUS,BALANCE,NUM,POINTSUSED,ISSUER_ID,
+			
+			CARDUSER_ID as carduserId,LASTONLINENO,ACCUMULATIVEPOINTS,CARD_ID as cardId,TOTALLOSTAMOUNT from (
+				select tt.*,ROWNUM as rn from (
+				select * from BJSHELL.TBL_ACCOUNT  order by id) tt )
+					where rn>=#{min} and rn &lt; #{max}
+		</select> -->
+  	
+  	
+  	<select id="queryMaxId" resultType="long">
+  		select max(ID) from BJSHELL.TBL_ACCOUNT
   	</select>
+  	<select id="queryMinId" resultType="long">
+  		select min(ID) from BJSHELL.TBL_ACCOUNT
+  	 </select>
 </mapper>

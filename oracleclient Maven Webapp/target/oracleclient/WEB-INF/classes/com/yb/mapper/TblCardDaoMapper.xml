@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.TblCardDao">
-  	<select id="queryAll" parameterType="Integer" resultType="TblCard">
-  		select CARD_ID as cardId,VERSION,TEMPLET_ID as templetId,UNBLACKTIME,SHOP_ID as shopId,BLACKTIME,
+  	<select id="queryAll" parameterType="long" resultType="TblCard">
+  		select ID as cardId,VERSION,TEMPLET_ID as templetId,UNBLACKTIME,SHOP_ID as shopId,BLACKTIME,
   		
 			LOCATION_ID as locationId,MAC,TYPE_ID as typeId,FOREGIFTAMOUNT,TERMINALID,REVOCATIONTIME,BLACKREASON,
 			
@@ -10,9 +10,9 @@
 			
 			TARGETORG_ID as targetorgId,UKEYOPERATOR_ID as ukeyoperatorId,BLACKTYPE,CARDSTORE_STATUS as cardstoreStatus,TRADEL,EXPIREDTIME,
 			
-			CARDUSER_ID carduserId,ASN from TBL_CARD where CARD_ID > #{id}
+			owner_id as carduserId,ASN from BJSHELL.TBL_CARD where ID > #{id}
   	</select>
-  	<select id="queryMaxId" resultType="Integer">
-  		select max(CARD_ID) from TBL_CARD
+  	<select id="queryMaxId" resultType="long">
+  		select max(ID) from BJSHELL.TBL_CARD
   	</select>
 </mapper>
