@@ -19,7 +19,7 @@
 	 <context:property-placeholder location="classpath:master.properties"/>
     <!--创建数据源对象-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="url" value="jdbc:mysql://localhost:3306/oracleanditem"></property>
+        <property name="url" value="jdbc:mysql://192.168.0.31:3306/oracleanditem"></property>
 	     <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 	     <property name="username" value="root"></property>
 	     <property name="password" value="root"></property>
@@ -65,8 +65,7 @@
 				<entry key="50002" value-ref="50002"/>
 				<entry key="50022" value-ref="50022"/>
 				<entry key="50003" value-ref="50003"/>
-				<entry key="50007" value-ref="50007"/>
-				
+				<entry key="50007" value-ref="50007"/>	
 			</map>
 			<!-- 设置默认的数据源，这里默认走写库 -->
 		</property>

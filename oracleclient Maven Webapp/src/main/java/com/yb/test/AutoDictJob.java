@@ -59,8 +59,6 @@ public class AutoDictJob {
 		private TblOperatorService tblOperatorService;
 		@Autowired
 		private TblOrganizationService tblOrganizationService;
-		
-
 		//@Scheduled(cron="0/60 * * * * ?")
 		@Test
 		public void autowork(){

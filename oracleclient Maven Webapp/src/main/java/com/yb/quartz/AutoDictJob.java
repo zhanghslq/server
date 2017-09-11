@@ -58,7 +58,7 @@ public class AutoDictJob {
 		
 
 		
-		@Scheduled(cron="0 0 2 1 * ?")//每个月的一号凌晨两点
+		@Scheduled(cron="0 0 2 * * ?")//每个月的一号凌晨两点
 		public void autowork(){
 			dictAccountStatusService.queryAll();
 			dictCardStatusService.queryAll();

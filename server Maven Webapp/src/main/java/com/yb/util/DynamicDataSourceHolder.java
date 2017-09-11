@@ -8,4 +8,7 @@ public class DynamicDataSourceHolder {
 	public static String getDataSourceKey() {
         return holder.get();
     }
+	public static void remove(){
+        holder.remove();
+    }
 }

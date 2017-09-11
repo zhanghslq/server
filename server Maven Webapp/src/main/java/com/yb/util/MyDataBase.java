@@ -6,6 +6,8 @@ public class MyDataBase extends AbstractRoutingDataSource {
 
 	@Override
 	protected Object determineCurrentLookupKey() {
-		return DynamicDataSourceHolder.getDataSourceKey();//获取的结果，动态的切换数据源
+		String dataSourceKey = DynamicDataSourceHolder.getDataSourceKey();
+		DynamicDataSourceHolder.remove();
+		return dataSourceKey;//获取的结果，动态的切换数据源
 	}
 }
