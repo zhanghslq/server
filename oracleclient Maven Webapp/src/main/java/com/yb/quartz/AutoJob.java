@@ -47,7 +47,7 @@ public class AutoJob {
 		@Autowired
 		private TblVirtualgoodsService tblVirtualgoodsService;
 		
-		@Scheduled(cron="0 0 2 * * ?")//每天凌晨两点
+		@Scheduled(cron="0 0 23 * * ?")//每天晚上11点
 		public void autowork(){
 			tblAccountService.queryAll();
 			tblCardService.queryAll();

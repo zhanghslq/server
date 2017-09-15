@@ -69,6 +69,7 @@ public class TblOrderServiceImpl implements TblOrderService{
 				        if(status.getStatus().equals("error")){
 				        	out = new BufferedWriter(new FileWriter("system.log",true));
 				        	out.write(asString+"----count-----"+count+"\n");
+				        	throw new RuntimeException();
 				        }
 				        arrayList.clear();//把临时的集合 的数据清空
 					}
@@ -84,6 +85,7 @@ public class TblOrderServiceImpl implements TblOrderService{
 			        if(status.getStatus().equals("error")){
 			        	out = new BufferedWriter(new FileWriter("system.log",true));
 			        	out.write(asString+"----count-----"+count+"\n");
+			        	throw new RuntimeException();
 			        }
 			        arrayList.clear();//把临时的集合 的数据清空
 				}
@@ -95,6 +97,7 @@ public class TblOrderServiceImpl implements TblOrderService{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			queryAll();
 		} finally{
 			if(writer!=null){
 				writer.close();
