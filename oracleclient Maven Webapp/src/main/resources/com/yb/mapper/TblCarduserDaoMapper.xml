@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.TblCarduserDao">
-  	<select id="queryAll" parameterType="long" resultType="TblCarduser">
+  	<select id="queryAll"  resultType="TblCarduser">
   		select tcu.ID as carduserId,tcu.VERSION,FREEZEREASON,P6,P5,ORGUSER_ID as orguserId,P4,
   		
 			ISCUMULATEPOINTS,P3,LOCATION_ID as locationId,P2,ANONYMOUSBALANCE,P1,CARDUSER_TYPE as carduserType,tcu.CUSTOMER_ID as customerId,
@@ -20,11 +20,11 @@
 			
 			QUANTITYNUMBER,CARSERIES_ID as carseriesId,PINTRYTIMES,ISUPDATECLIENTINFO,CURRENTCARD_ID as currentcardId,CARMODEL_ID as carmodelId,
 			
-			ISMASTERCARD,NOTES,RECNUM,CRSTATE,OPFSTATE,OSASTATE
+			ISMASTERCARD,NOTES,RECNUM,CRSTATE,OPFSTATE,OSASTATE,ISUSEVER,ISOPENLICENSPAY
 			
-			 from BJSHELL.Tbl_Carduser tcu left join BJSHELL.tbl_setting ts on tcu.customer_id=ts.customer_id where tcu.ID > #{id}
+			 from BJSHELL.TBL_CARDUSER tcu left join BJSHELL.TBL_SETTING ts on tcu.customer_id=ts.customer_id where tcu.ID>=#{min} and tcu.ID&lt;#{max}
   	</select>
-  	<select id="queryMaxId" resultType="long">
-  		select max(ID) from BJSHELL.Tbl_Carduser
-  	</select>
+  	<select id="queryMinId" resultType="long">
+  		select min(ID) from BJSHELL.TBL_CARDUSER
+  	 </select>
 </mapper>

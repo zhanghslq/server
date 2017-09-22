@@ -3,9 +3,9 @@
 <mapper namespace="com.yb.dao.DictTradeTypeDao">
   	<select id="queryAll" parameterType="Integer" resultType="DictTradeType" >
   		select ID,TEXT,ENGLISH,ICONURL
-  		 	from BJSHELL.DICT_TRADE_STATUS where ID > #{id}
+  		 	from BJSHELL.DICT_TRADE_TYPE where ID > #{id}
   	</select>
   	<select id="queryMaxId" resultType="Integer">
-  		select max(ID) from BJSHELL.DICT_TRADE_STATUS
+  		select max(ID) from BJSHELL.DICT_TRADE_TYPE
   	</select>
 </mapper>

@@ -34,6 +34,96 @@ public class TblOrderdetails implements Serializable{
 	
 	//新增加yi个字段
 	private Integer customerId;
+	//新增字段
+	private String PPSORDERNUMBER;
+	
+	//对比新模型，新增的字段
+	
+	private BigDecimal GOODSAMOUNT;
+	private BigDecimal FUELCOUPONAMOUNT;
+	private BigDecimal GOODCOUPONAMOUNT;
+	private BigDecimal GOODSCOUPONAMOUNT;
+	private BigDecimal UPDATEREALAMOUNT;
+	private BigDecimal FULECOUPONAMOUNT;
+	private BigDecimal FULEAMOUNT;
+	private String CARLICENSE;
+	private String OILGUNNO;
+	private BigDecimal ORDER_STATE;
+	private String EPSCODE;
+	
+	
+	public BigDecimal getGOODSAMOUNT() {
+		return GOODSAMOUNT;
+	}
+	public void setGOODSAMOUNT(BigDecimal gOODSAMOUNT) {
+		GOODSAMOUNT = gOODSAMOUNT;
+	}
+	public BigDecimal getFUELCOUPONAMOUNT() {
+		return FUELCOUPONAMOUNT;
+	}
+	public void setFUELCOUPONAMOUNT(BigDecimal fUELCOUPONAMOUNT) {
+		FUELCOUPONAMOUNT = fUELCOUPONAMOUNT;
+	}
+	public BigDecimal getGOODCOUPONAMOUNT() {
+		return GOODCOUPONAMOUNT;
+	}
+	public void setGOODCOUPONAMOUNT(BigDecimal gOODCOUPONAMOUNT) {
+		GOODCOUPONAMOUNT = gOODCOUPONAMOUNT;
+	}
+	public BigDecimal getGOODSCOUPONAMOUNT() {
+		return GOODSCOUPONAMOUNT;
+	}
+	public void setGOODSCOUPONAMOUNT(BigDecimal gOODSCOUPONAMOUNT) {
+		GOODSCOUPONAMOUNT = gOODSCOUPONAMOUNT;
+	}
+	public BigDecimal getUPDATEREALAMOUNT() {
+		return UPDATEREALAMOUNT;
+	}
+	public void setUPDATEREALAMOUNT(BigDecimal uPDATEREALAMOUNT) {
+		UPDATEREALAMOUNT = uPDATEREALAMOUNT;
+	}
+	public BigDecimal getFULECOUPONAMOUNT() {
+		return FULECOUPONAMOUNT;
+	}
+	public void setFULECOUPONAMOUNT(BigDecimal fULECOUPONAMOUNT) {
+		FULECOUPONAMOUNT = fULECOUPONAMOUNT;
+	}
+	public BigDecimal getFULEAMOUNT() {
+		return FULEAMOUNT;
+	}
+	public void setFULEAMOUNT(BigDecimal fULEAMOUNT) {
+		FULEAMOUNT = fULEAMOUNT;
+	}
+	public String getCARLICENSE() {
+		return CARLICENSE;
+	}
+	public void setCARLICENSE(String cARLICENSE) {
+		CARLICENSE = cARLICENSE;
+	}
+	public String getOILGUNNO() {
+		return OILGUNNO;
+	}
+	public void setOILGUNNO(String oILGUNNO) {
+		OILGUNNO = oILGUNNO;
+	}
+	public BigDecimal getORDER_STATE() {
+		return ORDER_STATE;
+	}
+	public void setORDER_STATE(BigDecimal oRDER_STATE) {
+		ORDER_STATE = oRDER_STATE;
+	}
+	public String getEPSCODE() {
+		return EPSCODE;
+	}
+	public void setEPSCODE(String ePSCODE) {
+		EPSCODE = ePSCODE;
+	}
+	public String getPPSORDERNUMBER() {
+		return PPSORDERNUMBER;
+	}
+	public void setPPSORDERNUMBER(String pPSORDERNUMBER) {
+		PPSORDERNUMBER = pPSORDERNUMBER;
+	}
 	public TblOrderdetails() {
 		super();
 		// TODO Auto-generated constructor stub

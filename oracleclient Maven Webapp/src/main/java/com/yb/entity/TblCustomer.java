@@ -40,6 +40,29 @@ public class TblCustomer implements Serializable{
 	private String idno;
 	private BigDecimal carNature;
 	private String openid;
+	//按照新的模型，新增的字段
+	private BigDecimal REGISTER_TYPE;
+	private BigDecimal LOTTERYTIMES;
+	private BigDecimal ASKPROBLEMSTATUS;
+	
+	public BigDecimal getREGISTER_TYPE() {
+		return REGISTER_TYPE;
+	}
+	public void setREGISTER_TYPE(BigDecimal rEGISTER_TYPE) {
+		REGISTER_TYPE = rEGISTER_TYPE;
+	}
+	public BigDecimal getLOTTERYTIMES() {
+		return LOTTERYTIMES;
+	}
+	public void setLOTTERYTIMES(BigDecimal lOTTERYTIMES) {
+		LOTTERYTIMES = lOTTERYTIMES;
+	}
+	public BigDecimal getASKPROBLEMSTATUS() {
+		return ASKPROBLEMSTATUS;
+	}
+	public void setASKPROBLEMSTATUS(BigDecimal aSKPROBLEMSTATUS) {
+		ASKPROBLEMSTATUS = aSKPROBLEMSTATUS;
+	}
 	public TblCustomer() {
 		super();
 		// TODO Auto-generated constructor stub

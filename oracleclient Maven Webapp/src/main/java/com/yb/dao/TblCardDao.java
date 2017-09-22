@@ -1,7 +1,12 @@
 package com.yb.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.yb.entity.TblCard;
 
-public interface TblCardDao extends BaseDao<TblCard>{
-	
+public interface TblCardDao{
+	List<TblCard> queryAll(@Param("min")Long min,@Param("max")Long max);
+	Long queryMinId();
 }

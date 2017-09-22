@@ -44,7 +44,8 @@ public class TblCardServiceImpl implements TblCardService{
 			File file = new File("TblCard.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
-				writer.println(0);
+				Long queryMinId = tblCardDao.queryMinId();
+				writer.println(String.valueOf(queryMinId));
 				writer.flush();
 			}
 			if(file.isFile() && file.exists()) {
@@ -53,8 +54,9 @@ public class TblCardServiceImpl implements TblCardService{
 				String readLine = br.readLine();//读取数据
 				id = Long.valueOf(readLine);
 			}
-			List<TblCard> list = tblCardDao.queryAll(id);
-			if(list.size()!=0&&list!=null){//取出来的有数据，才会调用
+			List<TblCard> list = tblCardDao.queryAll(id,id+100000);
+			
+			if(list.size()!=0){//取出来的有数据，才会调用
 				ArrayList<TblCard> arrayList = new ArrayList<TblCard>();
 				for (TblCard tblCard : list) {
 					arrayList.add(tblCard);//添加的一条数据
@@ -75,7 +77,7 @@ public class TblCardServiceImpl implements TblCardService{
 					}
 				}
 				list.clear();
-				if(count%30!=0){//证明最后还有未提交的数据
+				if(arrayList.size()!=0){//小集合的长度不为0,证明最后还有未提交的数据
 					String jsonString = JSON.toJSONString(arrayList);
 					HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
 			        String asString = Request.Post("http://localhost:8989/server/tblCard/insert")
@@ -89,9 +91,10 @@ public class TblCardServiceImpl implements TblCardService{
 			        }
 			        arrayList.clear();//把临时的集合 的数据清空
 				}
-				Long maxId = tblCardDao.queryMaxId();
+				
+			}else {
 				pw=new PrintWriter(file);
-				pw.write(String.valueOf(maxId));//把最新的id最大的写入文件
+				pw.write(String.valueOf(0));//把0写入文件下次开始的时候
 				pw.flush();
 			}
 		} catch (Exception e) {

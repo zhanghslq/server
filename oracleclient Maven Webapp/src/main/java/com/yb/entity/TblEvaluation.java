@@ -17,6 +17,44 @@ public class TblEvaluation implements Serializable{
 	private BigDecimal orgId;
 	private BigDecimal customerId;
 	private BigDecimal tradeId;
+	//新增的五个评分的字段
+	private BigDecimal STAR1;
+	private BigDecimal STAR2;
+	private BigDecimal STAR3;
+	private BigDecimal STAR4;
+	private BigDecimal STAR5;
+	
+	
+	public BigDecimal getSTAR1() {
+		return STAR1;
+	}
+	public void setSTAR1(BigDecimal sTAR1) {
+		STAR1 = sTAR1;
+	}
+	public BigDecimal getSTAR2() {
+		return STAR2;
+	}
+	public void setSTAR2(BigDecimal sTAR2) {
+		STAR2 = sTAR2;
+	}
+	public BigDecimal getSTAR3() {
+		return STAR3;
+	}
+	public void setSTAR3(BigDecimal sTAR3) {
+		STAR3 = sTAR3;
+	}
+	public BigDecimal getSTAR4() {
+		return STAR4;
+	}
+	public void setSTAR4(BigDecimal sTAR4) {
+		STAR4 = sTAR4;
+	}
+	public BigDecimal getSTAR5() {
+		return STAR5;
+	}
+	public void setSTAR5(BigDecimal sTAR5) {
+		STAR5 = sTAR5;
+	}
 	public TblEvaluation() {
 		super();
 		// TODO Auto-generated constructor stub

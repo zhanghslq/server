@@ -56,8 +56,6 @@ public class AutoDictJob {
 		@Autowired
 		private TblOrganizationService tblOrganizationService;
 		
-
-		
 		@Scheduled(cron="0 0 23 * * ?")//每天晚上11点
 		public void autowork(){
 			dictAccountStatusService.queryAll();

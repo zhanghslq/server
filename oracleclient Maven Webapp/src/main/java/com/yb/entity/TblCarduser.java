@@ -72,6 +72,23 @@ public class TblCarduser {
 	private BigDecimal crstate;
 	private BigDecimal opfstate;
 	private BigDecimal osastate;
+	
+	//参照新模型添加的字段
+	private BigDecimal ISUSEVER;
+	private BigDecimal ISOPENLICENSPAY;
+	
+	public BigDecimal getISUSEVER() {
+		return ISUSEVER;
+	}
+	public void setISUSEVER(BigDecimal iSUSEVER) {
+		ISUSEVER = iSUSEVER;
+	}
+	public BigDecimal getISOPENLICENSPAY() {
+		return ISOPENLICENSPAY;
+	}
+	public void setISOPENLICENSPAY(BigDecimal iSOPENLICENSPAY) {
+		ISOPENLICENSPAY = iSOPENLICENSPAY;
+	}
 	public TblCarduser() {
 		super();
 		// TODO Auto-generated constructor stub

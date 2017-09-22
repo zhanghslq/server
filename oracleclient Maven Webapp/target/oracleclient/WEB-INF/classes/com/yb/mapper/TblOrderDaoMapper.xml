@@ -5,7 +5,8 @@
 		<select id="queryAll" parameterType="long" resultType="TblOrder">
 			select ID as orderId,VERSION,AMOUNT,ORDERNO,TRADEID,CARDUSER_ID as carduserId,CREATEDATE,
 			
-			ORDER_STATUS as orderStatus,UPDATEDATE,OPENID from BJSHELL.TBL_ORDER where ID >#{id}
+			ORDER_STATUS as orderStatus,UPDATEDATE,OPENID,MCHID,OTHERORDERNO,FACEAMOUNT
+			 from BJSHELL.TBL_ORDER where ID >#{id}
 			
 		</select>
 		

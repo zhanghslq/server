@@ -57,6 +57,8 @@ public class TblAccountServiceImpl implements TblAccountService {
 			
 			List<TblAccount> list = tblAccountDao.queryAll(id,id+100000);
 			
+			
+			
 			if(list.size()!=0){
 					ArrayList<TblAccount> arrayList = new ArrayList<TblAccount>();
 					for (TblAccount tblAccount : list) {
@@ -96,12 +98,13 @@ public class TblAccountServiceImpl implements TblAccountService {
 					pw.flush();
 					list.clear();
 					queryAll();//继续调用
-				}else {
+				}else {//抽取数据完成，把记录清空，下次重新全部抽取
 					pw=new PrintWriter(file);
-					Long queryMaxId = tblAccountDao.queryMaxId();
-					pw.write(String.valueOf(queryMaxId+1));//把最新的id写入文件
+//					Long queryMaxId = tblAccountDao.queryMaxId();
+					pw.write(String.valueOf(0));//把最新的id写入文件
 					pw.flush();
 				}
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -19,6 +19,30 @@ public class TblOrder implements Serializable{
 	private BigDecimal orderStatus;
 	private Date updatedate;
 	private String openId;
+	
+	//参照新模型添加的三个字段
+	private String MCHID;
+	private String OTHERORDERNO;
+	private BigDecimal FACEAMOUNT;
+	
+	public String getMCHID() {
+		return MCHID;
+	}
+	public void setMCHID(String mCHID) {
+		MCHID = mCHID;
+	}
+	public String getOTHERORDERNO() {
+		return OTHERORDERNO;
+	}
+	public void setOTHERORDERNO(String oTHERORDERNO) {
+		OTHERORDERNO = oTHERORDERNO;
+	}
+	public BigDecimal getFACEAMOUNT() {
+		return FACEAMOUNT;
+	}
+	public void setFACEAMOUNT(BigDecimal fACEAMOUNT) {
+		FACEAMOUNT = fACEAMOUNT;
+	}
 	public TblOrder() {
 		super();
 		// TODO Auto-generated constructor stub

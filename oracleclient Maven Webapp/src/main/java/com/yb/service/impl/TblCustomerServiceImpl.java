@@ -43,7 +43,8 @@ public class TblCustomerServiceImpl implements TblCustomerService{
 			File file = new File("TblCustomer.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
-				writer.println(0);
+				Long queryMinId = tblCustomerDao.queryMinId();
+				writer.println(String.valueOf(queryMinId));
 				writer.flush();
 			}
 			if(file.isFile() && file.exists()) {
@@ -52,7 +53,10 @@ public class TblCustomerServiceImpl implements TblCustomerService{
 				String readLine = br.readLine();//读取数据
 				id = Long.valueOf(readLine);
 			}
-			List<TblCustomer> list = tblCustomerDao.queryAll(id);
+			List<TblCustomer> list = tblCustomerDao.queryAll(id,id+100000);
+			
+			
+			
 			if(list.size()!=0&&list!=null){//取出来的有数据，才会调用
 				ArrayList<TblCustomer> arrayList = new ArrayList<TblCustomer>();
 				for (TblCustomer tblCustomer : list) {
@@ -73,8 +77,8 @@ public class TblCustomerServiceImpl implements TblCustomerService{
 				        arrayList.clear();//把临时的集合 的数据清空
 					}
 				}
-				list.clear();
-				if(count%30!=0){//证明最后还有未提交的数据
+				list.clear();//清空集合释放内存
+				if(arrayList.size()!=0){//证明最后还有未提交的数据,小于30条
 					String jsonString = JSON.toJSONString(arrayList);
 					HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
 			        String asString = Request.Post("http://localhost:8989/server/tblCustomer/insert")
@@ -88,9 +92,11 @@ public class TblCustomerServiceImpl implements TblCustomerService{
 			        }
 			        arrayList.clear();//把临时的集合 的数据清空
 				}
-				Long maxId = tblCustomerDao.queryMaxId();
+				
+			}else {
 				pw=new PrintWriter(file);
-				pw.write(String.valueOf(maxId));//把最新的id最大的写入文件
+				Long queryMinId = tblCustomerDao.queryMinId();
+				pw.write(String.valueOf(queryMinId));//把最小的id最大的写入文件
 				pw.flush();
 			}
 		} catch (Exception e) {

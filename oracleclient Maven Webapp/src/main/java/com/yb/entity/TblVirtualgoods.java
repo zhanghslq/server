@@ -34,6 +34,30 @@ public class TblVirtualgoods implements Serializable{
 	private BigDecimal discountrate;
 	private Date effectivedate;
 	private BigDecimal trueFalse;
+	
+	//新增字段
+	private BigDecimal USEORG_ID;
+	private Date USETIME;
+	private BigDecimal BIGAMOUNT;
+	
+	public BigDecimal getUSEORG_ID() {
+		return USEORG_ID;
+	}
+	public void setUSEORG_ID(BigDecimal uSEORG_ID) {
+		USEORG_ID = uSEORG_ID;
+	}
+	public Date getUSETIME() {
+		return USETIME;
+	}
+	public void setUSETIME(Date uSETIME) {
+		USETIME = uSETIME;
+	}
+	public BigDecimal getBIGAMOUNT() {
+		return BIGAMOUNT;
+	}
+	public void setBIGAMOUNT(BigDecimal bIGAMOUNT) {
+		BIGAMOUNT = bIGAMOUNT;
+	}
 	public TblVirtualgoods() {
 		super();
 		// TODO Auto-generated constructor stub

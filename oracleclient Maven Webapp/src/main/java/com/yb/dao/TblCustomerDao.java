@@ -1,7 +1,12 @@
 package com.yb.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.yb.entity.TblCustomer;
 
-public interface TblCustomerDao extends BaseDao<TblCustomer>{
-	
+public interface TblCustomerDao{
+	List<TblCustomer> queryAll(@Param("min")Long min,@Param("max")Long max);
+	Long queryMinId();
 }
