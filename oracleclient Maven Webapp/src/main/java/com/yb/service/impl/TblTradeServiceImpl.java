@@ -106,7 +106,6 @@ public class TblTradeServiceImpl implements TblTradeService{
 				}
 		} catch (Exception e) {
 			e.printStackTrace();
-			queryAll();
 		} finally{
 			if(writer!=null){
 				writer.close();

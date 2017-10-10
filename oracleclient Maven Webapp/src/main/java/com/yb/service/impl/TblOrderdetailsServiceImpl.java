@@ -103,7 +103,6 @@ public class TblOrderdetailsServiceImpl implements TblOrderdetailsService{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			queryAll();
 		} finally{
 			if(writer!=null){
 				writer.close();

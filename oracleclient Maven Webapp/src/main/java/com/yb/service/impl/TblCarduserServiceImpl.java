@@ -94,17 +94,19 @@ public class TblCarduserServiceImpl implements TblCarduserService{
 			        }
 			        arrayList.clear();//把临时的集合 的数据清空
 				}
-				
-				
+				pw=new PrintWriter(file);
+				pw.write(String.valueOf(id+100000));//把0写入文件下次开始的时候
+				pw.flush();
+				queryAll();
 			}else {
 				pw=new PrintWriter(file);
-				pw.write(String.valueOf(0));//把最新的id最大的写入文件
+				Long queryMinId = tblCarduserDao.queryMinId();
+				pw.write(String.valueOf(queryMinId));//把最新的id最大的写入文件
 				pw.flush();
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			queryAll();
 		} finally{
 			if(writer!=null){
 				writer.close();

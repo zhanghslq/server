@@ -92,7 +92,10 @@ public class TblCustomerServiceImpl implements TblCustomerService{
 			        }
 			        arrayList.clear();//把临时的集合 的数据清空
 				}
-				
+				pw=new PrintWriter(file);
+				pw.write(String.valueOf(id+100000));
+				pw.flush();
+				queryAll();
 			}else {
 				pw=new PrintWriter(file);
 				Long queryMinId = tblCustomerDao.queryMinId();
@@ -102,7 +105,6 @@ public class TblCustomerServiceImpl implements TblCustomerService{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			queryAll();
 		} finally{
 			if(writer!=null){
 				writer.close();
