@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TanksDao">
+  	<insert id="insert" parameterType="List">
+  		
+			replace into Tanks(Tank_ID,Grade_ID,Tank_Name,Tank_Number,Tank_Description,Physical_Label,
+			Capacity,Gauge_Level,Temperature,Gauge_TC_Volume,Water_Level,Dip_Level,Gauge_Volume,
+			Theoretical_Volume,Dip_Volume,Average_Cost,Strapped_Tank_ID,Probe_Number,Ullage,Water_Volume,
+			Gauge_alarms,Tank_Type,Diameter,Low_Volume_Warning,Low_Volume_Alarm,Hi_Volume_Warning,
+			Hi_Volume_Alarm,Hi_Water_Alarm,Density,Tank_Gauge_ID,Tank_Type_ID,Tank_Connection_Type_ID,
+			Tank_Probe_Status_ID,Tank_Readings_DT,Tank_Delivery_State_ID,Pump_Delivery_State,Hi_Temperature,
+			Low_Temperature,Loss_Tolerance_Vol,Gain_Tolerance_Vol,Deleted,Auto_Disable,Is_Enabled,station_id)
+			values
+			<foreach collection="list" item="tanks" index="i"  separator="," >
+			(#{tanks.Tank_ID},#{tanks.Grade_ID},#{tanks.Tank_Name},#{tanks.Tank_Number},
+			#{tanks.Tank_Description},#{tanks.Physical_Label},#{tanks.Capacity},#{tanks.Gauge_Level},
+			#{tanks.Temperature},#{tanks.Gauge_TC_Volume},#{tanks.Water_Level},#{tanks.Dip_Level},
+			#{tanks.Gauge_Volume},#{tanks.Theoretical_Volume},#{tanks.Dip_Volume},#{tanks.Average_Cost},
+			#{tanks.Strapped_Tank_ID},#{tanks.Probe_Number},#{tanks.Ullage},#{tanks.Water_Volume},
+			#{tanks.Gauge_alarms},#{tanks.Tank_Type},#{tanks.Diameter},#{tanks.Low_Volume_Warning},
+			#{tanks.Low_Volume_Alarm},#{tanks.Hi_Volume_Warning},#{tanks.Hi_Volume_Alarm},#{tanks.Hi_Water_Alarm},
+			#{tanks.Density},#{tanks.Tank_Gauge_ID},#{tanks.Tank_Type_ID},#{tanks.Tank_Connection_Type_ID},
+			#{tanks.Tank_Probe_Status_ID},#{tanks.Tank_Readings_DT},#{tanks.Tank_Delivery_State_ID},#{tanks.Pump_Delivery_State},
+			#{tanks.Hi_Temperature},#{tanks.Low_Temperature},#{tanks.Loss_Tolerance_Vol},#{tanks.Gain_Tolerance_Vol},
+			#{tanks.Deleted},#{tanks.Auto_Disable},#{tanks.Is_Enabled},#{tanks.stationId})
+		</foreach>
+  	</insert>
+</mapper>

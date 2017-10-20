@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.ItemTypesDao">
+  	<insert id="insert" parameterType="List">
+			replace into item_types(item_type,item_type_descr,refundable,compulsory_receipt,station_id)
+			values
+			<foreach collection="list" item="itemTypes" index="i"  separator="," >
+			(#{itemTypes.item_type},#{itemTypes.item_type_descr},#{itemTypes.refundable},#{itemTypes.compulsory_receipt},#{itemTypes.stationId})
+		</foreach>
+  	</insert>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblDifferencestradeDao">
+  	<insert id="insert" parameterType="List">
+  		
+			replace into TBL_DIFFERENCESTRADE(DIFFERENCESTRADE_ID,VERSION,TRADE_TYPE,COUPON_REMOVE,WORKDATE,
+			STATIONCODE,RRN,AUTOFLAG,HANDINGFEE,THIRDORDERNO,FEE_RATE,POSNUM,REALAMOUNT,THIRDTRANSDATE,
+			AMOUNT,ORG_ID,TRANSDATE,BATCHNO,DIFF_TYPE,TRANSTIME,PAYTYPE,COUPON,THIRDTRANSTIME)
+			
+			values
+			<foreach collection="list" item="tblDifferencestrade" index="i"  separator=","    >
+			(#{tblDifferencestrade.differencestradeId},#{tblDifferencestrade.version},#{tblDifferencestrade.tradeType},
+			
+			#{tblDifferencestrade.couponRemove},#{tblDifferencestrade.workdate},#{tblDifferencestrade.stationcode},#{tblDifferencestrade.rrn},
+			
+			#{tblDifferencestrade.autoflag},#{tblDifferencestrade.handingfee},#{tblDifferencestrade.thirdorderno},#{tblDifferencestrade.feeRate},
+			
+			#{tblDifferencestrade.posnum},#{tblDifferencestrade.realamount},#{tblDifferencestrade.thirdtransdate},#{tblDifferencestrade.amount},
+			
+			#{tblDifferencestrade.orgId},#{tblDifferencestrade.transdate},#{tblDifferencestrade.batchno},#{tblDifferencestrade.diffType},
+			
+			#{tblDifferencestrade.transtime},#{tblDifferencestrade.paytype},#{tblDifferencestrade.coupon},#{tblDifferencestrade.thirdtranstime})
+		</foreach>
+  	</insert>
+</mapper>

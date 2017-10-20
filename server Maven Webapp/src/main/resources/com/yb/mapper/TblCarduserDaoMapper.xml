@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblCarduserDao">
+  	<insert id="insert" parameterType="java.util.List">
+  		
+			replace into TBL_CARDUSER(CARDUSER_ID,VERSION,FREEZEREASON,P6,P5,ORGUSER_ID,P4,
+			
+			ISCUMULATEPOINTS,P3,LOCATION_ID,P2,ANONYMOUSBALANCE,P1,CARDUSER_TYPE,CUSTOMER_ID,
+			
+			FOREGIFTAMOUNT,OPER_ID,BUILDFILESTATION_ID,CONTRACTTYPE,CARDVALUE,ISSELLSTATUS,
+			
+			ISOILLIMIT,DEPT_ID,CARLICENSE,AMOUNTLIMIT,TIMELIMIT,CARDUSER_STATUS,INVOICE_TYPE,
+			
+			PARENT_ID,RECORDTIME,CARDTYPE_ID,USEPIN,CONTRACTEXPIREDDATE,CURRENTASN,MULTILEVEL,
+			
+			OILLIMIT,CARDPIN,IDNO,CANLOADPOINT,CANTEDITLIMITS,LASTINVOICETIME,INVOICEAMOUNT,
+			
+			CUSTOMER_LEVEL,FREQUENCY,UNIQUEID,ISTOPUP,CAR_TYPE,QUANTITYLIMIT,MOBILECARTYPE,
+			
+			NAME,INTERNAL,CLEAR_METHOD,COMPANYCUSTOMER_ID,MERCHANDISELIMIT,ISMERLIMIT,STATIONLIMIT,
+			
+			QUANTITYNUMBER,CARSERIES_ID,PINTRYTIMES,ISUPDATECLIENTINFO,CURRENTCARD_ID,CARMODEL_ID,
+			
+			ISMASTERCARD,NOTES,RECNUM,CRSTATE,OPFSTATE,OSASTATE,ISUSEVER,ISOPENLICENSPAY)
+			values
+			<foreach collection="list" item="tblcardus" index="i"  separator="," >
+			(#{tblcardus.carduserId},#{tblcardus.version},#{tblcardus.freezereason},#{tblcardus.p6},
+			#{tblcardus.p5},#{tblcardus.orguserId},#{tblcardus.p4},#{tblcardus.iscumulatepoints},
+			#{tblcardus.p3},#{tblcardus.locationId},#{tblcardus.p2},#{tblcardus.anonymousbalance},
+			#{tblcardus.p1},#{tblcardus.carduserType},#{tblcardus.customerId},#{tblcardus.foregiftamount},
+			
+			#{tblcardus.operId},#{tblcardus.buildfilestationId},#{tblcardus.contracttype},#{tblcardus.cardvalue},
+			
+			#{tblcardus.issellstatus},#{tblcardus.isoillimit},#{tblcardus.deptId},#{tblcardus.carlicense},
+			
+			#{tblcardus.amountlimit},#{tblcardus.timelimit},#{tblcardus.carduserStatus},#{tblcardus.invoiceType},
+			
+			#{tblcardus.parentId},#{tblcardus.recordTime},#{tblcardus.cardtypeId},#{tblcardus.usepin},
+			
+			#{tblcardus.contractexpireddate},#{tblcardus.currentasn},#{tblcardus.multilevel},#{tblcardus.oillimit},
+			
+			#{tblcardus.cardpin},#{tblcardus.idno},#{tblcardus.canloadpoint},#{tblcardus.cantedilimits},
+			
+			#{tblcardus.lastinvoiceTime},#{tblcardus.invoiceamount},#{tblcardus.customerLevel},#{tblcardus.frequency},
+			
+			#{tblcardus.uniqueid},#{tblcardus.istopup},#{tblcardus.carType},#{tblcardus.quantitylimit},
+			
+			#{tblcardus.mobilecartype},#{tblcardus.name},#{tblcardus.internal},#{tblcardus.clearMethod},
+			
+			#{tblcardus.companycustomerId},#{tblcardus.merchandiselimit},#{tblcardus.ismerlimit},#{tblcardus.stationlimit},
+			
+			#{tblcardus.quantitynumber},#{tblcardus.carseriesId},#{tblcardus.pintrytimes},#{tblcardus.isupdateclientinfo},
+			
+			#{tblcardus.currentcardId},#{tblcardus.carmodelId},#{tblcardus.ismastercard},#{tblcardus.notes},
+			
+			#{tblcardus.recnum},#{tblcardus.crstate},#{tblcardus.opfstate},#{tblcardus.osastate},#{tblcardus.ISUSEVER},#{tblcardus.ISOPENLICENSPAY})
+		</foreach>
+  	</insert>
+</mapper>

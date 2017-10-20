@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblCardTypeDao">
+  	<insert id="insert" parameterType="List">
+  		
+			replace into TBL_CARDTYPE(ID,VERSION,RESTRICTCOMMODITIES,MINDEPOSIT,VALIDITYDAY,
+			INITBALANCE,ISMERLIMIT,ANNUALAUDIT,BASE_CARD_TYPE,CANREVCATE,DAYSPEREXTENTION,DEPOSITABLE,
+			ANONYMOUS,TARGETAREA_ID,UPPERLIMIT,STYLE_ID,DESCRIPTION,NAME,AUDITDAYSINADVANCE,CUSTOMER_LEVEL,
+			PHYSICALCARDTYPE,INTERNAL)
+			values
+			<foreach collection="list" item="tblCardType" index="i"  separator="," >
+			(#{tblCardType.id},#{tblCardType.version},#{tblCardType.restrictcommodities},
+			#{tblCardType.mindeposit},#{tblCardType.validityday},#{tblCardType.initbalance},
+			#{tblCardType.ismerlimit},#{tblCardType.annualaudit},#{tblCardType.base_card_type},
+			#{tblCardType.canrevcate},#{tblCardType.daysperextention},#{tblCardType.depositable},
+			#{tblCardType.anonymous},#{tblCardType.targetarea_id},#{tblCardType.upperlimit},
+			#{tblCardType.style_id},#{tblCardType.description},#{tblCardType.name},
+			#{tblCardType.auditdaysinadvance},#{tblCardType.customer_level},#{tblCardType.physicalcardtype},
+			#{tblCardType.internal})
+		</foreach>
+  	</insert>
+</mapper>

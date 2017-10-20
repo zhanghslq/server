@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TankDeliveryStateDao">
+  	<insert id="insert" parameterType="List">
+			replace into Tank_Delivery_State(Tank_Delivery_State_ID,Tank_Delivery_State_Name,station_id)
+			values
+			<foreach collection="list" item="tankDeliveryState" index="i"  separator="," >
+			(#{tankDeliveryState.Tank_Delivery_State_ID},#{tankDeliveryState.Tank_Delivery_State_Name},#{tankDeliveryState.stationId})
+		</foreach>
+  	</insert>
+</mapper>

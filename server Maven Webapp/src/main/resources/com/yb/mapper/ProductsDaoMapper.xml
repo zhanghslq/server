@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.ProductsDao">
+  	<insert id="insert" parameterType="List">
+  		
+			replace into products(product_id,tax_id,department_id,product_desc,product_price,product_quick_code,
+			product_code,product_ordering_status,product_managed_by,product_type,product_selling_type,product_stock_type,
+			product_composite_type,Multiple_taxes,Price_Batch_id,Incomplete_product,delisted_date,product_special_type,
+			barcode,upc_type,barcode_special_type,station_id)
+			
+			values
+		<foreach collection="list" item="products" index="i" separator=","  >
+			(#{products.productId},#{products.taxId},#{products.departmentId},#{products.productDesc},
+			
+			#{products.productPrice},#{products.productQuickCode},#{products.productCode},#{products.productOrderingStatus},
+			
+			#{products.productManagedBy},#{products.productType},#{products.productSellingType},#{products.productStockType},
+			
+			#{products.productCompositeType},#{products.MultipleTaxes},#{products.priceBatchId},#{products.incompleteProduct},
+			
+			#{products.delistedDate},#{products.productSpecialType},#{products.barcode},#{products.upcType},
+			
+			#{products.barcodeSpecialType},#{products.stationId})
+		</foreach>
+  	</insert>
+</mapper>
