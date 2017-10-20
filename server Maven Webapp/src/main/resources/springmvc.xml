@@ -25,4 +25,10 @@
    
 	<!--解决静态资源被拦截的问题-->
     <mvc:default-servlet-handler/>
+    
+     <!-- 配置切面 -->
+	<aop:config>
+		<aop:pointcut expression="execution(* com.yb.controller.*.*(..))" id="pc"/>
+		<aop:advisor advice-ref="recordServiceTimeAdvice" pointcut-ref="pc" order="1"/>
+	</aop:config>
 </beans>

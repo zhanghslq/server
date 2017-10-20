@@ -15,6 +15,7 @@
 
     <!--开启注解扫描-->
     <context:component-scan base-package="com.yb"/>
+    
     <!--创建数据源对象-->
     <bean id="oracle" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -28,6 +29,13 @@
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
+    
+    <bean id="result" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.0.34:3306/result"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
 
 	<bean id="routingDataSource" class="com.yb.util.MyDataBase">
 	 	<property name="targetDataSources">
@@ -35,6 +43,7 @@
 				<!-- 这个key需要和程序中的key一致 -->
 				<entry key="oracle" value-ref="oracle"/>
 				<entry key="sqlserver" value-ref="sqlserver"/>
+				<entry key="result" value-ref="result"/>
 			</map>
 			<!-- 设置默认的数据源，这里默认走写库 -->
 		</property>
@@ -55,11 +64,14 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
+ 
+	
     <!--创建事务管理-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="routingDataSource"/>
     </bean>
-
+	
     <!--配置注解式事务生效-->
     <tx:annotation-driven transaction-manager="transactionManager" />
+      
 </beans>
