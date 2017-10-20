@@ -30,11 +30,9 @@ public class FapiaoTransactionDataController {
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	@ResponseBody
-	public Status insert(@RequestBody List<FapiaoTransactionData>list,HttpServletRequest request) throws IOException{
+	public Status insert(HttpServletRequest request,@RequestBody List<FapiaoTransactionData>list) throws IOException{
 		
 		try {
-		
-			
 			DynamicDataSourceHolder.putDataSourceKey("sqlserver");
 			fapiaoTransactionDataService.insert(list);
 			return new Status("success");
@@ -55,8 +53,6 @@ public class FapiaoTransactionDataController {
 			e.printStackTrace();
 			return new Status("error", e.getMessage());
 		}
-		
-		
 	}
 	
 }

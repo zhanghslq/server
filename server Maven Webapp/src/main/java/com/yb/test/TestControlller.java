@@ -1,4 +1,4 @@
-package com.yb.controller;
+package com.yb.test;
 
 import javax.servlet.http.HttpServletRequest;
 

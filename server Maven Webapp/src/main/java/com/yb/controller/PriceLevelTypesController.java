@@ -3,6 +3,7 @@ package com.yb.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ public class PriceLevelTypesController{
 	private PriceLevelTypesService priceLevelTypesService;
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	@ResponseBody
-	public Status insert(@RequestBody List<PriceLevelTypes> list) {
+	public Status insert(HttpServletRequest request,@RequestBody List<PriceLevelTypes> list) {
 		// TODO Auto-generated method stub
 		try {
 			DynamicDataSourceHolder.putDataSourceKey("sqlserver");

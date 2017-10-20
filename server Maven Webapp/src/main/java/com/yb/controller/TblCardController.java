@@ -30,7 +30,7 @@ public class TblCardController{
 	
 	@ResponseBody
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public Status insert(@RequestBody List<TblCard> list,HttpServletRequest request) throws IOException{
+	public Status insert(HttpServletRequest request,@RequestBody List<TblCard> list) throws IOException{
 		try {
 			DynamicDataSourceHolder.putDataSourceKey("oracle");
 			tblCardService.insert(list);

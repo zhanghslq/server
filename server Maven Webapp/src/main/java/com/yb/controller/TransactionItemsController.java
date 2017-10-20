@@ -3,6 +3,7 @@ package com.yb.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ public class TransactionItemsController {
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	@ResponseBody
-	public Status insert(@RequestBody List<TransactionItems> list){
+	public Status insert(HttpServletRequest request,@RequestBody List<TransactionItems> list){
 		
 		try {
 			DynamicDataSourceHolder.putDataSourceKey("oracle");

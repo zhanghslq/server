@@ -31,7 +31,7 @@ public class TblTradeController{
 	
 	@ResponseBody
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public Status insert(@RequestBody List<TblTrade> list,HttpServletRequest request) throws IOException {
+	public Status insert(HttpServletRequest request,@RequestBody List<TblTrade> list) throws IOException {
 		
 		try {
 			DynamicDataSourceHolder.putDataSourceKey("oracle");

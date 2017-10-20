@@ -3,6 +3,7 @@ package com.yb.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,7 @@ public class TankProbeStatusController{
 	private TankProbeStatusService tankProbeStatusService;
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	@ResponseBody
-	public Status insert(@RequestBody List<TankProbeStatus> list) {
+	public Status insert(HttpServletRequest request,@RequestBody List<TankProbeStatus> list) {
 		// TODO Auto-generated method stub
 		try {
 			DynamicDataSourceHolder.putDataSourceKey("sqlserver");
