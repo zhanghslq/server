@@ -42,7 +42,7 @@ public class TblOrganizationServiceImpl implements TblOrganizationService{
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("tblOrganization.txt");
+					File file = new File("TblOrganization.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);

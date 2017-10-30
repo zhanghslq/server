@@ -23,9 +23,9 @@
     <!--创建数据源对象-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@192.168.0.205:1521:orcl"/>
-        <property name="username" value="bjshelltest"/>
-        <property name="password" value="bjshelltest"/>
+        <property name="url" value="jdbc:oracle:thin:@192.168.0.212:1521:orcl"/>
+        <property name="username" value="dashuju"/>
+        <property name="password" value="Dashuju2017"/>
     </bean>
 
     <!--创建sqlSessionFactory-->
