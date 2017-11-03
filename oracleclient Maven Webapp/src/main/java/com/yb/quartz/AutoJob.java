@@ -17,7 +17,6 @@ import com.yb.service.TblShopgoodsdetailsService;
 import com.yb.service.TblShoppingcartService;
 import com.yb.service.TblTradeService;
 import com.yb.service.TblVirtualgoodsService;
-
 @Component
 public class AutoJob {
 		@Autowired
