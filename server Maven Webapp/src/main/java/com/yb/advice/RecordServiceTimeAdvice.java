@@ -35,9 +35,9 @@ public class RecordServiceTimeAdvice implements MethodInterceptor{
 		if(arguments[0] instanceof HttpServletRequest){
 			HttpServletRequest request=(HttpServletRequest)arguments[0];
 			String addr1 = AddrUtil.getIpAddr1(request);
+			System.out.println(addr1);
 			DynamicDataSourceHolder.putDataSourceKey("result");//改变数据源
 			PosIp queryByPosIp = posIpDao.queryByPosIp(addr1);
-			System.out.println(addr1);
 			if(queryByPosIp==null||queryByPosIp.getId()==null){
 				return new Status("error", "您的地址非法，请不要捣乱");
 			}
