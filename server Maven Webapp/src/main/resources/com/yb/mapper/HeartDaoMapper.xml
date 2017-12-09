@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.AttendantDao">
+  	<insert id="insert" parameterType="List">
+			replace into Heart(station_id,number)
+			values(station_id,number)
+		</foreach>
+  	</insert>
+</mapper>
