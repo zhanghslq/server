@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TankHistoryDao">
+  	<insert id="insert" parameterType="List">
+  		
+			replace into Tank_History(period_id,Tank_ID,Open_Gauge_Volume,Close_Gauge_Volume,
+			Open_Theo_Volume,Close_Theo_Volume,Open_Dip_Volume,Close_Dip_Volume,Hose_Del_Quantity,
+			Hose_Del_Volume,Hose_Del_Value,Hose_Del_Cost,Tank_Del_Quantity,Tank_Del_Volume,Tank_Del_Cost,
+			Tank_Loss_Quantity,Tank_Loss_Volume,Tank_Transfer_In_Quantity,Tank_Transfer_In_Volume,Tank_Transfer_Out_Quantity,
+			Tank_Transfer_Out_Volume,Dip_Fuel_Temp,Dip_Fuel_Density,Open_Dip_Water_Volume,Close_Dip_Water_Volume,
+			Open_Gauge_TC_Volume,Close_Gauge_TC_Volume,Open_Water_Volume,Close_Water_Volume,Open_Fuel_Density,
+			Close_Fuel_Density,Open_Fuel_Temp,Close_Fuel_Temp,Open_Tank_Probe_Status_ID,Close_Tank_Probe_Status_ID,
+			Tank_Readings_DT,Open_Tank_Delivery_State_ID,Close_Tank_Delivery_State_ID,Open_Pump_Delivery_State,Close_Pump_Delivery_State,
+			Open_Dip_Type_ID,Close_Dip_Type_ID,Tank_Variance_Reason_ID,station_id)
+			
+			values
+		<foreach collection="list" item="tankHistory" index="i" separator="," >
+			(#{tankHistory.periodId},#{tankHistory.tankId},#{tankHistory.openGaugeVolume},#{tankHistory.closeGaugeVolume},
+			
+			#{tankHistory.openTheoVolume},#{tankHistory.closeTheoVolume},#{tankHistory.openDipVolume},#{tankHistory.closeDipVolume},
+			
+			#{tankHistory.hoseDelQuantity},#{tankHistory.hoseDelVolume},#{tankHistory.hoseDelValue},#{tankHistory.hoseDelCost},
+			
+			#{tankHistory.tankDelQuantity},#{tankHistory.tankDelVolume},#{tankHistory.tankDelCost},#{tankHistory.tankLossQuantity},
+			
+			#{tankHistory.tankLossVolume},#{tankHistory.tankTransferInQuantity},#{tankHistory.tankTransferInVolume},#{tankHistory.tankTransferOutQuantity},
+			
+			#{tankHistory.tankTransferOutVolume},#{tankHistory.dipFuelTemp},#{tankHistory.dipFuelDensity},#{tankHistory.openDipWaterVolume},
+			
+			#{tankHistory.closeDipWaterVolume},#{tankHistory.openGaugeTcVolume},#{tankHistory.closeGaugeTcVolume},#{tankHistory.openWaterVolume},
+			
+			#{tankHistory.closeWaterVolume},#{tankHistory.openFuelDensity},#{tankHistory.closeFuelDensity},
+			
+			#{tankHistory.openFuelTemp},#{tankHistory.closeFuelTemp},#{tankHistory.openTankProbeStatusId},
+			
+			#{tankHistory.closeTankProbeStatusId},#{tankHistory.tankReadingDt},#{tankHistory.openTankDeliveryStateId},#{tankHistory.closeTankDeliveryStateId},
+			
+			#{tankHistory.openPumpDeliveryState},#{tankHistory.closePumpDeliveryState},#{tankHistory.openDipTypeId},#{tankHistory.closeDipTypeId},
+			
+			#{tankHistory.TankVarianceReasonId},#{tankHistory.stationId})
+		</foreach>
+  	</insert>
+</mapper>

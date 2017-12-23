@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblEvaluationDao">
+  	<insert id="insert" parameterType="List">
+  		
+			replace into TBL_EVALUATION(EVALUATION_ID,VERSION,CONTENT,TIME,STATUS,STAR,
+			ORG_ID,CUSTOMER_ID,TRADEID,STAR1,STAR2,STAR3,STAR4,STAR5)
+			
+			values
+			<foreach collection="list" item="tblEvaluation" index="i"  separator=","    >
+			(#{tblEvaluation.evaluationId},#{tblEvaluation.version},#{tblEvaluation.content},
+			
+			#{tblEvaluation.time},#{tblEvaluation.status},#{tblEvaluation.star},
+			
+			#{tblEvaluation.orgId},#{tblEvaluation.customerId},#{tblEvaluation.tradeId},
+			
+			#{tblEvaluation.STAR1},#{tblEvaluation.STAR2},#{tblEvaluation.STAR3}
+			
+			,#{tblEvaluation.STAR4},#{tblEvaluation.STAR5})
+		</foreach>
+  	</insert>
+</mapper>

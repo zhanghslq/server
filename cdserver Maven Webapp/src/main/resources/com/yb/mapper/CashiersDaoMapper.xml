@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.CashiersDao">
+  	<insert id="insert" parameterType="List">
+			replace into cashiers(cashier_id,cashier_number,cashier_name,
+			cashier_psw,cashier_type,attendant_id,cashier_disable,
+			cashier_birthdate,cashier_personal_name,cashier_family_name,user_role_id,station_id)
+			values
+			<foreach collection="list" item="cashiers" index="i"  separator="," >
+			(#{cashiers.cashier_id},#{cashiers.cashier_number},#{cashiers.cashier_name},#{cashiers.cashier_psw},
+			#{cashiers.cashier_type},#{cashiers.attendant_id},#{cashiers.cashier_disable},
+			#{cashiers.cashier_birthdate},#{cashiers.cashier_personal_name},#{cashiers.cashier_family_name},
+			#{cashiers.user_role_id},#{cashiers.stationId})
+		</foreach>
+  	</insert>
+</mapper>

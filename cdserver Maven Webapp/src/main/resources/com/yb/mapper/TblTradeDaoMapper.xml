@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblTradeDao">
+  	<insert id="insert" parameterType="List">
+  		
+			replace into TBL_TRADE(TRADE_ID,VERSION,ORIGINALDATE,PSAMASN,OFFLINETXNO,ADJUST_TYPE,GRAYTRADEID,
+			REALAMOUNT,CARDLOC_ID,ACTIVITYID,AMOUNT,BALANCE,OPER_ID,ISINVOICE,SUBACCOUNTTYPE,TRADE_STATUS,
+			VIRTUALGOODSID,INVOICETYPE,ORDERNUM,RECORDTIME,CUSTOMER_LEVEL,CARDTYPE,OPERNO,DISCOUNT,
+			PRICE,ISSUER_ID,RELATEDID,CHEQUEID,CARDUSER_ID,PAY_TYPE,BANKTRACE,CARDUSER_TYPE,TRADE_TYPE,
+			VOLUMN,BRINGPOINTSID,GIFT_ID,BANKTERMID,GOODSCATEGORY_ID,BLACKINTERVAL,ACQUIRER_ID,ORG_ID,
+			UNIQUEID,OCCURTIME,BUSINESSDATE,BATCHNO,EFTSN,RPOSSN,MAINTRADEID,DEPOSITTYPE,EFTNO,SUBTRADETYPE,
+			CARDASN,POINTDESCRIPTION,CARDTXNO,BANKCARD,RULESETID,BASE_ACCOUNT_TYPE,RPOSNO,EPSSN,ACCOUNTTYPE,
+			ERROR_TYPE,ACCOUNT_ID)
+			
+			values
+			<foreach collection="list" item="tblTrade" index="i"  separator=","   >
+			(#{tblTrade.tradeId},#{tblTrade.version},#{tblTrade.originaldate},#{tblTrade.psamasn},#{tblTrade.offlinetxno},
+			
+			#{tblTrade.adjustType},#{tblTrade.graytradeid},#{tblTrade.realamount},#{tblTrade.cardlocId},#{tblTrade.activityid},
+			
+			#{tblTrade.amount},#{tblTrade.balance},#{tblTrade.operId},#{tblTrade.isinvoice},#{tblTrade.subaccounttype},
+			
+			#{tblTrade.tradeStatus},#{tblTrade.virtualgoodsid},#{tblTrade.invoiceType},#{tblTrade.ordernum},#{tblTrade.recordtime},
+			
+			#{tblTrade.customerLevel},#{tblTrade.cardtype},#{tblTrade.operno},#{tblTrade.discount},#{tblTrade.price},
+			
+			#{tblTrade.issuerId},#{tblTrade.relatedid},#{tblTrade.chequeid},#{tblTrade.carduserId},#{tblTrade.payType},
+			
+			#{tblTrade.banktrace},#{tblTrade.carduserType},#{tblTrade.tradeType},#{tblTrade.volumn},#{tblTrade.bringpointsid},
+			
+			#{tblTrade.giftId},#{tblTrade.banktermid},#{tblTrade.goodscategoryId},#{tblTrade.blackinterval},#{tblTrade.acquirerId},
+			
+			#{tblTrade.orgId},#{tblTrade.uniqueid},#{tblTrade.occurtime},#{tblTrade.businessdate},#{tblTrade.batchno},
+			
+			#{tblTrade.eftsn},#{tblTrade.rpossn},#{tblTrade.maintradeid},#{tblTrade.deposittype},#{tblTrade.eftno},
+			
+			#{tblTrade.subtradetype},#{tblTrade.cardasn},#{tblTrade.pointdescription},#{tblTrade.cardtxno},#{tblTrade.bankcard},
+			
+			#{tblTrade.rulesetid},#{tblTrade.baseAccountType},#{tblTrade.rposno},#{tblTrade.epssn},#{tblTrade.accounttype},
+			
+			#{tblTrade.errorType},#{tblTrade.accountId})
+		</foreach>
+  	</insert>
+</mapper>

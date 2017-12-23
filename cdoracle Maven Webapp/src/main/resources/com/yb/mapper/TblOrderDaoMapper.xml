@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblOrderDao">
+
+		<select id="queryAll" parameterType="long" resultType="TblOrder">
+			select ID as orderId,VERSION,AMOUNT,ORDERNO,TRADEID,CARDUSER_ID as carduserId,CREATEDATE,
+			
+			ORDER_STATUS as orderStatus,UPDATEDATE,OPENID,MCHID,OTHERORDERNO,FACEAMOUNT
+			 from CDSHELL.TBL_ORDER where ID >#{id}
+			
+		</select>
+		
+		<select id="queryMaxId" resultType="long">
+  		select max(ID) from CDSHELL.TBL_ORDER
+  	</select>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.PumpsDao">
+  	<insert id="insert" parameterType="List">
+			replace into Pumps(Pump_ID,Pump_Type_ID,Pump_Display_ID,Attendant_ID,Pump_Profile_ID,Loop_ID,
+			Pump_Name,Pump_Description,Logical_Number,Polling_Address,Serial_Number,Pump_History,Price_1_Level,
+			Price_2_Level,Reserved_by,Reserve_State,auth_limit_type,auth_hose_mask,auth_limit,auth_level,Price_Multiplier,
+			Value_Multiplier,Deleted,Tag_Reader_Installed,station_id)
+			values
+			<foreach collection="list" item="pumps" index="i"  separator="," >
+			(#{pumps.Pump_ID},#{pumps.Pump_Type_ID},#{pumps.Pump_Display_ID},#{pumps.Attendant_ID},
+			#{pumps.Pump_Profile_ID},#{pumps.Loop_ID},#{pumps.Pump_Name},#{pumps.Pump_Description},#{pumps.Logical_Number},
+			#{pumps.Polling_Address},#{pumps.Serial_Number},#{pumps.Pump_History},#{pumps.Price_1_Level},
+			#{pumps.Price_2_Level},#{pumps.Reserved_by},#{pumps.Reserve_State},#{pumps.auth_limit_type},
+			#{pumps.auth_hose_mask},#{pumps.auth_hose_mask},#{pumps.auth_limit},#{pumps.auth_level},
+		#{pumps.Price_Multiplier},#{pumps.Value_Multiplier},#{pumps.Deleted},#{pumps.Tag_Reader_Installed},#{pumps.station_id})
+		</foreach>
+  	</insert>
+</mapper>

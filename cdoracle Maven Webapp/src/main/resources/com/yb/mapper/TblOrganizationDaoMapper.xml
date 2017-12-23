@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblOrganizationDao">
+  	<select id="queryAll" parameterType="Integer" resultType="TblOrganization" >
+  		select id,version,p400,orgtype,phone,olduniqueid,posy,posx,p1,org_status,isdeposit,p500,
+			registertime,uniqueid,city_id,isagent,p700,description,isstation,name,orgsequence,province,
+			p600,issettle,p300,invalidtime,org_enable,status,isgiftlocation,star,logourl,p200,abbreviation,photo_id,regiontype,country,
+			ismerchant,email,address,cardunique,fullname,isacquirer,isshare,isissuer,org_level
+  		 	from CDSHELL.tbl_organization where id > #{id}
+  	</select>
+  	<select id="queryMaxId" resultType="Integer">
+  		select max(ID) from CDSHELL.tbl_organization
+  	</select>
+</mapper>

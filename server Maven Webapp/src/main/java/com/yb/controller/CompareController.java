@@ -12,15 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yb.entity.Attendant;
 import com.yb.entity.Comparison;
 import com.yb.entity.Status;
-import com.yb.service.AttendantService;
 import com.yb.service.CompareService;
 import com.yb.util.DynamicDataSourceHolder;
 
 @Controller
-@RequestMapping("/compare")
+@RequestMapping("/comparison_pos")
 @Scope("prototype")
 public class CompareController{
 
@@ -29,12 +27,11 @@ public class CompareController{
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	@ResponseBody
-	public Status insert(HttpServletRequest request,@RequestBody Comparison comparison) {
+	public Status insert(HttpServletRequest request,@RequestBody List<Comparison> list) {
 		// TODO Auto-generated method stub
-		
 		try {
 			DynamicDataSourceHolder.putDataSourceKey("result");
-			compareService.insert(comparison);
+			compareService.insert(list);
 			return new Status("success");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

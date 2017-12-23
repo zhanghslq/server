@@ -5,7 +5,7 @@
   		select coupon_oil_order_id,enterprise_id,out_shop_id,out_trade_no,pay_type,
   		order_amoun,oil_type,oil_volume,oil_price,pos_num,request_id,open_id,
   		auth_level,good_num,coupon_id,created,updated
-  		 	from BJSHELL.coupon_oil_order where coupon_oil_order_id > #{id}
+  		from BJSHELL.coupon_oil_order where coupon_oil_order_id > #{id}
   	</select>
   	<select id="queryMaxId" resultType="Long">
   		select max(coupon_oil_order_id) from BJSHELL.coupon_oil_order

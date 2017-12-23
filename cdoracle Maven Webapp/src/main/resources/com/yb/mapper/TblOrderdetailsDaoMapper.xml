@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.TblOrderdetailsDao">
+		<select id="queryAll" parameterType="long" resultType="TblOrderdetails">
+			select tod.ID as orderdetailsId,tod.VERSION,NOWDATE,tod.VIRTUALGOODSID,RETURNCODE,
+			
+			LITRE,STATIONCODE,COUPONAMOUNT,REQUESTID,ORDERNUM,REALAMOUNT,OILCODE,ORDER_DEAL as orderDeal,
+			
+			DISCOUNTAMOUNT,CARDUSERID,AMOUNT,OILPRICE,TERMNUM,SENDTIME,INVOICETITLE,
+			
+			MEMBERNO,VIRTUALGOODSIDS,tcu.Customer_Id as customerId,tod.PPSORDERNUMBER,
+			
+			tod.GOODSAMOUNT,tod.FUELCOUPONAMOUNT,tod.GOODCOUPONAMOUNT
+			
+			from CDSHELL.TBL_ORDERDETAILS tod left join CDSHELL.TBL_CARDUSER tcu  on
+			
+			tod.carduserid=tcu.id where tod.ID>=#{min} and tod.ID&lt;#{max}
+			
+			</select>
+			
+		<!-- <select id="queryAll"  resultType="TblOrderdetails">
+		
+			select ID as orderdetailsId,VERSION,NOWDATE,VIRTUALGOODSID,RETURNCODE,
+			
+			LITRE,STATIONCODE,COUPONAMOUNT,REQUESTID,ORDERNUM,REALAMOUNT,OILCODE,ORDER_DEAL as orderDeal,
+			
+			DISCOUNTAMOUNT,CARDUSERID,AMOUNT,OILPRICE,TERMNUM,SENDTIME,INVOICETITLE,
+			
+			MEMBERNO,VIRTUALGOODSIDS,Customer_Id from (
+				select tt.*,ROWNUM as rn from (
+				
+				select tod.*,tcu.Customer_Id from CDSHELL.TBL_ORDERDETAILS tod left join CDSHELL.TBL_carduser tcu  on
+			
+				tod.carduserid=tcu.id  order by tod.id) tt )
+			
+					where rn>=#{min} and rn &lt; #{max}
+		</select> -->
+			
+			
+			<select id="queryMaxId" resultType="long">
+		  		select max(ID) from CDSHELL.TBL_ORDERDETAILS
+		  	</select>
+		  	
+		  	<select id="queryMinId" resultType="long">
+		  		select min(ID) from CDSHELL.TBL_ORDERDETAILS
+		  	</select>
+</mapper>
