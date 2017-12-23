@@ -41,7 +41,7 @@ public class TblShopgoodsdetailsServiceImpl implements TblShopgoodsdetailsServic
 		BufferedWriter out=null;
 		int count=0;
 		try {
-			File file = new File("TblShopgoodsdetails.txt");
+			File file = new File("TblShopgoodsdetailsCDSHELL.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
 				Long queryMinId = tblShopgoodsdetailsDao.queryMinId();

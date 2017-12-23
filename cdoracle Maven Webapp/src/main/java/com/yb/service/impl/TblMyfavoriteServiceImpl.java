@@ -40,7 +40,7 @@ public class TblMyfavoriteServiceImpl implements TblMyfavoriteService {
 		BufferedWriter out=null;
 		int count=0;
 		try {
-			File file = new File("TblMyfavorite.txt");
+			File file = new File("TblMyfavoriteCDSHELL.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
 				writer.println(0);

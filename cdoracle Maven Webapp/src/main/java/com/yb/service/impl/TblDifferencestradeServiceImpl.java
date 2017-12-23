@@ -42,7 +42,7 @@ public class TblDifferencestradeServiceImpl implements TblDifferencestradeServic
 		BufferedWriter out=null;
 		int count=0;
 		try {
-			File file = new File("TblDifferencestrade.txt");
+			File file = new File("TblDifferencestradeCDSHELL.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
 				writer.println(0);

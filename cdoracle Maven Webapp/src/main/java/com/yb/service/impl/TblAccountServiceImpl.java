@@ -41,7 +41,7 @@ public class TblAccountServiceImpl implements TblAccountService {
 		BufferedWriter out=null;
 		int count=0;
 		try {
-			File file = new File("TblAccount.txt");
+			File file = new File("TblAccountCDSHELL.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
 				Long queryMinId = tblAccountDao.queryMinId();

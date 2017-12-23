@@ -41,7 +41,7 @@ public class TblTradeServiceImpl implements TblTradeService{
 		BufferedWriter out=null;
 		int count=0;
 		try {
-			File file = new File("TblTrade.txt");
+			File file = new File("TblTradeCDSHELL.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
 				Long queryMinId = tblTradeDao.queryMinId();

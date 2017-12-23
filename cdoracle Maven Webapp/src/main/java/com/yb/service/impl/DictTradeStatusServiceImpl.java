@@ -41,7 +41,7 @@ public class DictTradeStatusServiceImpl implements DictTradeStatusService{
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("dictTradeStatus.txt");
+					File file = new File("dictTradeStatusCDSHELL.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);

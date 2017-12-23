@@ -42,7 +42,7 @@ public class DictCouponTypeServiceImpl implements DictCouponTypeService{
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("dictCouponType.txt");
+					File file = new File("dictCouponTypeCDSHELL.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);

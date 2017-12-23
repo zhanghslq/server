@@ -41,7 +41,7 @@ public class DictOrderDealServiceImpl implements DictOrderDealService{
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("dictOrderDeal.txt");
+					File file = new File("dictOrderDealCDSHELL.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);

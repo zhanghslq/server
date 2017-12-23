@@ -42,7 +42,7 @@ public class TblOperatorServiceImpl implements TblOperatorService{
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("TblOperator.txt");
+					File file = new File("TblOperatorCDSHELL.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);

@@ -40,7 +40,7 @@ public class TblCustomerServiceImpl implements TblCustomerService{
 		BufferedWriter out=null;
 		int count=0;
 		try {
-			File file = new File("TblCustomer.txt");
+			File file = new File("TblCustomerCDSHELL.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
 				Long queryMinId = tblCustomerDao.queryMinId();

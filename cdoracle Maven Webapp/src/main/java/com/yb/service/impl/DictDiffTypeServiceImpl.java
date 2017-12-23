@@ -41,7 +41,7 @@ public class DictDiffTypeServiceImpl  implements DictDiffTypeService {
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("dictDiffType.txt");
+					File file = new File("dictDiffTypeCDSHELL.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);

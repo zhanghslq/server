@@ -41,7 +41,7 @@ public class DictCardStatusServiceImpl implements DictCardStatusService{
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("dictCardStatus.txt");
+					File file = new File("dictCardStatusCDSHELL.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);

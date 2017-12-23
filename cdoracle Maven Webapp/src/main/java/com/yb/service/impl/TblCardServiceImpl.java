@@ -41,7 +41,7 @@ public class TblCardServiceImpl implements TblCardService{
 		BufferedWriter out=null;
 		int count=0;
 		try {
-			File file = new File("TblCard.txt");
+			File file = new File("TblCardCDSHELL.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
 				Long queryMinId = tblCardDao.queryMinId();

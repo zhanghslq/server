@@ -42,7 +42,7 @@ public class TblCardTypeServiceImpl implements TblCardTypeService{
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("TblCardType.txt");
+					File file = new File("TblCardTypeCDSHELL.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);

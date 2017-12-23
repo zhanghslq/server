@@ -40,7 +40,7 @@ public class TblVirtualgoodsServiceImpl implements TblVirtualgoodsService{
 		BufferedWriter out=null;
 		int count=0;
 		try {
-			File file = new File("TblVirtualgoods.txt");
+			File file = new File("TblVirtualgoodsCDSHELL.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
 				Long queryMinId = tblVirtualgoodsDao.queryMinId();

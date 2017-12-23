@@ -41,7 +41,7 @@ public class DictPayTypeServiceImpl implements DictPayTypeService{
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("dictPayType.txt");
+					File file = new File("dictPayTypeCDSHELL.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);

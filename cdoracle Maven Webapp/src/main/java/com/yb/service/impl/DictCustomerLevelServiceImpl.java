@@ -42,7 +42,7 @@ public class DictCustomerLevelServiceImpl implements DictCustomerLevelService{
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("dictCustomerLevel.txt");
+					File file = new File("dictCustomerLevelCDSHELL.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);

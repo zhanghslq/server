@@ -41,7 +41,7 @@ public class TblOrderdetailsServiceImpl implements TblOrderdetailsService{
 		BufferedWriter out=null;
 		int count=0;
 		try {
-			File file = new File("TblOrderdetails.txt");
+			File file = new File("TblOrderdetailsCDSHELL.txt");
 			if(!file.exists()){
 				writer = new PrintWriter(file);
 				Long queryMinId = tblOrderdetailsDao.queryMinId();

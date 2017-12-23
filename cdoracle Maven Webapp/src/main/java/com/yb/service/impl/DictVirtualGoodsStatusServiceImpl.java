@@ -41,7 +41,7 @@ public class DictVirtualGoodsStatusServiceImpl implements DictVirtualGoodsStatus
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("dictVirtualGoodsStatus.txt");
+					File file = new File("dictVirtualGoodsStatusCDSHELL.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);

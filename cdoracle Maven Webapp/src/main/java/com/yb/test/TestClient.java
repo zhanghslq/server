@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.yb.dao.DictAccountStatusDao;
+import com.yb.service.DictAccountStatusService;
 import com.yb.service.TblCardService;
 import com.yb.service.TblTradeService;
 
@@ -14,6 +16,8 @@ import com.yb.service.TblTradeService;
 public class TestClient {
 	@Autowired
 	private TblTradeService tblTradeService;
+	@Autowired
+	private DictAccountStatusService dictAccountStatusService;
 	
 	@Autowired
 	private TblCardService tblCardService;
@@ -27,6 +31,6 @@ public class TestClient {
 	}
 	@Test
 	public void trade(){
-		
+		dictAccountStatusService.queryAll();
 	}
 }

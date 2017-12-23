@@ -41,7 +41,7 @@ public class DictGoodsRuleTypeServiceImpl implements DictGoodsRuleTypeService{
 				BufferedWriter out=null;
 				int count=0;
 				try {
-					File file = new File("dictGoodsRuleType.txt");
+					File file = new File("dictGoodsRuleTypeCDSHELL.txt");
 					if(!file.exists()){
 						writer = new PrintWriter(file);
 						writer.println(0);
