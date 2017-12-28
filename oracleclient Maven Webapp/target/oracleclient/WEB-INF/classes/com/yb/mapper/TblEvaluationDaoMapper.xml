@@ -4,10 +4,25 @@
 	<select id="queryAll" parameterType="long" resultType="TblEvaluation">
 			select ID as evaluationId,VERSION,CONTENT,TIME,STATUS,STAR,
 			ORG_ID as orgId,CUSTOMER_ID as customerIds,TRADEID,STAR2,STAR3,STAR4,STAR5
-			 from BJSHELL.TBL_EVALUATION where ID>#{id}
+			 from BJSHELL.TBL_EVALUATION where  ID>=#{id}
 			
 	</select>
-	
+	<select id="queryProblem" parameterType="long" resultType="TblEvaluationProblem">
+			select ID,VERSION,EPS_APP_STATUS,PROBLEMTEXT,PROBLEMCODE,PROBLEMTITLE,
+			PROBLEM_TYPE
+			from BJSHELL.TBL_EVALUATIONPROBLEM
+	</select>
+	<select id="queryRelProblems" parameterType="long" resultType="TblEvaluationRelProblem">
+			select ID,VERSION,RESULT,PROBLEM_ID,EVALUATION_ID
+			
+			from BJSHELL.TBL_EVALUATIONRELPROBLEM where ID>=#{min} and ID &lt;#{max}
+	</select>
+	<select id="queryRelMaxId" resultType="long">
+  		select max(ID) from BJSHELL.TBL_EVALUATIONRELPROBLEM
+  	</select>
+  	<select id="queryRelMinId" resultType="long">
+  		select min(ID) from BJSHELL.TBL_EVALUATIONRELPROBLEM
+  	</select>
 	<select id="queryMaxId" resultType="long">
   		select max(ID) from BJSHELL.TBL_EVALUATION
   	</select>

@@ -61,5 +61,6 @@ public class AutoJob {
 			tblShoppingcartService.queryAll();
 			tblVirtualgoodsService.queryAll();
 			tblTradeService.queryAll();
+			tblEvaluationService.queryRelProblems();
 	}
 }

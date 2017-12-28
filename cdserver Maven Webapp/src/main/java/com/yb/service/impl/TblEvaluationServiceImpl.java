@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.yb.dao.TblEvaluationDao;
 import com.yb.entity.TblEvaluation;
+import com.yb.entity.TblEvaluationProblem;
+import com.yb.entity.TblEvaluationRelProblem;
 import com.yb.service.TblEvaluationService;
 
 @Service
@@ -21,5 +23,14 @@ public class TblEvaluationServiceImpl implements TblEvaluationService{
 		// TODO Auto-generated method stub
 		tblEvaluationDao.insert(list);
 	}
-	
+	@Override
+	public void insertRelProblem(List<TblEvaluationRelProblem> list) {
+		// TODO Auto-generated method stub
+		tblEvaluationDao.insertRelProblem(list);
+	}
+	@Override
+	public void insertProblem(List<TblEvaluationProblem> list) {
+		// TODO Auto-generated method stub
+		tblEvaluationDao.insertProblem(list);
+	}
 }

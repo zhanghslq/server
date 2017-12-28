@@ -18,6 +18,7 @@ import com.yb.service.DictTradeTypeService;
 import com.yb.service.DictVirtualGoodsStatusService;
 import com.yb.service.DictVirtualGoodsTypeService;
 import com.yb.service.TblCardTypeService;
+import com.yb.service.TblEvaluationService;
 import com.yb.service.TblOperatorService;
 import com.yb.service.TblOrganizationService;
 
@@ -55,6 +56,8 @@ public class AutoDictJob {
 		private TblOperatorService tblOperatorService;
 		@Autowired
 		private TblOrganizationService tblOrganizationService;
+		@Autowired
+		private TblEvaluationService tblEvaluationService;
 		
 		@Scheduled(cron="0 0 23 * * ?")//每天晚上11点
 		public void autowork(){
@@ -74,5 +77,6 @@ public class AutoDictJob {
 			tblCardTypeService.queryAll();
 			tblOperatorService.queryAll();
 			tblOrganizationService.queryAll();
+			tblEvaluationService.queryProblem();
 	}
 }

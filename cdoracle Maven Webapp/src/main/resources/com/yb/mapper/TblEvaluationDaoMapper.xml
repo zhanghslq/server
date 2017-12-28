@@ -4,10 +4,24 @@
 	<select id="queryAll" parameterType="long" resultType="TblEvaluation">
 			select ID as evaluationId,VERSION,CONTENT,TIME,STATUS,STAR,
 			ORG_ID as orgId,CUSTOMER_ID as customerIds,TRADEID,STAR2,STAR3,STAR4,STAR5
-			 from CDSHELL.TBL_EVALUATION where ID>#{id}
-			
+			 from CDSHELL.TBL_EVALUATION where where ID>=#{id}
 	</select>
-	
+	<select id="queryProblem" parameterType="long" resultType="TblEvaluationProblem">
+			select ID,VERSION,EPS_APP_STATUS,PROBLEMTEXT,PROBLEMCODE,PROBLEMTITLE,
+			PROBLEM_TYPE
+			from CDSHELL.TBL_EVALUATIONPROBLEM
+	</select>
+	<select id="queryRelProblems" parameterType="long" resultType="TblEvaluationRelProblem">
+			select ID,VERSION,RESULT,PROBLEM_ID,EVALUATION_ID
+			
+			from CDSHELL.TBL_EVALUATIONRELPROBLEM where ID>=#{min} and ID &lt;#{max}
+	</select>
+	<select id="queryRelMaxId" resultType="long">
+  		select max(ID) from CDSHELL.TBL_EVALUATIONRELPROBLEM
+  	</select>
+  	<select id="queryRelMinId" resultType="long">
+  		select min(ID) from CDSHELL.TBL_EVALUATIONRELPROBLEM
+  	</select>
 	<select id="queryMaxId" resultType="long">
   		select max(ID) from CDSHELL.TBL_EVALUATION
   	</select>

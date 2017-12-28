@@ -12,8 +12,8 @@
 			#{pumps.Pump_Profile_ID},#{pumps.Loop_ID},#{pumps.Pump_Name},#{pumps.Pump_Description},#{pumps.Logical_Number},
 			#{pumps.Polling_Address},#{pumps.Serial_Number},#{pumps.Pump_History},#{pumps.Price_1_Level},
 			#{pumps.Price_2_Level},#{pumps.Reserved_by},#{pumps.Reserve_State},#{pumps.auth_limit_type},
-			#{pumps.auth_hose_mask},#{pumps.auth_hose_mask},#{pumps.auth_limit},#{pumps.auth_level},
-		#{pumps.Price_Multiplier},#{pumps.Value_Multiplier},#{pumps.Deleted},#{pumps.Tag_Reader_Installed},#{pumps.station_id})
+			#{pumps.auth_hose_mask},#{pumps.auth_limit},#{pumps.auth_level},
+			#{pumps.Price_Multiplier},#{pumps.Value_Multiplier},#{pumps.Deleted},#{pumps.Tag_Reader_Installed},#{pumps.station_id})
 		</foreach>
   	</insert>
 </mapper>

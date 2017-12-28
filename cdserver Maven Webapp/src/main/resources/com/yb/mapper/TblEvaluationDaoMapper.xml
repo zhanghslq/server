@@ -19,4 +19,19 @@
 			,#{tblEvaluation.STAR4},#{tblEvaluation.STAR5})
 		</foreach>
   	</insert>
+  	<insert id="insertRelProblem" parameterType="List">
+			replace into TBL_EVALUATIONRELPROBLEM(ID,VERSION,RESULT,PROBLEM_ID,EVALUATION_ID)
+			values
+			<foreach collection="list" item="item" index="i"  separator=",">
+				(#{item.ID},#{item.VERSION},#{item.RESULT},#{item.PROBLEM_ID},#{item.EVALUATION_ID})
+			</foreach>
+  	</insert>
+  	<insert id="insertProblem" parameterType="List">
+			replace into TBL_EVALUATIONPROBLEM(ID,VERSION,EPS_APP_STATUS,PROBLEMTEXT,PROBLEMCODE,PROBLEMTITLE,
+			PROBLEM_TYPE)
+			values
+			<foreach collection="list" item="item" index="i"  separator=",">
+				(#{item.ID},#{item.VERSION},#{item.EPS_APP_STATUS},#{item.PROBLEMTEXT},#{item.PROBLEMCODE},#{item.PROBLEMTITLE},#{item.PROBLEM_TYPE})
+			</foreach>
+  	</insert>
 </mapper>

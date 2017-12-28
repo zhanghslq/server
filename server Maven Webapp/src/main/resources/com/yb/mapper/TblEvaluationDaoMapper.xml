@@ -2,10 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.TblEvaluationDao">
   	<insert id="insert" parameterType="List">
-  		
 			replace into TBL_EVALUATION(EVALUATION_ID,VERSION,CONTENT,TIME,STATUS,STAR,
 			ORG_ID,CUSTOMER_ID,TRADEID,STAR1,STAR2,STAR3,STAR4,STAR5)
-			
 			values
 			<foreach collection="list" item="tblEvaluation" index="i"  separator=","    >
 			(#{tblEvaluation.evaluationId},#{tblEvaluation.version},#{tblEvaluation.content},
@@ -18,5 +16,20 @@
 			
 			,#{tblEvaluation.STAR4},#{tblEvaluation.STAR5})
 		</foreach>
+  	</insert>
+  	<insert id="insertRelProblem" parameterType="List">
+			replace into TBL_EVALUATIONRELPROBLEM(ID,VERSION,RESULT,PROBLEM_ID,EVALUATION_ID)
+			values
+			<foreach collection="list" item="item" index="i"  separator=",">
+				(#{item.ID},#{item.VERSION},#{item.RESULT},#{item.PROBLEM_ID},#{item.EVALUATION_ID})
+			</foreach>
+  	</insert>
+  	<insert id="insertProblem" parameterType="List">
+			replace into TBL_EVALUATIONPROBLEM(ID,VERSION,EPS_APP_STATUS,PROBLEMTEXT,PROBLEMCODE,PROBLEMTITLE,
+			PROBLEM_TYPE)
+			values
+			<foreach collection="list" item="item" index="i"  separator=",">
+				(#{item.ID},#{item.VERSION},#{item.EPS_APP_STATUS},#{item.PROBLEMTEXT},#{item.PROBLEMCODE},#{item.PROBLEMTITLE},#{item.PROBLEM_TYPE})
+			</foreach>
   	</insert>
 </mapper>
