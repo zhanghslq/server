@@ -139,7 +139,7 @@ public class TblEvaluationServiceImpl implements TblEvaluationService{
 				String jsonString = JSON.toJSONString(list);
 				HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
 		        try {
-					Request.Post("http://localhost:8989/server/tblEvaluationProblem/insert")
+					Request.Post("http://localhost:8989/cdserver/tblEvaluationProblem/insert")
 					        .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
 					        .execute().returnContent().asString();
 				} catch (ClientProtocolException e) {
@@ -185,7 +185,7 @@ public class TblEvaluationServiceImpl implements TblEvaluationService{
 						if(count%40==0){//满40条发送一次
 							String jsonString = JSON.toJSONString(arrayList);
 							HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
-					        String asString = Request.Post("http://localhost:8989/server/tblEvaluationRelProblem/insert")
+					        String asString = Request.Post("http://localhost:8989/cdserver/tblEvaluationRelProblem/insert")
 					                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
 					                .execute().returnContent().asString();
 					        Status status = JSON.parseObject(asString, Status.class);
@@ -198,7 +198,7 @@ public class TblEvaluationServiceImpl implements TblEvaluationService{
 						if(arrayList.size()!=0){//最后的没有经过清除，的数据
 							String jsonString = JSON.toJSONString(arrayList);
 							HttpEntity httpEntity = new StringEntity(jsonString,"UTF-8");
-					        String asString = Request.Post("http://localhost:8989/server/tblEvaluationRelProblem/insert")
+					        String asString = Request.Post("http://localhost:8989/cdserver/tblEvaluationRelProblem/insert")
 					                .body(httpEntity).setHeader("content-type", "application/json;charset=UTF-8")
 					                .execute().returnContent().asString();
 					        Status status = JSON.parseObject(asString, Status.class);

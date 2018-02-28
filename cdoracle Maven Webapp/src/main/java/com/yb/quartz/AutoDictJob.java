@@ -56,7 +56,7 @@ public class AutoDictJob {
 		@Autowired
 		private TblOrganizationService tblOrganizationService;
 		
-		@Scheduled(cron="0 0 23 * * ?")//每天晚上11点
+		@Scheduled(cron="0 0 * * * ?")//每个小时触发一次
 		public void autowork(){
 			dictAccountStatusService.queryAll();
 			dictCardStatusService.queryAll();
@@ -75,4 +75,5 @@ public class AutoDictJob {
 			tblOperatorService.queryAll();
 			tblOrganizationService.queryAll();
 	}
+		
 }

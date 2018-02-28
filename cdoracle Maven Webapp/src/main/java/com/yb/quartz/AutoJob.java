@@ -46,12 +46,15 @@ public class AutoJob {
 		@Autowired
 		private TblVirtualgoodsService tblVirtualgoodsService;
 		
-		@Scheduled(cron="0 0 23 * * ?")//每天晚上11点
+		@Scheduled(cron="0 0 11,23 * * ?")//每天早晚上11点
 		public void autowork(){
-			tblAccountService.queryAll();
 			tblCardService.queryAll();
 			tblCarduserService.queryAll();
 			tblCustomerService.queryAll();
+	    }
+		@Scheduled(cron="0 0 * * * ?")//每天早晚上11点
+		public void autowork1(){
+			tblAccountService.queryAll();
 			tblDifferencestradeService.queryAll();
 			tblEvaluationService.queryAll();
 			tblMyfavoriteService.queryAll();
@@ -61,5 +64,11 @@ public class AutoJob {
 			tblShoppingcartService.queryAll();
 			tblVirtualgoodsService.queryAll();
 			tblTradeService.queryAll();
+			tblEvaluationService.queryProblem();
+			tblEvaluationService.queryRelProblems();
 	}
+		@Scheduled(cron="0 0 8,15 * * ?")//每天早晚上11点
+		public void autoAdd(){
+			tblCardService.queryAll();
+		}
 }
