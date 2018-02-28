@@ -3,7 +3,7 @@
 <mapper namespace="com.yb.dao.TblEvaluationDao">
 	<select id="queryAll" parameterType="long" resultType="TblEvaluation">
 			select ID as evaluationId,VERSION,CONTENT,TIME,STATUS,STAR,
-			ORG_ID as orgId,CUSTOMER_ID as customerIds,TRADEID,STAR2,STAR3,STAR4,STAR5
+			ORG_ID as orgId,CUSTOMER_ID as customerId,TRADEID,STAR2,STAR3,STAR4,STAR5
 			 from BJSHELL.TBL_EVALUATION where  ID>=#{id}
 			
 	</select>

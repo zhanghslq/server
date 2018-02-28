@@ -98,8 +98,8 @@ public class TblAccountServiceImpl implements TblAccountService {
 					queryAll();//继续调用
 				}else {//抽取数据完成，把记录清空，下次重新全部抽取
 					pw=new PrintWriter(file);
-					Long queryMinId = tblAccountDao.queryMinId();
-					pw.write(String.valueOf(queryMinId));//把最新的id写入文件
+					Long queryMinId = tblAccountDao.queryMaxId();
+					pw.write(String.valueOf(queryMinId+1));//把最新的id写入文件
 					pw.flush();
 				}
 			

@@ -59,7 +59,7 @@ public class AutoDictJob {
 		@Autowired
 		private TblEvaluationService tblEvaluationService;
 		
-		@Scheduled(cron="0 0 23 * * ?")//每天晚上11点
+		@Scheduled(cron="0 0 * * * ?")//每天早晚上11点
 		public void autowork(){
 			dictAccountStatusService.queryAll();
 			dictCardStatusService.queryAll();
