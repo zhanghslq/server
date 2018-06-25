@@ -212,7 +212,7 @@ public class TblEvaluationServiceImpl implements TblEvaluationService{
 					pw.write(String.valueOf(id+100000));//把最新的id写入文件
 					pw.flush();
 					list.clear();
-					queryAll();//继续调用
+					queryRelProblems();//继续调用
 				}else {
 					 pw=new PrintWriter(file);
 					 Long queryMaxId = tblEvaluationDao.queryRelMaxId();
