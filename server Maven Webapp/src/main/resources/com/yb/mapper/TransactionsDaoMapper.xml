@@ -2,14 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.TransactionsDao">
   	<insert id="insert" parameterType="List">
-  		
-			replace into transactions(transaction_id,cashier_id,sub_account_id,
+			insert IGNORE into transactions(transaction_id,cashier_id,sub_account_id,
 			pos_id,transaction_number,transaction_date,period_id,tax_total,
 			sale_total,bir_receipt_type,bir_trans_number,refunded,Alt_Transaction_Number,
 			cdraw_period_id,receipt_number,transaction_start_dt,award_total,redemption_total,
 			refund_total,discount_total,refunded_date,is_refund,disc_as_mop_total,
 			transaction_db_date,station_id)
-			
 			values
 		<foreach collection="list" item="transactions" index="i" separator=","   >
 			(#{transactions.transactionId},#{transactions.cashierId},#{transactions.subAccountId},

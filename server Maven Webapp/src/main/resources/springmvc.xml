@@ -28,7 +28,7 @@
     
      <!-- 配置切面 -->
 	<aop:config>
-		<aop:pointcut expression="execution(* com.yb.controller.*.*(..))" id="pc"/>
+		<aop:pointcut expression="execution(* com.yb.controller.*.insert(..))" id="pc"/>
 		<aop:advisor advice-ref="recordServiceTimeAdvice" pointcut-ref="pc" order="1"/>
 	</aop:config>
 </beans>

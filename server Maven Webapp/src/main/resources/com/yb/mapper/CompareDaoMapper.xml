@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.yb.dao.CompareDao">
   	<insert id="insert" parameterType="Comparison">
-		replace into comparison_pos(day,station_id,cashdraw_periods_count,cashdraw_periods_sum,eftcard_count,
+		replace into comparison_pos(day,station_id,eftcard_count,
 		eftcard_sum,Hose_Delivery_count,Hose_Delivery_sum,transactions_count,transactions_sum) 
 		values
 		<foreach collection="list" item="compare" index="i"  separator="," >
-			(#{compare.day},#{compare.station_id},#{compare.cashdraw_periods_count},
-			#{compare.cashdraw_periods_sum},#{compare.eftcard_count},#{compare.eftcard_sum},#{compare.Hose_Delivery_count},#{compare.Hose_Delivery_sum},
+			(#{compare.day},#{compare.station_id},
+			#{compare.eftcard_count},#{compare.eftcard_sum},#{compare.Hose_Delivery_count},#{compare.Hose_Delivery_sum},
 			#{compare.transactions_count},#{compare.transactions_sum})
 		</foreach>
   	</insert>

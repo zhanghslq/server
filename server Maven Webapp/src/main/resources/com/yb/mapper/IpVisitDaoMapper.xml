@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.yb.dao.IpVisitDao">
+  	<insert id="insert" parameterType="String">
+		replace into IpVisit(ip) values(#{name})
+  	</insert>
+  	<insert id="insertUpdate">
+		replace into IpVisitUpdate(ip,message) values(#{name},#{message})
+  	</insert>
+</mapper>
