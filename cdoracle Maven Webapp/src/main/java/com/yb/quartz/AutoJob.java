@@ -48,7 +48,7 @@ public class AutoJob {
 		
 		@Scheduled(cron="0 0 11,23 * * ?")//每天早晚上11点
 		public void autowork(){
-			tblCardService.queryAll();
+
 			tblCarduserService.queryAll();
 			tblCustomerService.queryAll();
 	    }
@@ -67,8 +67,14 @@ public class AutoJob {
 			tblEvaluationService.queryProblem();
 			tblEvaluationService.queryRelProblems();
 	}
-		@Scheduled(cron="0 0 8,15 * * ?")//每天早晚上11点
-		public void autoAdd(){
-			tblCardService.queryAll();
-		}
+
+	@Scheduled(cron="0 */5 * * * ?")//每五分钟
+	public void mapDashBoard(){
+		tblOrderdetailsService.queryAll();
+	}
+	@Scheduled(cron="0 */10 * * * ?")//每10分钟
+	public void mapDashBoard2(){
+		tblCardService.queryAll();
+
+	}
 }
