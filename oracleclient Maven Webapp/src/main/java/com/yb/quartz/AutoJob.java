@@ -49,7 +49,6 @@ public class AutoJob {
 		public void autowork(){
 			tblAccountService.queryAll();
 			tblDifferencestradeService.queryAll();
-			tblEvaluationService.queryAll();
 			tblMyfavoriteService.queryAll();
 			tblOrderdetailsService.queryAll();
 			tblOrderService.queryAll();
@@ -58,15 +57,26 @@ public class AutoJob {
 			tblVirtualgoodsService.queryAll();
 			tblTradeService.queryAll();
 			tblEvaluationService.queryRelProblems();
+			tblEvaluationService.queryProblem();
 	}
-		@Scheduled(cron="0 0 8,15 * * ?")//每天8,15点,
-		public void autoAdd(){
-			tblCardService.queryAll();
+
+
+		@Scheduled(cron="0 */5 * * * ?")//每五分钟
+		public void mapDashBoard(){
+			//tblOrderdetailsService.queryAll();
+			tblEvaluationService.queryAll();
 		}
-		@Scheduled(cron="0 0 11,23 * * ?")//每天8,15点,
-		public void autoAdd1(){
+		@Scheduled(cron="0 10 10 * * ?")
+		public void onceDay(){
+			tblOrderdetailsService.queryAll();
+			//tblEvaluationService.queryAll();
+		}
+
+
+		@Scheduled(cron="0 */10 * * * ?")//每10分钟
+		public void mapDashBoard2(){
 			tblCardService.queryAll();
-			tblCarduserService.queryAll();
 			tblCustomerService.queryAll();
+
 		}
 }

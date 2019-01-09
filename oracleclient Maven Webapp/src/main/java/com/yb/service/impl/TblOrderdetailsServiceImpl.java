@@ -95,7 +95,7 @@ public class TblOrderdetailsServiceImpl implements TblOrderdetailsService{
 			}else {
 				pw=new PrintWriter(file);
 				Long queryMaxId = tblOrderdetailsDao.queryMaxId();
-				pw.write(String.valueOf(queryMaxId+1));//把最新的id最大的写入文件
+				pw.write(String.valueOf(queryMaxId-500));//把最新的id最大的写入文件
 				pw.flush();
 			}
 		} catch (Exception e) {

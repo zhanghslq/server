@@ -48,17 +48,13 @@ public class AutoJob {
 		
 		@Scheduled(cron="0 0 11,23 * * ?")//每天早晚上11点
 		public void autowork(){
-
-			tblCarduserService.queryAll();
 			tblCustomerService.queryAll();
 	    }
-		@Scheduled(cron="0 0 * * * ?")//每天早晚上11点
+		@Scheduled(cron="0 0 * * * ?")//每小时取一次
 		public void autowork1(){
 			tblAccountService.queryAll();
 			tblDifferencestradeService.queryAll();
-			tblEvaluationService.queryAll();
 			tblMyfavoriteService.queryAll();
-			tblOrderdetailsService.queryAll();
 			tblOrderService.queryAll();
 			tblShopgoodsdetailsService.queryAll();
 			tblShoppingcartService.queryAll();
@@ -68,13 +64,26 @@ public class AutoJob {
 			tblEvaluationService.queryRelProblems();
 	}
 
-	@Scheduled(cron="0 */5 * * * ?")//每五分钟
+	/**
+	 * //每五分钟
+	 */
+	@Scheduled(cron="0 */5 * * * ?")
 	public void mapDashBoard(){
 		tblOrderdetailsService.queryAll();
+		tblEvaluationService.queryAll();
 	}
+    /**
+     * 下午四点执行
+     */
+	/*@Scheduled(cron="0 55 9 * * ?")
+	public void onceDay(){
+        tblOrderdetailsService.queryAll();
+	}*/
+
+
 	@Scheduled(cron="0 */10 * * * ?")//每10分钟
 	public void mapDashBoard2(){
 		tblCardService.queryAll();
-
+		tblCarduserService.queryAll();
 	}
 }

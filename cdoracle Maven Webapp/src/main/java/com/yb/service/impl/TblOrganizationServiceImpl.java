@@ -91,7 +91,7 @@ public class TblOrganizationServiceImpl implements TblOrganizationService{
 						}
 						Integer maxId = tblOrganizationDao.queryMaxId();
 						pw=new PrintWriter(file);
-						pw.write(String.valueOf(maxId));//把最新的id最大的写入文件
+						pw.write(String.valueOf(maxId-100));//把最新的id最大的写入文件
 						pw.flush();
 					}
 				} catch (Exception e) {

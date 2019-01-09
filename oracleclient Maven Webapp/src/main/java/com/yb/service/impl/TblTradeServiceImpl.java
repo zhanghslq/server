@@ -100,7 +100,7 @@ public class TblTradeServiceImpl implements TblTradeService{
 				}else {
 					 pw=new PrintWriter(file);
 					 Long queryMaxId = tblTradeDao.queryMaxId();
-					 pw.write(String.valueOf(queryMaxId+1));//把最新的id写入文件
+					 pw.write(String.valueOf(queryMaxId-1000));//把最新的id写入文件
 					 pw.flush();
 					 list.clear();
 				}

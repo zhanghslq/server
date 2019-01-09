@@ -93,7 +93,7 @@ public class TblEvaluationServiceImpl implements TblEvaluationService{
 				}
 				Long maxId = tblEvaluationDao.queryMaxId();
 				pw=new PrintWriter(file);
-				pw.write(String.valueOf(maxId));//把最新的id最大的写入文件
+				pw.write(String.valueOf(maxId-200));//把最新的id最大的写入文件
 				pw.flush();
 			}
 		} catch (Exception e) {

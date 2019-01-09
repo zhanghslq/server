@@ -31,11 +31,13 @@ public class TblDifferencestradeServiceImpl implements TblDifferencestradeServic
 
 	@Autowired
 	private TblDifferencestradeDao tblDifferencestradeDao;
-	@Override
+
 	public void queryAll() {
 		// TODO Auto-generated method stub
-		PrintWriter writer=null;//第一次用来没有的创建个初始为0的
-		PrintWriter pw=null;//查寻到的数据的id最大的
+		PrintWriter writer=null;
+		//第一次用来没有的创建个初始为0的
+		PrintWriter pw=null;
+		//查寻到的数据的id最大的
 		Long id=null;
 		InputStreamReader isr=null;
 		BufferedReader br=null;
@@ -55,10 +57,12 @@ public class TblDifferencestradeServiceImpl implements TblDifferencestradeServic
 				id = Long.valueOf(readLine);
 			}
 			List<TblDifferencestrade> list = tblDifferencestradeDao.queryAll(id);
-			if(list.size()!=0&&list!=null){//取出来的有数据，才会调用
+			if(list.size()!=0&&list!=null){
+				//取出来的有数据，才会调用
 				ArrayList<TblDifferencestrade> arrayList = new ArrayList<TblDifferencestrade>();
 				for (TblDifferencestrade tblDifferencestrade : list) {
-					arrayList.add(tblDifferencestrade);//添加的一条数据
+					arrayList.add(tblDifferencestrade);
+					//添加的一条数据
 					count++;
 					if(count%30==0){
 						String jsonString = JSON.toJSONString(arrayList);

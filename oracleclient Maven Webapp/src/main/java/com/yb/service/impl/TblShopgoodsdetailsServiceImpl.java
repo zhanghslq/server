@@ -97,7 +97,7 @@ public class TblShopgoodsdetailsServiceImpl implements TblShopgoodsdetailsServic
 			}else {
 				pw=new PrintWriter(file);
 				Long queryMaxId = tblShopgoodsdetailsDao.queryMaxId();
-				pw.write(String.valueOf(queryMaxId+1));//这是为了下一次用的，查的是最大的id
+				pw.write(String.valueOf(queryMaxId-500));//这是为了下一次用的，查的是最大的id
 				pw.flush();
 				list.clear();
 			}

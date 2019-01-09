@@ -29,7 +29,7 @@ import com.yb.service.TblShoppingcartService;
 public class TblShoppingcartServiceImpl implements TblShoppingcartService{
 	@Autowired
 	private TblShoppingcartDao tblShoppingcartDao;
-	@Override
+
 	public void queryAll() {
 		// TODO Auto-generated method stub
 		PrintWriter writer=null;//第一次用来没有的创建个初始为0的
@@ -90,7 +90,7 @@ public class TblShoppingcartServiceImpl implements TblShoppingcartService{
 				}
 				Long maxId = tblShoppingcartDao.queryMaxId();
 				pw=new PrintWriter(file);
-				pw.write(String.valueOf(maxId));//把最新的id最大的写入文件
+				pw.write(String.valueOf(maxId-200));//把最新的id最大的写入文件
 				pw.flush();
 			}
 		} catch (Exception e) {

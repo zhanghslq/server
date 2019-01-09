@@ -95,7 +95,7 @@ public class TblVirtualgoodsServiceImpl implements TblVirtualgoodsService{
 			}else {//查询之后为空，证明没数据了
 				pw=new PrintWriter(file);
 				Long queryMaxId = tblVirtualgoodsDao.queryMaxId();
-				pw.write(String.valueOf(queryMaxId+1));//把最新的id写入文件，因为查询的时候是大于等于，所以为了避免重复前面写入的时候直接加1
+				pw.write(String.valueOf(queryMaxId-200));//把最新的id写入文件，因为查询的时候是大于等于，所以为了避免重复前面写入的时候直接加1
 				pw.flush();
 			}
 		} catch (Exception e) {

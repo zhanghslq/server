@@ -16,7 +16,7 @@ public class TblTradeServiceImpl implements TblTradeService{
 
 	@Autowired
 	private TblTradeDao tblTradeDao;
-	@Override
+
 	public void insert(List<TblTrade> list) {
 		// TODO Auto-generated method stub
 		tblTradeDao.insert(list);
