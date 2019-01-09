@@ -66,7 +66,7 @@ public class AutoJob {
 			//tblOrderdetailsService.queryAll();
 			tblEvaluationService.queryAll();
 		}
-		@Scheduled(cron="0 10 10 * * ?")
+		@Scheduled(cron="0 45 17 * * ?")
 		public void onceDay(){
 			tblOrderdetailsService.queryAll();
 			//tblEvaluationService.queryAll();
