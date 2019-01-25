@@ -1,6 +1,7 @@
 package com.yb.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class TransactionPeriod implements Serializable{
 	/**
@@ -9,8 +10,35 @@ public class TransactionPeriod implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Integer transactionId;
 	private Integer periodId;
-private String stationId;
-	
+	private String stationId;
+	private Date transaction_date;
+
+	@Override
+	public String toString() {
+		return "TransactionPeriod{" +
+				"transactionId=" + transactionId +
+				", periodId=" + periodId +
+				", stationId='" + stationId + '\'' +
+				", transaction_date=" + transaction_date +
+				'}';
+	}
+
+	public Date getTransaction_date() {
+		return transaction_date;
+	}
+
+	public void setTransaction_date(Date transaction_date) {
+		this.transaction_date = transaction_date;
+	}
+
+	public TransactionPeriod(Integer transactionId, Integer periodId, String stationId, Date transaction_date) {
+
+		this.transactionId = transactionId;
+		this.periodId = periodId;
+		this.stationId = stationId;
+		this.transaction_date = transaction_date;
+	}
+
 	public String getStationId() {
 		return stationId;
 	}
@@ -26,11 +54,7 @@ private String stationId;
 		this.transactionId = transactionId;
 		this.periodId = periodId;
 	}
-	@Override
-	public String toString() {
-		return "TransactionPeriod [transactionId=" + transactionId
-				+ ", periodId=" + periodId + "]";
-	}
+
 	public Integer getTransactionId() {
 		return transactionId;
 	}

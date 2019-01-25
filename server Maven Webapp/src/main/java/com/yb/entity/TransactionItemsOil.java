@@ -2,7 +2,11 @@ package com.yb.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
+/**
+ * @author Administrator
+ */
 public class TransactionItemsOil implements Serializable{
 	/**
 	 * 
@@ -32,8 +36,79 @@ public class TransactionItemsOil implements Serializable{
 	private String currencyCode;
 	private BigDecimal taxRate;
 	private String productCode;
-private String stationId;
-	
+	private String stationId;
+	private Date transaction_date;
+
+	@Override
+	public String toString() {
+		return "TransactionItemsOil{" +
+				"transactionId=" + transactionId +
+				", itemNumber=" + itemNumber +
+				", itemType=" + itemType +
+				", taxId=" + taxId +
+				", itemDescription='" + itemDescription + '\'' +
+				", mopName='" + mopName + '\'' +
+				", itemPrice=" + itemPrice +
+				", itemQuantity=" + itemQuantity +
+				", itemValue=" + itemValue +
+				", itemId=" + itemId +
+				", itemTaxAmount=" + itemTaxAmount +
+				", scitem=" + scitem +
+				", refunded=" + refunded +
+				", origTrxId=" + origTrxId +
+				", origItemNum=" + origItemNum +
+				", departmentId=" + departmentId +
+				", itemEan='" + itemEan + '\'' +
+				", priceBatchId=" + priceBatchId +
+				", groupItemType=" + groupItemType +
+				", groupParentItemNumber=" + groupParentItemNumber +
+				", subItemNumber=" + subItemNumber +
+				", currencyCode='" + currencyCode + '\'' +
+				", taxRate=" + taxRate +
+				", productCode='" + productCode + '\'' +
+				", stationId='" + stationId + '\'' +
+				", transaction_date=" + transaction_date +
+				'}';
+	}
+
+	public Date getTransaction_date() {
+		return transaction_date;
+	}
+
+	public void setTransaction_date(Date transaction_date) {
+		this.transaction_date = transaction_date;
+	}
+
+	public TransactionItemsOil(Integer transactionId, Integer itemNumber, Integer itemType, Integer taxId, String itemDescription, String mopName, BigDecimal itemPrice, BigDecimal itemQuantity, BigDecimal itemValue, Integer itemId, BigDecimal itemTaxAmount, Integer scitem, Integer refunded, Integer origTrxId, Integer origItemNum, Integer departmentId, String itemEan, Integer priceBatchId, Integer groupItemType, Integer groupParentItemNumber, Integer subItemNumber, String currencyCode, BigDecimal taxRate, String productCode, String stationId, Date transaction_date) {
+
+		this.transactionId = transactionId;
+		this.itemNumber = itemNumber;
+		this.itemType = itemType;
+		this.taxId = taxId;
+		this.itemDescription = itemDescription;
+		this.mopName = mopName;
+		this.itemPrice = itemPrice;
+		this.itemQuantity = itemQuantity;
+		this.itemValue = itemValue;
+		this.itemId = itemId;
+		this.itemTaxAmount = itemTaxAmount;
+		this.scitem = scitem;
+		this.refunded = refunded;
+		this.origTrxId = origTrxId;
+		this.origItemNum = origItemNum;
+		this.departmentId = departmentId;
+		this.itemEan = itemEan;
+		this.priceBatchId = priceBatchId;
+		this.groupItemType = groupItemType;
+		this.groupParentItemNumber = groupParentItemNumber;
+		this.subItemNumber = subItemNumber;
+		this.currencyCode = currencyCode;
+		this.taxRate = taxRate;
+		this.productCode = productCode;
+		this.stationId = stationId;
+		this.transaction_date = transaction_date;
+	}
+
 	public String getStationId() {
 		return stationId;
 	}
@@ -79,23 +154,7 @@ private String stationId;
 		this.taxRate = taxRate;
 		this.productCode = productCode;
 	}
-	@Override
-	public String toString() {
-		return "TransactionItemsOil [transactionId=" + transactionId
-				+ ", itemNumber=" + itemNumber + ", itemType=" + itemType
-				+ ", taxId=" + taxId + ", itemDescription=" + itemDescription
-				+ ", mopName=" + mopName + ", itemPrice=" + itemPrice
-				+ ", itemQuantity=" + itemQuantity + ", itemValue=" + itemValue
-				+ ", itemId=" + itemId + ", itemTaxAmount=" + itemTaxAmount
-				+ ", scitem=" + scitem + ", refunded=" + refunded
-				+ ", origTrxId=" + origTrxId + ", origItemNum=" + origItemNum
-				+ ", departmentId=" + departmentId + ", itemEan=" + itemEan
-				+ ", priceBatchId=" + priceBatchId + ", groupItemType="
-				+ groupItemType + ", groupParentItemNumber="
-				+ groupParentItemNumber + ", subItemNumber=" + subItemNumber
-				+ ", currencyCode=" + currencyCode + ", taxRate=" + taxRate
-				+ ", productCode=" + productCode + "]";
-	}
+
 	public Integer getTransactionId() {
 		return transactionId;
 	}
